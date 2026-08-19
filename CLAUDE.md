@@ -1,5 +1,11 @@
 # Ruflo — Claude Code Configuration
 
+## Project State
+
+This repo is currently just a `ruflo init` scaffold (config, hooks, memory —
+no application source). There is no `package.json` yet, so `## Build & Test`
+below does not apply until real source code is added.
+
 ## Rules
 
 - Do what has been asked; nothing more, nothing less
@@ -188,12 +194,10 @@ Any string works as a custom agent type.
 
 ## Build & Test
 
-- ALWAYS run tests after code changes
-- ALWAYS verify build succeeds before committing
-
-```bash
-npm run build && npm test
-```
+- Once source code exists: ALWAYS run tests after code changes, and verify
+  the build succeeds before committing, using whatever build/test tooling
+  that code introduces (no `package.json` exists yet, so there is nothing to
+  run today).
 
 ## CLI Quick Reference
 
