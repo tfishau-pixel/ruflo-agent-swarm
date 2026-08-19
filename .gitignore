@@ -13,3 +13,6 @@ ruvector.db-wal
 .swarm/*.db
 .swarm/*.db-shm
 .swarm/*.db-wal
+
+# Daemon runtime state — machine-local, embeds absolute paths
+.claude-flow/daemon-state.json
