@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ruflo Agent Swarm"
+  short_description: "Repo-specific patterns and workflows for ruflo-agent-swarm"
+  default_prompt: "Use the ruflo-agent-swarm repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
