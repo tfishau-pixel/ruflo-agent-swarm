@@ -163,6 +163,8 @@
   },
   "permissions": {
     "allow": [
+      "Bash(npx ruflo*)",
+      "Bash(npx -y ruflo*)",
       "Bash(npx @claude-flow*)",
       "Bash(npx claude-flow*)",
       "Bash(node .claude/*)",
