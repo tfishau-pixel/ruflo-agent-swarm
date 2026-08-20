@@ -5,6 +5,13 @@
 .claude-flow/data/
 .claude-flow/logs/
 .claude-flow/sessions/
+.claude-flow/daemon-state.json
+.claude-flow/daemon.pid
+.claude-flow/harness-active-policy.json
+.claude-flow/metrics/
+.claude-flow/policy/
+.claude/.proven-config-version
+.claude/proven-config.json
 
 # Local runtime databases (added manually — ruflo's default .gitignore misses these)
 ruvector.db

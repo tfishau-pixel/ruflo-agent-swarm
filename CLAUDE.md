@@ -192,6 +192,36 @@ npx @claude-flow/cli@latest hooks worker dispatch --trigger audit
 
 Any string works as a custom agent type.
 
+## Recent Session Work
+
+### Hermes Agent v0.20.4 Installation
+- Installed Hermes Agent v0.20.4 from `https://hermes-agent.nousresearch.com/install.sh`
+- Installation path: `/usr/local/lib/hermes-agent` (FHS layout), command at `/usr/local/bin/hermes`
+- Configuration: `/root/.hermes/config.yaml` (1907 lines, 82 bundled skills across 14 categories)
+- Default model: Claude Opus 4.6 via OpenRouter
+- Credentials needed: `OPENROUTER_API_KEY` or `ANTHROPIC_API_KEY` in `/root/.hermes/.env`
+- PR #3 documents installation work and configuration structure
+
+## When to Spawn Agents vs Direct Work
+
+| Scenario | Use Agents | Use Direct |
+|----------|-----------|-----------|
+| Single file, straightforward task | ❌ | ✅ |
+| 1-2 line fixes, obvious changes | ❌ | ✅ |
+| 3+ files, complex dependencies | ✅ | ❌ |
+| New feature across modules | ✅ | ❌ |
+| Parallel independent research | ✅ | ❌ |
+| Code review (non-cosmetic) | ✅ | ❌ |
+| Security/performance analysis | ✅ | ❌ |
+
+## Git Workflow
+
+- **Branch naming**: `claude/<task-description-kebab-case>` (e.g. `claude/hermes-agent-install-62292j`)
+- **Commit message**: Clear, focused on the why; no `Co-Authored-By` unless `.claude/settings.json` has `attribution.commit` set
+- **Always create draft PR** after pushing changes to feature branch
+- **Subscribe to PR activity** and drive to green (no silent failures)
+- **Merge conflict resolution**: Merge base into head, regenerate lockfiles, validate, then push
+
 ## Build & Test
 
 - Once source code exists: ALWAYS run tests after code changes, and verify
