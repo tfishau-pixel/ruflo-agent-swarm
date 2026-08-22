@@ -6,6 +6,18 @@ This repo is currently just a `ruflo init` scaffold (config, hooks, memory —
 no application source). There is no `package.json` yet, so `## Build & Test`
 below does not apply until real source code is added.
 
+## Obsidian Knowledge Vault
+
+`vault/` is the owner's Obsidian knowledge vault — an independent Markdown
+knowledge system, not application source. When working with anything under
+`vault/`, follow `vault/CLAUDE.md` (it loads automatically) and the
+path-scoped rules in `.claude/rules/`. Vault workflows are the skills
+`process-inbox`, `project-update`, `project-brief`, `vault-search`,
+`research`, `process-apple-note`, `daily-review`, `capture-decision`,
+`vault-maintenance`, `archive-project`, `weekly-review`; broad reads go
+through the `research-librarian` / `vault-auditor` subagents. Vault work is
+content curation — the swarm/routing tables below apply to code, not notes.
+
 ## Rules
 
 - Do what has been asked; nothing more, nothing less
