@@ -20,3 +20,11 @@ ruvector.db-wal
 .swarm/*.db
 .swarm/*.db-shm
 .swarm/*.db-wal
+
+# Obsidian vault — version notes and stable settings, not volatile workspace state
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/workspace.json.bak
+vault/.obsidian/cache/
+vault/.trash/
+.DS_Store

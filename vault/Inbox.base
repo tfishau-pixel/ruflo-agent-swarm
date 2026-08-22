@@ -1,0 +1,10 @@
+filters:
+  and:
+    - file.inFolder("00 Inbox")
+    - file.ext == "md"
+views:
+  - type: table
+    name: To Process
+    order:
+      - file.name
+      - file.ctime
