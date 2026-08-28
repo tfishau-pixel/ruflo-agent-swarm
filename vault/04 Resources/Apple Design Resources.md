@@ -1,3 +1,18 @@
+---
+type: source
+source: Apple Developer website
+url: https://developer.apple.com/design/resources/
+accessed: 2026-08-20
+---
+
+> [AI synthesis — added 2026-08-22 while filing from Inbox] Full Firecrawl
+> scrape of Apple's Design Resources page: download links (Figma, Sketch,
+> Photoshop, Keynote) for official UI kits, app icon templates, product
+> bezels, and badges across iOS/iPadOS 27, macOS 27, tvOS 18, watchOS 26,
+> and visionOS. Related: the owner's own curated Figma-link collection in
+> `08 Attachments/iOS design resources.pages` (probable partial overlap).
+> Original scraped content preserved unchanged below.
+
 * * *
 
 * * *
