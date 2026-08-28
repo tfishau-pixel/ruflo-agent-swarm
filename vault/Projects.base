@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.inFolder("01 Projects")
+    - file.name == "README"
+views:
+  - type: table
+    name: Active Projects
+    filters:
+      and:
+        - status != "archived"
+        - status != "done"
+    order:
+      - file.folder
+      - status
+      - area
+  - type: table
+    name: All Projects
+    order:
+      - file.folder
+      - status
+      - area
