@@ -27,15 +27,32 @@ Two complementary resources for a first lambing season with three pregnant Valai
 
 ## Regenerating the PDFs
 
-Any Chromium/Chrome build:
-
 ```sh
-chromium --headless=new --no-sandbox --print-to-pdf=pdf/first-lambing-season-handbook-A4.pdf --no-pdf-header-footer handbook.html
-chromium --headless=new --no-sandbox --print-to-pdf=pdf/lambing-emergency-cheatsheet-A4.pdf --no-pdf-header-footer cheatsheet.html
-# mobile variant: swap the two "@variant-" CSS markers in handbook.html
-sed -e 's|size:A4; /\* @variant-page \*/|size:120mm 212mm;|' -e 's|--base:10.5pt; /\* @variant-base \*/|--base:11pt;|' handbook.html > /tmp/handbook-mobile.html
-chromium --headless=new --no-sandbox --print-to-pdf=pdf/first-lambing-season-handbook-mobile.pdf --no-pdf-header-footer /tmp/handbook-mobile.html
+# needs a Chromium binary (env CHROME, else `chromium` on PATH);
+# poppler-utils + `pip install pypdf` enable contents-page folios and bookmarks
+python3 build-pdfs.py
 ```
+
+The script builds all five PDFs. The handbook is a **two-pass build**: it renders
+once, locates each section's page, injects real page numbers into the Contents
+page, renders again, and writes PDF outline bookmarks — separately for the A4
+and mobile variants, so each contents page matches its own pagination. The
+repository HTML keeps its `.toc-p` spans empty; folios exist only in the PDFs.
+
+## Design system
+
+All five HTML sources share one visual language (v2, Aug 2026): parchment
+`#F8F4EB` / white grounds, ink `#211D17`, moss accent, and a semantic urgency
+set — green `#33613E`, ochre amber `#8A5B10`, oxblood red `#8C2E1F` — always
+paired with the written word so it survives grayscale and colour-blindness
+(solid oxblood = RED, outlined = amber/green). Type: Source Serif 4 (display
+and book body) over Iowan Old Style/Palatino fallbacks, Source Sans 3 (tables,
+labels, captions, the phone guide) over system fallbacks; each file embeds its
+own stylesheet so every output stays a single self-contained offline file.
+Structure is carried by rules and tonal fields, not boxed cards; figures are
+auto-numbered plates. For crisp PDFs, install the fonts before building
+(Adobe's free Source Serif 4 + Source Sans 3); on Apple devices the fallbacks
+are used and are intentional.
 
 ## Scope and evidence
 
