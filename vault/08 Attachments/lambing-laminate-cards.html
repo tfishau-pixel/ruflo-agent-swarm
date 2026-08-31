@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Far From Help — Laminate Field Cards</title>
+<style>
+/* Laminate card set: 4 cards, one per A4 page, pouch-safe margins.
+   Print duplex long-edge → 2 sheets → 2 pouches (A+B, C+D back-to-back). */
+:root{
+  --paper:#FFFFFF; --ink:#211E1A; --muted:#5E5850; --stone:#8A8377; --hair:#D9D2C4;
+  --green:#2F6B45; --green-wash:#EBF2EC; --amber:#96660A; --amber-wash:#F8F0DC;
+  --red:#A6392C; --red-wash:#F7E8E4;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+@page{size:A4;margin:12mm 13mm}
+body{font-family:var(--sans);font-size:9.6pt;line-height:1.38;color:var(--ink);background:var(--paper)}
+@media screen{body{max-width:200mm;margin:1rem auto;padding:1rem}}
+.card{break-after:page}
+.card:last-child{break-after:auto}
+header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2.5px solid var(--ink);padding-bottom:1.8mm;margin-bottom:2.4mm}
+h1{font-family:var(--serif);font-size:15.5pt;font-weight:600}
+header .tag{font-size:6.8pt;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);text-align:right}
+h2{font-family:var(--sans);font-size:8pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin:2.6mm 0 1.2mm}
+p{margin:.35em 0}
+ol,ul{margin:.3em 0 .5em 1.5em}
+li{margin:.22em 0}
+.rule-box{background:var(--red);color:#fff;border-radius:2px;padding:1.6mm 2.6mm;font-size:9.6pt;font-weight:700;margin-bottom:2.2mm}
+.usebox{border:1.3px solid var(--amber);background:var(--amber-wash);border-radius:2px;padding:1.6mm 2.4mm;margin:1.6mm 0}
+.stopbox{border:1.5px solid var(--red);background:var(--red-wash);border-radius:2px;padding:1.6mm 2.4mm;margin:1.6mm 0}
+.stopbox b:first-child,.usebox b:first-child{letter-spacing:.06em}
+.okbox{border:1.3px solid var(--green);background:var(--green-wash);border-radius:2px;padding:1.6mm 2.4mm;margin:1.6mm 0}
+.cols{display:flex;gap:5mm}
+.cols>div{flex:1}
+figure{border:1px solid var(--hair);border-radius:2px;padding:1.6mm;margin:1.6mm 0;text-align:center}
+figure svg{width:100%;max-width:78mm;height:auto}
+figcaption{font-size:7.6pt;color:var(--muted);text-align:left;margin-top:1mm}
+footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-size:6.6pt;color:var(--muted);display:flex;justify-content:space-between}
+.d-lamb{fill:#fff;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.d-leg{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round}
+.d-label{font:600 10.5px var(--sans);fill:var(--muted);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+.d-badlabel{font:700 10.5px var(--sans);fill:var(--red);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+.d-lead{stroke:var(--stone);stroke-width:1;fill:none}
+.d-site{fill:var(--red)}
+.d-arrow{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round}
+.d-tube{fill:none;stroke:#6F7A67;stroke-width:3;stroke-linecap:round}
+.d-eye{fill:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ============ CARD A — MALPRESENTATION ============ -->
+<section class="card">
+  <header><h1>Correcting a Malpresentation</h1><div class="tag">Far From Help · Card A<br>NADIS · Wisconsin Visual Lambing Guide</div></header>
+  <div class="rule-box">RING THE VET FIRST — speakerphone in your chest pocket, video call if possible. Work together.</div>
+  <h2>Prepare</h2>
+  <p>Washed arm · long glove · <b>lots of lubricant, re-lubed at every entry</b> · cast her on her side (for a leg-back: missing-leg side uppermost; to repel a head: standing, or rear raised on a bale) · hand in a cone, enter slowly, <b>work between contractions, pause when she strains</b>.</p>
+  <h2>Identify before pulling anything</h2>
+  <p>Front leg: fetlock + knee bend the <b>same</b> way. Hind leg: they bend <b>opposite</b> ways. Tail near hooves = hind end. Trace every leg to its shoulder/hip — with twins, prove both legs are the <b>same lamb’s</b>.</p>
+  <div class="cols"><div>
+    <h2>Leg back (one front leg)</h2>
+    <ol><li>Push the lamb gently back between strains.</li><li>Follow shoulder → knee → cannon → fetlock.</li><li><b>Cup the hoof in your palm</b> (shields the uterus — the detail that matters most).</li><li>Flex the knee; bring the cupped hoof up over the pelvic brim.</li><li>Deliver with the traction rules below.</li></ol>
+    <h2>Head out, no legs (“hung lamb”)</h2>
+    <ol><li>Keep the head moist; membranes off the nose.</li><li><b>Repel the head back inside</b> between strains — feels wrong, is right.</li><li>Fetch each leg as above (cup every hoof).</li><li>Snare <b>behind the ears + through the mouth</b> holds the head if it slips (never around the jaw alone).</li><li>Can’t repel it in a few minutes → load &amp; drive.</li></ol>
+  </div><div>
+    <h2>Hind legs first (soles up, no nose)</h2>
+    <p>Don’t convert — <b>deliver promptly</b>: both legs, steady pull down toward her hocks with strains, <b>brisk through the ribcage</b> (cord pinches once hips engage). Clear the airway instantly; expect to resuscitate.</p>
+    <h2>Head back · breech · twins tangled</h2>
+    <p><b>Phone/video-guided only.</b> Head back: repel, cup the muzzle (never eye sockets), bring it round, snare. Breech: repel rump, cup each hock’s hoof, flex up over the brim, deliver hind-first. Twins: repel the less-advanced lamb, deliver the engaged one. <b>Two failed attempts = load and drive.</b></p>
+    <h2>After delivery</h2>
+    <p>Airway → rub hard → straw-tickle nostril. Cord intact 1–2 min. <b>Check for another lamb.</b> Iodine navel; colostrum early. Tell the vet what you did (antibiotic cover is their call).</p>
+  </div></div>
+  <div class="okbox"><b>TRACTION RULES:</b> only during her strains · only two legs + head in place (or two hind legs) · downward arc toward her hocks — “down and around, never straight out” · 10–30 seconds of steady arms · never ropes to objects.</div>
+  <div class="stopbox"><b>STOP = LOAD &amp; DRIVE:</b> two well-applied strains move nothing · you can’t identify what you feel · canal dry/swollen beyond lube · her pain escalating. A bedded trailer toward the vet is treatment, not defeat.</div>
+  <footer><span>Full steps &amp; sources: <i>Far From Help</i> §1</span><span>First Lambing Season · NZ Edition · Aug 2026</span></footer>
+</section>
+
+<!-- ============ CARD B — TUBING ============ -->
+<section class="card">
+  <header><h1>Stomach-Tubing a Lamb</h1><div class="tag">Far From Help · Card B<br>OMAFRA · OSU · Cornell</div></header>
+  <div class="usebox"><b>USE WHEN:</b> lamb ≥37 °C, can hold its head up and swallow, but won’t/can’t suck. <b>NEVER TUBE:</b> a lamb that can’t hold its head up or swallow · a lamb &lt;37 °C older than ~5 h — that lamb gets the IP injection FIRST (Card C): “never stomach tube before an IP glucose injection — milk could kill the lamb” (SRUC).</div>
+  <figure>
+    <svg viewBox="0 0 420 150" role="img" aria-label="Measure the tube from nose to last rib">
+      <path d="M70 78 C 70 52, 100 42, 140 42 C 180 42, 206 52, 206 76 C 206 94, 186 102, 140 102 C 102 102, 70 98, 70 78 Z" class="d-lamb"/>
+      <circle cx="216" cy="52" r="15" class="d-lamb"/>
+      <path d="M228 46 Q 248 47 248 52 Q 248 57 227 60 Z" class="d-lamb"/>
+      <circle cx="218" cy="49" r="1.7" class="d-eye"/>
+      <path d="M210 38 l-9 -13 12 4 z" class="d-lamb"/>
+      <path d="M94 100 l0 22 M126 102 l0 20 M170 102 l0 20 M196 96 l0 24" class="d-leg"/>
+      <path d="M70 70 q-12 6 -8 16" class="d-leg" style="stroke-width:2"/>
+      <path d="M246 54 C 220 76, 170 84, 120 84" class="d-tube"/>
+      <path d="M120 84 l0 -34 M246 54 l0 -34" class="d-lead"/>
+      <path d="M120 22 L246 22" class="d-lead" style="stroke-dasharray:4 3"/>
+      <text x="128" y="16" class="d-label">measure nose → last rib · mark the tube</text>
+      <text x="84" y="140" class="d-label">last rib = level of the stomach</text>
+      <path d="M118 96 L110 128" class="d-lead"/>
+    </svg>
+    <figcaption><b>Measure first.</b> Nose → last rib; tape-mark the tube. It goes in further than feels right — most of the tube.</figcaption>
+  </figure>
+  <ol>
+    <li><b>Measure and mark:</b> nose → last rib.</li>
+    <li>Sit; lamb upright on your lap, head natural and nose-forward (not stretched up).</li>
+    <li>Wet the tip with colostrum. In at the <b>side of the mouth</b>, over the tongue, aiming slightly to the <b>lamb’s left</b> (food-pipe lies left of and behind the windpipe).</li>
+    <li>Advance slowly. <b>RIGHT = slides easily</b>; the lamb may chew and swallow it; with a finger on the throat you feel <b>two tubes</b> (windpipe + yours). <b>WRONG = resistance, coughing, struggling → withdraw completely, start again.</b></li>
+    <li>Double-check: ear to the tube’s open end — <b>airflow or crying = windpipe, out.</b> Silence or stomach gurgle = correct.</li>
+    <li>Syringe on, <b>plunger out</b> — warm colostrum by gravity (or very gentle push): <b>50 ml per kg over ~5 minutes</b> (≈200 ml for a 4 kg lamb). Never fast.</li>
+    <li><b>Crimp the tube firmly, then withdraw</b> in one smooth motion (no drips into the airway).</li>
+    <li>Warm dry pen · recheck 30–60 min · repeat feeds toward ~200 ml/kg by 24 h if still not sucking.</li>
+  </ol>
+  <div class="stopbox"><b>ABORT IF:</b> any cough or gag at any point (withdraw, restart) · you cannot pass it to the mark after two calm attempts (ring the vet — video call, they can see your angle).</div>
+  <footer><span>Full steps &amp; sources: <i>Far From Help</i> §2</span><span>First Lambing Season · NZ Edition · Aug 2026</span></footer>
+</section>
+
+<!-- ============ CARD C — IP GLUCOSE ============ -->
+<section class="card">
+  <header><h1>IP Glucose Injection — Cold-Lamb Rescue</h1><div class="tag">Far From Help · Card C<br>FAS Scotland · SRUC · Eales &amp; Small 1982</div></header>
+  <div class="usebox"><b>USE ONLY WHEN ALL THREE ARE TRUE:</b> lamb <b>below 37 °C</b> · <b>older than ~5 hours</b> · <b>cannot swallow / hold its head up</b>. A lamb that can swallow gets warmed + tubed instead (Card B). <b>Do not warm this lamb first</b> — warming without energy kills it.</div>
+  <div class="cols"><div>
+    <h2>Prepare</h2>
+    <p><b>Warmed 20% glucose/dextrose, 10 ml per kg</b> — a 4–5 kg lamb takes the full ~45–50 ml. From the kit, or mix: <b>20 g glucose powder in hot pre-boiled water made up to 50 ml (40%), then dilute half-and-half with warm pre-boiled water</b> → ≈20%, warm-on-the-wrist (never cold). 50–60 ml syringe · <b>new sterile 1″ (25 mm) needle</b>.</p>
+    <h2>Inject</h2>
+    <ol>
+      <li>Ring the vet (speaker, pocket). Draw up the warmed solution.</li>
+      <li><b>Hang the lamb by both front legs</b> (helper ideal; alone: forelegs in one hand, lamb’s back against your legs). Gravity drops the organs clear.</li>
+      <li>Site: <b>~2.5 cm (1″) below the navel, ~1 cm (½″) to the side.</b></li>
+      <li>Full needle in at <b>45°, angled toward the tail head</b> — two faint pops (skin, wall).</li>
+      <li><b>Inject the full dose slowly and steadily.</b> Withdraw, rub, iodine the site.</li>
+    </ol>
+  </div><div>
+    <figure>
+      <svg viewBox="0 0 420 220" role="img" aria-label="IP injection site diagram">
+        <path d="M175 30 L150 6 M205 30 L230 6" class="d-leg"/>
+        <text x="240" y="14" class="d-label">held hanging by both front legs</text>
+        <path d="M160 30 C 138 60, 132 110, 146 156 C 156 186, 176 202, 190 202 C 204 202, 224 186, 234 156 C 248 110, 242 60, 220 30 Z" class="d-lamb"/>
+        <path d="M172 202 l-4 14 M208 202 l4 14" class="d-leg"/>
+        <circle cx="190" cy="98" r="4.5" fill="none" stroke="#211E1A" stroke-width="2"/>
+        <path d="M196 96 L268 78" class="d-lead"/><text x="272" y="80" class="d-label">navel</text>
+        <circle cx="181" cy="124" r="4" class="d-site"/>
+        <path d="M177 122 L96 108" class="d-lead"/>
+        <text x="18" y="104" class="d-badlabel">site: ~2.5 cm below navel,</text>
+        <text x="18" y="118" class="d-badlabel">~1 cm to the side</text>
+        <path d="M150 158 L177 128" class="d-arrow"/>
+        <path d="M177 128 l-9 1 4 8 z" class="d-site"/>
+        <text x="60" y="176" class="d-badlabel">needle fully in at 45°,</text>
+        <text x="60" y="190" class="d-badlabel">toward the tail head</text>
+        <text x="238" y="206" class="d-label">tail (lamb hangs head-up)</text>
+      </svg>
+    </figure>
+    <h2>Then — in this order</h2>
+    <ol>
+      <li><b>NOW warm:</b> warm-air box ~35–40 °C; check every 20–30 min; recheck lamb temp at 30 min. Expect it standing in 30–60 min.</li>
+      <li>Once <b>≥37 °C and swallowing</b>: tube 50 ml/kg colostrum (Card B).</li>
+      <li>Re-mother in a pen; confirm sucking.</li>
+    </ol>
+  </div></div>
+  <div class="stopbox"><b>DO NOT:</b> inject a lamb that can swallow (tube it) · use cold solution · reuse needles between lambs · inject at or forward of the navel itself. Not clearly improving 30–60 min after warming → ring again / drive.</div>
+  <footer><span>Full steps &amp; sources: <i>Far From Help</i> §3</span><span>First Lambing Season · NZ Edition · Aug 2026</span></footer>
+</section>
+
+<!-- ============ CARD D — BEARING ============ -->
+<section class="card">
+  <header><h1>Replacing a Bearing + Retainer</h1><div class="tag">Far From Help · Card D<br>Farmers Weekly · Northland Vets NZ · Ag Victoria</div></header>
+  <div class="rule-box">RING THE VET FIRST — they may say “bring her in”, or talk you through this while you work.</div>
+  <div class="stopbox"><b>CHECK FIRST — DO NOT REPLACE IF:</b> the tissue is <b>torn, black or cold</b> (a vet must judge if it’s salvageable — ring/drive) · she is <b>actually lambing</b> behind it (water bag, feet or tail palpable through the cervix) — that is a lambing emergency now, ring immediately.</div>
+  <ol>
+    <li>Two people if you can: one holds her standing against a rail. <b>Raise her hindquarters</b> (bale under the back legs, or rear held up wheelbarrow-style) — it makes everything easier.</li>
+    <li><b>Clean:</b> plenty of clean warm water with mild antiseptic — dilute iodine to a <b>“weak-tea colour”</b> (Northland Vets). All dirt and bedding off. No scrubbing.</li>
+    <li><b>Lubricate</b> the whole surface generously.</li>
+    <li><b>Replace:</b> first <b>lift the mass up toward her tail</b> — this un-kinks the bladder; she will often pass urine and the ball shrinks. Then, with the <b>flat of a clean hand or a closed fist — never fingertips</b> — slow, steady, patient pressure. <b>Hold your ground when she strains; gain between strains.</b> It goes back gradually, then all at once — follow it in so the tip is fully un-inverted.</li>
+    <li><b>Retain:</b> bearing spoon/T-piece — tongue inside the vagina, wings <b>tied firmly to the wool of her flanks</b> with the tapes — or a prolapse harness fitted per its instructions.</li>
+    <li><b>Aftercare:</b> ring the clinic and report — pain relief and usually antibiotic cover are warranted (vet-supplied in NZ; ask about pre-supplied cover for your distance <i>before</i> lambing). Check the retainer <b>twice daily</b> for slip and rubbing.</li>
+    <li><b>At lambing:</b> she can lamb past a spoon (it pushes out) but watch her closely; a harness must be released. <b>Mark her — bearings recur. Do not breed her again.</b></li>
+  </ol>
+  <div class="okbox"><b>WHILE WAITING / DRIVING:</b> pen her quietly · keep the tissue clean and moist — clean towel soaked in clean lukewarm water held over it · keep other stock and flies off · never let her run or be chased.</div>
+  <footer><span>Full steps &amp; sources: <i>Far From Help</i> §4</span><span>First Lambing Season · NZ Edition · Aug 2026</span></footer>
+</section>
+
+</body>
+</html>

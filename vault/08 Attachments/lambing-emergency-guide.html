@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Lambing Emergency Guide</title>
+<style>
+/* ============================================================
+   LAMBING EMERGENCY GUIDE — rapid-reference system
+   Mobile-first. Works offline from a saved file. No network.
+   ============================================================ */
+:root{
+  --paper:#FAF7F1; --card:#FFFFFF; --ink:#211E1A; --muted:#6E675C; --stone:#8A8377;
+  --hair:#E5DFD3; --wash:#F3EFE7; --sage:#6F7A67;
+  --green:#2F6B45; --green-wash:#EBF2EC;
+  --amber:#96660A; --amber-wash:#F8F0DC;
+  --red:#A6392C; --red-wash:#F7E8E4; --red-deep:#8F2C20;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#191713; --card:#221F1A; --ink:#F0EBE2; --muted:#B0A896; --stone:#968D7E;
+    --hair:#3A362E; --wash:#2A2721; --sage:#93A088;
+    --green:#7FB894; --green-wash:#243329;
+    --amber:#D9A84E; --amber-wash:#382E1B;
+    --red:#E07B6C; --red-wash:#3D231F; --red-deep:#B04A3C;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:17px; line-height:1.5;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+  max-width:680px; margin:0 auto;
+}
+h1,h2,.serif{font-family:var(--serif);font-weight:600}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+[hidden]{display:none!important}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---- top mast ---- */
+.mast{padding:1.2rem 1.1rem .9rem}
+.mast .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)}
+.mast h1{font-size:1.7rem;line-height:1.1;margin:.25rem 0 .15rem}
+.mast .sub{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:1rem}
+
+/* ---- urgency chips ---- */
+.chip{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  padding:.3em .8em;border-radius:3px;white-space:nowrap}
+.c-green{background:var(--green-wash);color:var(--green);border:1.5px solid var(--green)}
+.c-amber{background:var(--amber-wash);color:var(--amber);border:1.5px solid var(--amber)}
+.c-red{background:var(--red-deep);color:#fff;border:1.5px solid var(--red-deep)}
+
+/* ---- menu ---- */
+.menu{padding:0 1.1rem 1rem}
+.search{width:100%;padding:.8rem 1rem;font-size:1rem;border:1.5px solid var(--hair);border-radius:6px;
+  background:var(--card);color:var(--ink);margin:.4rem 0 1rem}
+.search:focus{outline:2px solid var(--sage)}
+.menu-list{list-style:none}
+.menu-list li{margin:.55rem 0}
+.mbtn{display:flex;align-items:center;gap:.9rem;width:100%;text-align:left;
+  background:var(--card);border:1.5px solid var(--hair);border-radius:8px;
+  padding:.95rem 1rem;min-height:64px;text-decoration:none}
+.mbtn:active{background:var(--wash)}
+.mbtn .n{font-family:var(--serif);font-size:1.25rem;color:var(--stone);min-width:1.6rem;text-align:right;font-variant-numeric:tabular-nums}
+.mbtn .t{flex:1}
+.mbtn .t b{display:block;font-size:1.05rem;line-height:1.25}
+.mbtn .t small{color:var(--muted);font-size:.82rem}
+.mbtn.redline{border-color:var(--red-deep);background:var(--red-deep);color:#fff}
+.mbtn.redline .n,.mbtn.redline .t small{color:#fff;opacity:.85}
+.menu-note{font-size:.85rem;color:var(--muted);margin:1.1rem 0 0}
+
+/* ---- cards ---- */
+.card{padding:0 1.1rem 2rem}
+.card-head{padding:1rem 0 .9rem;border-bottom:2px solid var(--ink);margin-bottom:1rem}
+.card-head .where{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-bottom:.4rem}
+.card-head h2{font-size:1.65rem;line-height:1.12;margin:.25rem 0 .55rem}
+.blk{margin:1.1rem 0}
+.blk-tag{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:.4rem}
+.blk p{margin:.3rem 0}
+figure.dg{border:1.5px solid var(--hair);background:var(--card);border-radius:8px;padding:.8rem;margin:.8rem 0}
+figure.dg svg{display:block;width:100%;height:auto}
+figure.dg figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
+.dg-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+@media (max-width:420px){.dg-row{grid-template-columns:1fr}}
+
+.donow{background:var(--card);border:1.5px solid var(--ink);border-radius:8px;padding:1rem 1.1rem;margin:1rem 0}
+.donow .blk-tag{color:var(--ink)}
+.donow ol{margin:.2rem 0 0 1.3rem}
+.donow li{margin:.5rem 0;font-size:1.02rem}
+.donot{background:var(--red-wash);border-left:5px solid var(--red-deep);border-radius:0 8px 8px 0;padding:.9rem 1rem;margin:1rem 0}
+.donot .blk-tag{color:var(--red)}
+.donot p{color:var(--ink)}
+.callvet{background:var(--card);border:1.5px dashed var(--red-deep);border-radius:8px;padding:.9rem 1rem;margin:1rem 0}
+.callvet .blk-tag{color:var(--red)}
+.mini-table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.6rem 0}
+.mini-table th{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;text-align:left;color:var(--stone);border-bottom:2px solid var(--ink);padding:.4rem .5rem .4rem 0}
+.mini-table td{border-bottom:1px solid var(--hair);padding:.55rem .5rem .55rem 0;vertical-align:top}
+.jump{display:inline-block;margin:.15rem .3rem .15rem 0;padding:.45em .8em;border:1.5px solid var(--hair);border-radius:6px;
+  background:var(--card);text-decoration:none;font-size:.92rem;font-weight:600}
+
+/* ---- contacts & records ---- */
+.formrow{margin:.7rem 0}
+.formrow label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.25rem}
+.formrow input,.formrow textarea{width:100%;padding:.65rem .8rem;font-size:1rem;border:1.5px solid var(--hair);border-radius:6px;background:var(--card);color:var(--ink)}
+.formrow input:focus,.formrow textarea:focus{outline:2px solid var(--sage)}
+.two{display:grid;grid-template-columns:1.6fr 1fr;gap:.6rem}
+.ewecard{border:1.5px solid var(--hair);border-radius:8px;background:var(--card);padding:1rem;margin:1rem 0}
+.ewecard h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:.4rem}
+.save-note{font-size:.8rem;color:var(--muted);margin:.6rem 0 0}
+
+/* ---- persistent bottom bar ---- */
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;gap:.6rem;
+  padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom));
+  background:var(--paper);border-top:1.5px solid var(--hair);z-index:50;
+  max-width:680px;margin:0 auto}
+.bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:52px;border-radius:8px;text-decoration:none;font-weight:800;font-size:.95rem;letter-spacing:.04em}
+.bar .to-menu{border:1.5px solid var(--ink);background:var(--card);color:var(--ink)}
+.bar .to-vet{background:var(--red-deep);color:#fff;border:1.5px solid var(--red-deep)}
+.bar .to-vet small{display:block;font-weight:600;font-size:.68rem;opacity:.9;letter-spacing:.02em}
+
+details{border:1.5px solid var(--hair);border-radius:8px;background:var(--card);margin:.7rem 0}
+details summary{padding:.8rem 1rem;font-weight:700;cursor:pointer;list-style:none}
+details summary::before{content:"+";display:inline-block;width:1.2em;color:var(--stone)}
+details[open] summary::before{content:"–"}
+details .inner{padding:0 1rem .9rem}
+
+/* ---- svg diagram classes (shared with handbook) ---- */
+.d-womb{fill:var(--wash);stroke:var(--hair);stroke-width:2}
+.d-canal{fill:none;stroke:var(--stone);stroke-width:1.6;stroke-dasharray:5 4}
+.d-lamb{fill:var(--card);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.d-leg{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.d-hoof{fill:var(--ink);stroke:none}
+.d-tail{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+.d-label{font:600 10.5px var(--sans);fill:var(--muted);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.d-lead{stroke:var(--stone);stroke-width:1;fill:none}
+.d-badline{fill:none;stroke:var(--red);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.d-badhoof{fill:var(--red)}
+.d-badlabel{font:700 10.5px var(--sans);fill:var(--red);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.d-fleece{fill:var(--card);stroke:var(--ink);stroke-width:2}
+.d-skin{fill:#E8B4A8;stroke:var(--ink);stroke-width:1.6}
+.d-skin-dark{fill:#B96A5C;stroke:var(--ink);stroke-width:1.6}
+.d-bag{fill:#F2E3C4;fill-opacity:.55;stroke:var(--stone);stroke-width:1.6}
+.d-dot{fill:#8E4033}
+.d-eye{fill:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG SYMBOL LIBRARY ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="pres-normal" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="100" cy="108" rx="62" ry="42" class="d-lamb"/>
+  <path d="M148 92 Q 172 78 190 84" class="d-leg"/>
+  <circle cx="200" cy="92" r="16" class="d-lamb"/>
+  <path d="M213 86 Q 236 88 236 94 Q 236 100 212 100 Z" class="d-lamb"/>
+  <circle cx="201" cy="89" r="1.8" class="d-eye"/>
+  <path d="M192 78 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M150 118 C 200 112, 250 106, 296 100" class="d-leg"/>
+  <path d="M146 130 C 196 126, 244 120, 282 114" class="d-leg"/>
+  <rect x="294" y="95" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 300 98)"/>
+  <rect x="280" y="109" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 286 112)"/>
+  <path d="M62 138 q-8 16 6 20 M78 144 q-6 14 6 17" class="d-leg"/>
+  <path d="M44 96 q-14 8 -10 22" class="d-tail"/>
+  <path d="M300 88 L316 66" class="d-lead"/><text x="206" y="60" class="d-label">both front hooves, soles down</text>
+  <path d="M226 96 L246 150" class="d-lead"/><text x="186" y="164" class="d-label">nose between / just above the legs</text>
+  <text x="228" y="196" class="d-label">birth canal → rear of ewe</text>
+</symbol>
+<symbol id="pres-legback" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="100" cy="108" rx="62" ry="42" class="d-lamb"/>
+  <path d="M148 92 Q 172 78 190 84" class="d-leg"/>
+  <circle cx="200" cy="92" r="16" class="d-lamb"/>
+  <path d="M213 86 Q 236 88 236 94 Q 236 100 212 100 Z" class="d-lamb"/>
+  <circle cx="201" cy="89" r="1.8" class="d-eye"/>
+  <path d="M192 78 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M150 118 C 200 112, 250 106, 296 100" class="d-leg"/>
+  <rect x="294" y="95" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 300 98)"/>
+  <path d="M146 130 C 152 150, 138 164, 118 166" class="d-badline"/>
+  <rect x="104" y="162" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M62 138 q-8 16 6 20" class="d-leg"/>
+  <path d="M44 96 q-14 8 -10 22" class="d-tail"/>
+  <path d="M124 168 L140 192" class="d-lead"/><text x="96" y="205" class="d-badlabel">this leg folded back</text>
+  <text x="216" y="60" class="d-label">only one hoof + nose appear</text>
+  <path d="M300 92 L302 66" class="d-lead"/>
+</symbol>
+<symbol id="pres-bothback" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="96" cy="108" rx="60" ry="42" class="d-lamb"/>
+  <path d="M144 94 Q 190 82 226 92" class="d-leg"/>
+  <circle cx="244" cy="98" r="17" class="d-lamb"/>
+  <path d="M258 92 Q 284 94 284 100 Q 284 106 257 106 Z" class="d-lamb"/>
+  <circle cx="246" cy="94" r="1.8" class="d-eye"/>
+  <path d="M236 84 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M142 126 C 146 148, 132 162, 112 164" class="d-badline"/>
+  <rect x="98" y="160" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M128 118 C 130 140, 116 152, 96 154" class="d-badline"/>
+  <rect x="82" y="150" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M44 96 q-14 8 -10 22" class="d-tail"/>
+  <path d="M104 166 L128 194" class="d-lead"/><text x="76" y="207" class="d-badlabel">both front legs back</text>
+  <text x="216" y="56" class="d-label">head advances, no hooves —</text>
+  <text x="216" y="70" class="d-label">shoulders will jam</text>
+</symbol>
+<symbol id="pres-headback" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="104" cy="112" rx="62" ry="42" class="d-lamb"/>
+  <path d="M152 122 C 202 116, 252 108, 298 102" class="d-leg"/>
+  <path d="M148 134 C 198 130, 246 122, 284 116" class="d-leg"/>
+  <rect x="296" y="97" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 302 100)"/>
+  <rect x="282" y="111" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 288 114)"/>
+  <path d="M156 94 C 168 72, 140 58, 112 64" class="d-badline"/>
+  <circle cx="100" cy="68" r="15" class="d-lamb"/>
+  <path d="M88 62 Q 64 62 64 68 Q 64 74 89 74 Z" class="d-lamb"/>
+  <circle cx="98" cy="65" r="1.8" class="d-eye"/>
+  <path d="M44 108 q-14 8 -10 22" class="d-tail"/>
+  <path d="M100 84 L120 116" class="d-lead"/><text x="60" y="132" class="d-badlabel">head turned back</text>
+  <text x="168" y="62" class="d-label">two hooves advance, no nose follows</text>
+  <path d="M300 92 L308 68" class="d-lead"/>
+</symbol>
+<symbol id="pres-breech" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="118" cy="108" rx="62" ry="42" class="d-lamb"/>
+  <circle cx="62" cy="94" r="15" class="d-lamb"/>
+  <path d="M50 88 Q 28 88 28 94 Q 28 100 51 100 Z" class="d-lamb"/>
+  <circle cx="60" cy="91" r="1.8" class="d-eye"/>
+  <path d="M172 96 q18 8 14 22" class="d-badline"/>
+  <path d="M162 128 C 150 146, 128 150, 112 146" class="d-badline"/>
+  <rect x="100" y="142" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M172 118 C 164 138, 146 144, 130 140" class="d-badline"/>
+  <path d="M186 106 L228 74" class="d-lead"/><text x="200" y="62" class="d-badlabel">rump + tail first</text>
+  <path d="M126 148 L152 186" class="d-lead"/><text x="98" y="200" class="d-badlabel">hind legs tucked away forward</text>
+  <text x="206" y="160" class="d-label">often only weak straining —</text>
+  <text x="192" y="174" class="d-label">easy to mistake for "not in labour"</text>
+</symbol>
+<symbol id="pres-hind" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="112" cy="104" rx="62" ry="42" class="d-lamb"/>
+  <circle cx="56" cy="88" r="15" class="d-lamb"/>
+  <path d="M44 82 Q 22 82 22 88 Q 22 94 45 94 Z" class="d-lamb"/>
+  <circle cx="54" cy="85" r="1.8" class="d-eye"/>
+  <path d="M162 116 C 210 112, 254 108, 296 104" class="d-leg"/>
+  <path d="M158 128 C 206 126, 248 120, 282 116" class="d-leg"/>
+  <rect x="294" y="99" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(176 300 102)"/>
+  <rect x="280" y="111" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(176 286 114)"/>
+  <path d="M170 92 q16 6 12 18" class="d-tail"/>
+  <path d="M298 96 L310 66" class="d-lead"/><text x="196" y="58" class="d-label">two hooves, soles UP, no nose</text>
+  <text x="188" y="196" class="d-label">deliverable — but the cord pinches:</text>
+  <text x="188" y="209" class="d-label">once started it must be quick</text>
+</symbol>
+<symbol id="pres-twins" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="86" cy="82" rx="50" ry="32" class="d-lamb"/>
+  <ellipse cx="92" cy="146" rx="50" ry="32" class="d-lamb"/>
+  <circle cx="152" cy="84" r="13" class="d-lamb"/>
+  <path d="M163 79 Q 182 80 182 86 Q 182 92 162 91 Z" class="d-lamb"/>
+  <path d="M124 96 C 180 96, 240 100, 288 100" class="d-badline"/>
+  <rect x="286" y="95" width="12" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M132 140 C 190 132, 240 122, 280 114" class="d-badline"/>
+  <rect x="278" y="109" width="12" height="7" rx="1.5" class="d-badhoof" transform="rotate(176 284 112)"/>
+  <path d="M120 158 C 170 156, 216 146, 252 132" class="d-badline"/>
+  <rect x="250" y="127" width="12" height="7" rx="1.5" class="d-badhoof"/>
+  <text x="192" y="60" class="d-badlabel">3+ legs, mixed soles up / down</text>
+  <path d="M280 92 L292 66" class="d-lead"/>
+  <text x="168" y="196" class="d-label">two lambs entering the canal together —</text>
+  <text x="168" y="209" class="d-label">expert sorting required</text>
+</symbol>
+<symbol id="pres-upside" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="100" cy="106" rx="62" ry="42" class="d-lamb"/>
+  <circle cx="200" cy="120" r="16" class="d-lamb"/>
+  <path d="M213 116 Q 236 116 236 122 Q 236 128 212 128 Z" class="d-lamb"/>
+  <circle cx="201" cy="117" r="1.8" class="d-eye"/>
+  <path d="M150 96 C 200 100, 250 104, 296 108" class="d-badline"/>
+  <path d="M146 84 C 196 90, 244 96, 282 100" class="d-badline"/>
+  <rect x="294" y="103" width="13" height="7" rx="1.5" class="d-badhoof" transform="rotate(176 300 106)"/>
+  <rect x="280" y="95" width="13" height="7" rx="1.5" class="d-badhoof" transform="rotate(176 286 98)"/>
+  <text x="188" y="58" class="d-badlabel">soles UP — but a nose shows too</text>
+  <path d="M296 100 L310 64" class="d-lead"/>
+  <text x="176" y="196" class="d-label">lamb lying spine-down (upside down) —</text>
+  <text x="176" y="209" class="d-label">must be rotated by trained hands</text>
+</symbol>
+<symbol id="ext-base-bag" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="72" rx="66" ry="56" class="d-fleece"/>
+  <path d="M85 26 q10 26 0 52" class="d-tail"/>
+  <ellipse cx="85" cy="92" rx="9" ry="13" class="d-skin"/>
+  <path d="M85 104 C 70 116, 68 138, 82 150 C 98 158, 112 144, 108 126 C 105 114, 96 108, 85 104 Z" class="d-bag"/>
+  <path d="M92 118 q8 8 4 20" fill="none" stroke="#fff" stroke-width="2" opacity=".8"/>
+  <text x="30" y="166" class="d-label">translucent, fluid inside</text>
+</symbol>
+<symbol id="ext-base-bearing" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="72" rx="66" ry="56" class="d-fleece"/>
+  <path d="M85 26 q10 26 0 52" class="d-tail"/>
+  <circle cx="85" cy="118" r="26" class="d-skin"/>
+  <path d="M74 104 q10 -6 22 0" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/>
+  <text x="24" y="166" class="d-label">smooth pink ball, no bumps</text>
+</symbol>
+<symbol id="ext-base-uterine" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="62" rx="66" ry="52" class="d-fleece"/>
+  <path d="M85 18 q10 24 0 48" class="d-tail"/>
+  <path d="M85 92 C 60 100, 50 124, 56 142 C 62 160, 82 168, 96 162 C 114 156, 122 136, 116 118 C 111 103, 98 94, 85 92 Z" class="d-skin-dark"/>
+  <circle cx="72" cy="122" r="4" class="d-dot"/><circle cx="90" cy="112" r="4" class="d-dot"/>
+  <circle cx="102" cy="130" r="4" class="d-dot"/><circle cx="80" cy="142" r="4" class="d-dot"/>
+  <circle cx="96" cy="150" r="4" class="d-dot"/><circle cx="64" cy="138" r="3.4" class="d-dot"/>
+  <text x="6" y="167" class="d-label">LARGE mass, button-like bumps</text>
+</symbol>
+<symbol id="ext-base-placenta" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="62" rx="66" ry="52" class="d-fleece"/>
+  <path d="M85 18 q10 24 0 48" class="d-tail"/>
+  <ellipse cx="85" cy="102" rx="8" ry="11" class="d-skin"/>
+  <path d="M84 110 C 78 124, 84 132, 78 146 C 74 156, 80 162, 76 168 M92 110 C 96 126, 88 136, 94 152 C 97 160, 92 164, 95 169" fill="none" stroke="#B96A5C" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="80" cy="132" r="3" class="d-dot"/><circle cx="93" cy="142" r="3" class="d-dot"/>
+  <text x="14" y="166" class="d-label">hanging membranes + buttons</text>
+</symbol>
+<symbol id="lamb-full" viewBox="0 0 220 130">
+  <path d="M40 78 C 40 52, 70 42, 110 42 C 150 42, 176 52, 176 76 C 176 94, 156 102, 110 102 C 72 102, 40 98, 40 78 Z" class="d-lamb"/>
+  <circle cx="186" cy="52" r="15" class="d-lamb"/>
+  <path d="M198 46 Q 216 48 216 54 Q 216 60 197 60 Z" class="d-lamb"/>
+  <circle cx="188" cy="49" r="1.7" class="d-eye"/>
+  <path d="M180 38 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M64 100 l0 22 M96 102 l0 20 M140 102 l0 20 M166 96 l0 24" class="d-leg"/>
+  <path d="M40 70 q-12 6 -8 16" class="d-tail"/>
+  <text x="60" y="24" class="d-label">level back · round belly</text>
+</symbol>
+<symbol id="lamb-hungry" viewBox="0 0 220 130">
+  <path d="M44 92 C 46 66, 74 44, 110 40 C 142 38, 164 52, 170 72 C 174 88, 160 98, 116 98 C 78 98, 46 104, 44 92 Z" class="d-lamb"/>
+  <path d="M74 46 Q 108 26 150 42" class="d-badline"/>
+  <circle cx="182" cy="86" r="14" class="d-lamb"/>
+  <path d="M193 84 Q 210 86 210 92 Q 210 98 192 96 Z" class="d-lamb"/>
+  <circle cx="184" cy="84" r="1.7" class="d-eye"/>
+  <path d="M178 74 l-10 -11 11 2 z" class="d-lamb"/>
+  <path d="M66 98 l-2 22 M92 98 l0 20 M138 98 l2 20 M160 96 l4 22" class="d-leg"/>
+  <text x="16" y="18" class="d-badlabel">arched back · head low · hollow flank</text>
+</symbol>
+</defs>
+</svg>
+
+<!-- ================= MENU ================= -->
+<main>
+<div id="view-menu" class="view">
+  <header class="mast">
+    <div class="kicker">Rapid reference · New Zealand</div>
+    <h1>Lambing Emergency Guide</h1>
+    <p class="sub">What am I seeing — and what do I do next?</p>
+  </header>
+  <nav class="menu" aria-label="Symptom menu">
+    <input class="search" id="search" type="search" placeholder="Search… e.g. “one foot”, “prolapse”, “cold lamb”" aria-label="Search symptoms">
+    <ul class="menu-list" id="menu-list">
+      <li data-keys="labour started restless pawing nesting early stage one mucus"><a class="mbtn" href="#card-1"><span class="n num">1</span><span class="t"><b>Labour has started</b><small>Restless · pawing · separating</small></span><span class="chip c-green">Green</span></a></li>
+      <li data-keys="water bag bubble membranes sac fluid"><a class="mbtn" href="#card-2"><span class="n num">2</span><span class="t"><b>Water bag is visible</b><small>Translucent bag or membranes</small></span><span class="chip c-green">Green</span></a></li>
+      <li data-keys="feet visible hooves toes soles leg one foot"><a class="mbtn" href="#card-3"><span class="n num">3</span><span class="t"><b>Feet are visible</b><small>Soles down or up? One or two? Nose?</small></span><span class="chip c-amber">Check</span></a></li>
+      <li data-keys="head visible nose tongue swollen no feet"><a class="mbtn" href="#card-4"><span class="n num">4</span><span class="t"><b>Head is visible</b><small>With feet — or without?</small></span><span class="chip c-amber">Check</span></a></li>
+      <li data-keys="red pink protruding prolapse bearing uterus mass ball tissue"><a class="mbtn" href="#card-5"><span class="n num">5</span><span class="t"><b>Something red / pink is protruding</b><small>Bag · ball · large mass · membranes</small></span><span class="chip c-red">Check now</span></a></li>
+      <li data-keys="pushing straining nothing appearing no progress stuck ringwomb"><a class="mbtn" href="#card-6"><span class="n num">6</span><span class="t"><b>Pushing but nothing appearing</b><small>The 30-minute rule</small></span><span class="chip c-red">Red</span></a></li>
+      <li data-keys="partly out stuck halfway hips hip lock"><a class="mbtn" href="#card-7"><span class="n num">7</span><span class="t"><b>Lamb is partly out</b><small>Stuck at hips / half-delivered</small></span><span class="chip c-red">Red</span></a></li>
+      <li data-keys="not breathing born dead limp revive resuscitate"><a class="mbtn" href="#card-8"><span class="n num">8</span><span class="t"><b>Lamb born but not breathing</b><small>Act in seconds</small></span><span class="chip c-red">Red</span></a></li>
+      <li data-keys="cold weak floppy hypothermia temperature chilled shivering"><a class="mbtn" href="#card-9"><span class="n num">9</span><span class="t"><b>Lamb is cold / weak / floppy</b><small>Thermometer first — 5-hour rule</small></span><span class="chip c-red">Red</span></a></li>
+      <li data-keys="will not suck feed teat udder colostrum bottle hungry"><a class="mbtn" href="#card-10"><span class="n num">10</span><span class="t"><b>Lamb will not suck</b><small>First feed due inside 2 hours</small></span><span class="chip c-amber">Amber</span></a></li>
+      <li data-keys="bleeding blood discharge haemorrhage hemorrhage"><a class="mbtn" href="#card-11"><span class="n num">11</span><span class="t"><b>Ewe is bleeding</b><small>Streaks are normal — drips are not</small></span><span class="chip c-red">Check now</span></a></li>
+      <li data-keys="ewe down weak collapsed sleepy sickness milk fever toxaemia staggering blind"><a class="mbtn" href="#card-12"><span class="n num">12</span><span class="t"><b>Ewe is down / weak / collapsed</b><small>Before or after lambing</small></span><span class="chip c-red">Red</span></a></li>
+      <li data-keys="placenta afterbirth retained membranes hanging smell"><a class="mbtn" href="#card-13"><span class="n num">13</span><span class="t"><b>Placenta / afterbirth concern</b><small>Normal by 6 h · never pull</small></span><span class="chip c-amber">Amber</span></a></li>
+      <li data-keys="not sure unsure what is this help identify"><a class="mbtn" href="#card-14"><span class="n num">14</span><span class="t"><b>I’m not sure what I’m looking at</b><small>Three questions sort it out</small></span><span class="chip c-amber">Start here</span></a></li>
+      <li data-keys="vet far away unreachable remote drive tube inject glucose replace bearing correct malpresentation trained"><a class="mbtn" href="#card-15"><span class="n num">15</span><span class="t"><b>Vet far away / unreachable</b><small>Trained-hands steps · load-and-drive plan</small></span><span class="chip c-amber">Remote</span></a></li>
+      <li data-keys="call vet phone now emergency"><a class="mbtn redline" href="#" id="menu-callvet"><span class="n num">16</span><span class="t"><b>CALL VET NOW</b><small>If you already know it’s bad, stop reading and ring</small></span></a></li>
+    </ul>
+    <p class="menu-note"><a href="#contacts"><b>Emergency contacts</b></a> — enter your vet’s numbers once; the CALL VET button then dials directly. · <a href="#records"><b>Ewe record cards</b></a> · <a href="#about">About &amp; sources</a></p>
+    <p class="menu-note">Save this file to your phone <em>before</em> lambing. It needs no internet.</p>
+  </nav>
+</div>
+
+<!-- ================= CARD 1 ================= -->
+<article id="view-card-1" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 1 · during labour</div>
+    <h2>Labour has started</h2><span class="chip c-green">Green — observe</span></header>
+  <div class="blk"><div class="blk-tag">What you may see</div>
+    <p>Ewe apart from the flock, pawing/scraping the ground, up and down repeatedly, staring at her flank, lip-curling, soft bleating, a mucus string. No strong pushing yet.</p></div>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Stage 1 labour — the cervix is opening. Normal length <b class="num">3–6 hours</b> (first-timers sometimes longer).</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li><b>Note the time.</b></li>
+    <li>Watch from a distance every 30–60 min.</li>
+    <li>Get kit, towels, warm water and phone ready.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Don’t pen, chase or fuss her — interference stalls early labour.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Intense restlessness for <b>6–8 h</b> with straining never starting — or she turns <b>dull or goes down</b> instead of restless (possible sleepy sickness / milk fever → <a href="#card-12">Card 12</a>).</p></div>
+  <p><a class="jump" href="#card-2">Next: water bag →</a></p>
+</article>
+
+<!-- ================= CARD 2 ================= -->
+<article id="view-card-2" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 2 · during labour</div>
+    <h2>Water bag is visible</h2><span class="chip c-green">Green — clock running</span></header>
+  <figure class="dg"><svg viewBox="0 0 170 170" role="img" aria-label="Rear-view diagram of a ewe with a translucent fluid-filled water bag at the vulva"><use href="#ext-base-bag"/></svg>
+    <figcaption>Translucent, whitish/amber, fluid inside; may burst and hang as membranes. A smooth solid pink ball instead? → <a href="#card-5">Card 5</a>.</figcaption></figure>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Stage 2 has begun. Lamb normally born within <b class="num">30–60 minutes</b>.</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li><b>Note the time</b> — this is your reference point.</li>
+    <li>Watch quietly; expect feet within ~30 min.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div><p>Don’t break the bag or pull membranes.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p><b class="num">1 hour</b> after the bag with no lamb, or <b class="num">30 min</b> of hard straining with no feet appearing.</p></div>
+  <p><a class="jump" href="#card-3">Feet appeared →</a><a class="jump" href="#card-6">Straining, nothing appearing →</a></p>
+</article>
+
+<!-- ================= CARD 3 ================= -->
+<article id="view-card-3" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 3 · during labour</div>
+    <h2>Feet are visible</h2><span class="chip c-amber">Look closely, then decide</span></header>
+  <div class="blk"><div class="blk-tag">Three checks</div>
+    <p><b>Soles down or up? One foot or two? Nose or no nose?</b></p></div>
+  <figure class="dg"><svg viewBox="0 0 360 216" role="img" aria-label="Diagram of normal presentation: two front hooves soles down with nose between them"><use href="#pres-normal"/></svg>
+    <figcaption><b>NORMAL — the diver.</b> Two hooves soles down + nose. <span class="chip c-green">Green</span> Lamb within ~30 min.</figcaption></figure>
+  <table class="mini-table">
+    <tr><th>You see</th><th>It means</th><th>Urgency</th></tr>
+    <tr><td>Two hooves soles <b>down</b> + nose</td><td>Normal</td><td><span class="chip c-green">Green</span></td></tr>
+    <tr><td>One hoof + nose</td><td>One front leg back</td><td><span class="chip c-red">Red</span> if no progress in 30 min</td></tr>
+    <tr><td>Two hooves advance, <b>no nose</b> follows</td><td>Head turned back</td><td><span class="chip c-red">Red now</span></td></tr>
+    <tr><td>Two hooves soles <b>up</b>, no nose</td><td>Hind legs first — must be quick</td><td><span class="chip c-amber">Amber</span> → Red at 15–20 min</td></tr>
+    <tr><td>Soles up <b>and</b> a nose</td><td>Lamb upside down</td><td><span class="chip c-red">Red now</span></td></tr>
+    <tr><td>Three+ legs / mixed directions</td><td>Two lambs together</td><td><span class="chip c-red">Red now</span></td></tr>
+  </table>
+  <details><summary>See the abnormal diagrams</summary><div class="inner"><div class="dg-row">
+    <figure class="dg"><svg viewBox="0 0 360 216" role="img" aria-label="One front leg back"><use href="#pres-legback"/></svg><figcaption>One front leg back — one hoof + nose.</figcaption></figure>
+    <figure class="dg"><svg viewBox="0 0 360 216" role="img" aria-label="Head turned back"><use href="#pres-headback"/></svg><figcaption>Head turned back — hooves but no nose.</figcaption></figure>
+    <figure class="dg"><svg viewBox="0 0 360 216" role="img" aria-label="Hind legs first"><use href="#pres-hind"/></svg><figcaption>Hind legs first — soles up, no nose.</figcaption></figure>
+    <figure class="dg"><svg viewBox="0 0 360 216" role="img" aria-label="Two lambs together"><use href="#pres-twins"/></svg><figcaption>Two lambs together — 3+ legs.</figcaption></figure>
+  </div></div></details>
+  <div class="donow"><div class="blk-tag">Do now — normal case only</div><ol>
+    <li>Watch. Progress every 10–15 min = leave her to it.</li>
+    <li><b>Gentle assist, only if</b> presentation is confirmed normal (two soles-down hooves + nose) and she strains well but slowly: clean gloved hands, lots of lube, grip both legs above the fetlocks, pull gently <b>only during her strains</b>, downward in an arc toward her hocks.</li>
+    <li>Any resistance, or no movement after one or two assisted strains → stop, ring the vet.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Never pull a single leg, a head, or anything you can’t identify. Never pull between contractions. No ropes, no force.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Anything other than two soles-down hooves + a nose — or <b class="num">30 min</b> with no progress.</p></div>
+  <p><a class="jump" href="#card-15">Vet far away / unreachable? Trained-hands steps →</a></p>
+</article>
+
+<!-- ================= CARD 4 ================= -->
+<article id="view-card-4" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 4 · during labour</div>
+    <h2>Head is visible</h2><span class="chip c-amber">With feet — or without?</span></header>
+  <figure class="dg"><svg viewBox="0 0 360 216" role="img" aria-label="Diagram: both front legs back — head only, no hooves"><use href="#pres-bothback"/></svg>
+    <figcaption><b>Head with no feet = both front legs back.</b> The shoulders will jam. A swelling tongue is common — it does <b>not</b> mean the lamb is dead.</figcaption></figure>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Head <b>+ two feet</b> = normal, watch it flow. Head <b>without feet</b> = legs back — a stuck birth. A head out and not advancing = stuck (often oversized single).</p></div>
+  <div class="donow"><div class="blk-tag">Do now — head only / stuck</div><ol>
+    <li><b>Ring the vet</b> — say exactly what is showing.</li>
+    <li>Keep the head moist: clean towel wetted with lukewarm water.</li>
+    <li>Wipe membranes off the nose.</li>
+    <li>Pen her; keep her calm and still.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Never pull on the head or jaw. Don’t push the head back yourself.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Head without both feet: <b>immediately</b>. Vets deliver swollen-tongue lambs alive.</p></div>
+  <p><a class="jump" href="#card-15">Vet far away / unreachable? Trained-hands steps →</a></p>
+</article>
+
+<!-- ================= CARD 5 ================= -->
+<article id="view-card-5" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 5 · any time</div>
+    <h2>Something red / pink is protruding</h2><span class="chip c-red">Identify it now</span></header>
+  <div class="blk"><div class="blk-tag">Tell them apart — size, surface, timing</div></div>
+  <div class="dg-row">
+    <figure class="dg"><svg viewBox="0 0 170 170" role="img" aria-label="Water bag: translucent sac"><use href="#ext-base-bag"/></svg>
+      <figcaption><b>Water bag</b> — translucent, fluid. During labour. <span class="chip c-green">Green</span> → <a href="#card-2">Card 2</a></figcaption></figure>
+    <figure class="dg"><svg viewBox="0 0 170 170" role="img" aria-label="Bearing: smooth pink ball"><use href="#ext-base-bearing"/></svg>
+      <figcaption><b>Bearing</b> (vaginal prolapse) — smooth pink ball, orange→grapefruit size. Usually <i>before</i> lambing. <span class="chip c-red">Red</span></figcaption></figure>
+    <figure class="dg"><svg viewBox="0 0 170 170" role="img" aria-label="Uterine prolapse: large mass with bumps"><use href="#ext-base-uterine"/></svg>
+      <figcaption><b>Uterine prolapse</b> — LARGE mass with button-like bumps, may hang to hocks. <i>After</i> lambing. <span class="chip c-red">Red — top emergency</span></figcaption></figure>
+    <figure class="dg"><svg viewBox="0 0 170 170" role="img" aria-label="Placenta: hanging membranes"><use href="#ext-base-placenta"/></svg>
+      <figcaption><b>Placenta</b> — loose membranes + buttons, hanging. Hours after lambing. <span class="chip c-green">Green</span> → <a href="#card-13">Card 13</a></figcaption></figure>
+  </div>
+  <div class="donow"><div class="blk-tag">Do now — bearing (before lambing)</div><ol>
+    <li>Ring the vet.</li>
+    <li>Pen her quietly.</li>
+    <li>Hold a clean towel soaked in clean lukewarm water over the tissue — keep it clean and moist.</li></ol></div>
+  <div class="donow"><div class="blk-tag">Do now — uterine prolapse (after lambing)</div><ol>
+    <li>Ring the vet <b>immediately</b> — say “uterine prolapse”.</li>
+    <li>Keep her still, ideally lying; keep the mass off the ground.</li>
+    <li>Support and cover it with a clean lukewarm-wet towel.</li>
+    <li>Keep her lamb(s) near so she stays calm.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Do not push either prolapse back yourself. No disinfectants on the tissue. Never let her run or be chased.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Any tissue mass that stays out. Always.</p></div>
+  <p><a class="jump" href="#card-15">Vet far away / unreachable? Trained-hands steps →</a></p>
+</article>
+
+<!-- ================= CARD 6 ================= -->
+<article id="view-card-6" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 6 · during labour</div>
+    <h2>Pushing — but nothing appearing</h2><span class="chip c-red">Red at 30 minutes</span></header>
+  <div class="blk"><div class="blk-tag">What you may see</div>
+    <p>Strong rhythmic straining — lying and pushing with head raised, up, circling, pushing again. Nothing at the vulva, or only a long-gone water bag.</p></div>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>A lamb that can’t enter the canal: head or legs back, breech, two together, oversized — or a cervix that hasn’t opened (ringwomb). You don’t need to know which.</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li><b>Ring the vet</b> — report the times.</li>
+    <li>Pen her calmly on clean bedding.</li>
+    <li>Set out warm water, soap, towels, lube and gloves for the vet.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Don’t go in to “have a feel” untrained. Don’t wait another half hour to be sure.</p></div>
+  <div class="callvet"><div class="blk-tag">Breech warning</div>
+    <p>A breech ewe may strain only <b>weakly</b> and seem “not really in labour”. A ewe who paws and nests for hours but never produces a water bag belongs on this card too.</p></div>
+  <p><a class="jump" href="#card-15">Vet far away / unreachable? Trained-hands steps →</a></p>
+</article>
+
+<!-- ================= CARD 7 ================= -->
+<article id="view-card-7" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 7 · during delivery</div>
+    <h2>Lamb is partly out</h2><span class="chip c-red">Red unless it completes now</span></header>
+  <div class="blk"><div class="blk-tag">What you may see</div>
+    <p>Head and chest out but hips stuck; a lamb hanging half-out; a hind-first lamb half-delivered. Once the chest is out the lamb tries to breathe — membranes on the nose now suffocate it.</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li><b>Clear the nose and mouth of membranes immediately</b> — this one, you always do.</li>
+    <li>Normal position + ewe straining: grip chest/shoulders (never the head) and ease <b>down toward her hocks, with her strains</b>.</li>
+    <li>Hind-first half-out: steady downward pull on both hind legs with her strain — it must come now.</li>
+    <li>No movement after two assisted strains → ring the vet, keep the airway clear.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>No twisting hard, jerking, or bracing-and-hauling. Never pull straight backward — the curve toward the hocks matters.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Two assisted strains produce no movement.</p></div>
+</article>
+
+<!-- ================= CARD 8 ================= -->
+<article id="view-card-8" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 8 · first minute</div>
+    <h2>Lamb born — not breathing</h2><span class="chip c-red">Act in seconds</span></header>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li><b>CLEAR</b> — membranes and fluid off nose and mouth, fingers and towel.</li>
+    <li><b>TICKLE</b> — clean straw deep in one nostril → triggers a gasp or sneeze.</li>
+    <li><b>RUB</b> — chest and ribs, hard, with a towel (mimics the ewe’s licking).</li>
+    <li><b>DRAIN</b> — brief supported head-down hold by the hind legs, a few seconds, while rubbing.</li>
+    <li>Repeat tickle–rub cycles. A heartbeat with no breaths → keep going; many start at 1–2 minutes.</li>
+    <li><b>Ring the vet at the 1-minute mark</b> — keep working while you talk.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Don’t swing the lamb by its legs. Don’t give up early — wet lambs that look dead often aren’t.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Not breathing after your first full cycle — or breathing but gurgly/rattly (fluid on the lungs).</p></div>
+</article>
+
+<!-- ================= CARD 9 ================= -->
+<article id="view-card-9" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 9 · newborn to day 3</div>
+    <h2>Lamb is cold / weak / floppy</h2><span class="chip c-red">Thermometer first</span></header>
+  <figure class="dg"><svg viewBox="0 0 220 130" role="img" aria-label="Weak hungry lamb posture: arched back, head low, hollow flank"><use href="#lamb-hungry"/></svg>
+    <figcaption>Weak/hungry posture: arched back, head low, hollow “empty triangle” flank. Normal lamb: level back, round belly.</figcaption></figure>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Hypothermia and/or starvation — one spiral: cold lambs don’t suck, unfed lambs get cold. Normal lamb temperature <b class="num">39–40 °C</b>.</p></div>
+  <div class="donow"><div class="blk-tag">Do now — by temperature</div><ol>
+    <li><b>Take its temperature.</b> Dry the lamb, out of the weather.</li>
+    <li><b class="num">37–39 °C</b> → feed colostrum (must be able to swallow) + warm to ≥39 °C + back to mum, confirm sucking.</li>
+    <li><b class="num">&lt;37 °C, under ~5 h old</b> → warm first (warm-air box ~35–40 °C), feed once it can swallow.</li>
+    <li><b class="num">&lt;37 °C, older than ~5 h</b> → <b>do NOT warm first — ring the vet.</b> Its glucose is spent; warming without energy kills. It needs an abdominal glucose injection (vet / trained person) before warming.</li>
+    <li>Can’t lift its head or swallow → nothing by mouth. Vet now.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Never feed or tube a lamb that can’t swallow. No hot-water immersion unattended, no direct contact with heaters, nothing hot touching the lamb.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Below 37 °C and over ~5 h old · can’t swallow · not clearly improving within 30–60 min of warming.</p></div>
+  <p><a class="jump" href="#card-15">Vet far away / unreachable? Trained-hands steps →</a></p>
+</article>
+
+<!-- ================= CARD 10 ================= -->
+<article id="view-card-10" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 10 · first hours</div>
+    <h2>Lamb will not suck</h2><span class="chip c-amber">Amber at 2 h → Red at 4 h</span></header>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Wool over the udder (a Valais special), a wax-plugged teat, a sore udder, a rejecting ewe — or a weakening lamb. First feed belongs inside <b class="num">2 hours</b>.</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li>Trim/clear wool around the udder; strip each teat until milk squirts (clears the wax plug).</li>
+    <li>Hold the ewe gently against a rail; guide the lamb’s mouth to the teat; a squirt of milk on its lips triggers sucking.</li>
+    <li>Still no feed → milk the ewe into a clean container, bottle-feed <b class="num">50 ml per kg</b> (≈200 ml for a 4 kg lamb) — only if the lamb is warm and can swallow.</li>
+    <li>No milk available → thawed frozen colostrum or ewe-specific colostrum powder, per label, body-warm. Never microwave or boil it.</li>
+    <li>While you’re there: udder hot, hard, painful, or milk watery/bloody = mastitis → ring the vet.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Never stomach-tube unless you’ve been shown how. A cold floppy lamb goes to <a href="#card-9">Card 9</a> before any feeding.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Too weak to suck a bottle (needs tubing) · nothing achieved by hour 4 · udder abnormal.</p></div>
+  <p><a class="jump" href="#card-15">Vet far away / unreachable? Trained-hands steps →</a></p>
+</article>
+
+<!-- ================= CARD 11 ================= -->
+<article id="view-card-11" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 11 · during / after lambing</div>
+    <h2>Ewe is bleeding</h2><span class="chip c-red">Drips and pools are Red</span></header>
+  <div class="blk"><div class="blk-tag">Normal vs not</div>
+    <p><b>Normal:</b> blood-tinged fluids and light streaks; red-brown discharge (lochia) shrinking over 2–3 weeks, never foul.<br><b>Not normal:</b> fresh red blood <b>dripping, running or pooling</b>; large clots; a pale, weak, panting ewe.</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li>Ring the vet — estimate amount and rate (“cupful”, “steady drip”, “pooling”).</li>
+    <li>Keep her still, penned, calm — movement worsens bleeding.</li>
+    <li>Leave the lamb with her.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Don’t insert or pack anything. No drugs.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Any active fresh bleeding · foul-smelling discharge at any time (infection — also a vet call) · she is weak or pale.</p></div>
+</article>
+
+<!-- ================= CARD 12 ================= -->
+<article id="view-card-12" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 12 · before or after lambing</div>
+    <h2>Ewe is down / weak / collapsed</h2><span class="chip c-red">Red — hours matter</span></header>
+  <div class="blk"><div class="blk-tag">What you may see</div>
+    <p><b>Before lambing:</b> off feed, dull, seems blind, star-gazing or head-pressing, staggery, then down — <b>sleepy sickness</b> (pregnancy toxaemia). Or sudden trembling → flat, maybe bloated — <b>milk fever</b> (low calcium).<br><b>After lambing:</b> down, dull, off feed ± fever or foul discharge (infection) or pale gums (bleeding).</p></div>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Sleepy sickness · milk fever · womb/udder infection · internal bleeding. <b>You don’t need to decide which.</b></p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li>Ring the vet — say: before/after lambing, eating?, discharge?, how long down.</li>
+    <li>Prop her upright on her chest with a bale or rolled towel (a flat ewe bloats).</li>
+    <li>Shelter from sun and rain; water within reach.</li>
+    <li>Only if she can swallow <i>and</i> the vet advises it by phone: the oral energy drench from your kit.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p>Never drench a flat ewe or one that can’t swallow — it goes to her lungs. Don’t lift by the wool. Don’t wait until morning.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet</div>
+    <p>You’re on this card — ring. Milk fever and sleepy sickness respond dramatically to early veterinary treatment, and not at all to waiting.</p></div>
+</article>
+
+<!-- ================= CARD 13 ================= -->
+<article id="view-card-13" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 13 · after lambing</div>
+    <h2>Placenta / afterbirth</h2><span class="chip c-amber">Normal by 6 h · never pull</span></header>
+  <figure class="dg"><svg viewBox="0 0 170 170" role="img" aria-label="Placenta hanging as loose membranes with buttons"><use href="#ext-base-placenta"/></svg>
+    <figcaption>Red-purple membranes with button-like bumps; normally passed by 2–3 h (≤6 h fine); one per lamb, sometimes joined; often eaten by the ewe — that’s normal.</figcaption></figure>
+  <div class="blk"><div class="blk-tag">Most likely</div>
+    <p>Still hanging at <b class="num">12–18+ h</b> = retained placenta. The risk is womb infection (metritis).</p></div>
+  <div class="donow"><div class="blk-tag">Do now</div><ol>
+    <li>Note when she lambed; just watch until 12 h.</li>
+    <li>You may <b>trim</b> membranes dangling below the hocks with clean scissors.</li>
+    <li>Past 18 h → ring the vet for advice even if she seems well.</li>
+    <li>Any dullness, fever or foul smell → ring now.</li></ol></div>
+  <div class="donot"><div class="blk-tag">Do not</div>
+    <p><b>Never pull the placenta</b> — it tears, and traction damages the uterus. No weights tied to it.</p></div>
+  <div class="callvet"><div class="blk-tag">Call the vet if</div>
+    <p>Retained &gt; 18 h · any smell · any sick ewe.</p></div>
+</article>
+
+<!-- ================= CARD 14 ================= -->
+<article id="view-card-14" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 14 · triage</div>
+    <h2>Not sure what you’re looking at?</h2><span class="chip c-amber">Three questions</span></header>
+  <div class="blk"><div class="blk-tag">1 — Is anything protruding from the ewe?</div>
+    <p><a class="jump" href="#card-2">Translucent bag / fluid</a><a class="jump" href="#card-3">Feet</a><a class="jump" href="#card-4">Head</a><a class="jump" href="#card-5">Pink ball / large mass / membranes</a></p></div>
+  <div class="blk"><div class="blk-tag">2 — Is she straining?</div>
+    <p><a class="jump" href="#card-6">Hard, 30+ min, nothing to show</a><a class="jump" href="#card-1">Restless but not straining</a></p></div>
+  <div class="blk"><div class="blk-tag">3 — Is there a lamb on the ground?</div>
+    <p><a class="jump" href="#card-8">Not breathing</a><a class="jump" href="#card-9">Cold / floppy</a><a class="jump" href="#card-10">Won’t suck</a><a class="jump" href="#card-11">Ewe bleeding</a><a class="jump" href="#card-12">Ewe down</a></p></div>
+  <div class="callvet"><div class="blk-tag">Still unsure?</div>
+    <p><b>Ring the vet and describe what you see.</b> “A pink ball the size of an orange” or “one foot and a nose” is enough for triage. A photo sent to the clinic helps. Never feel wrong for calling — with three high-value ewes and a first season, your vet expects it.</p></div>
+</article>
+
+<!-- ================= CARD 15: VET FAR AWAY ================= -->
+<article id="view-card-15" class="view card" hidden>
+  <header class="card-head"><div class="where">Card 15 · remote property</div>
+    <h2>Vet far away or unreachable</h2><span class="chip c-amber">Ring anyway — then act</span></header>
+  <div class="blk"><div class="blk-tag">The remote timeline</div>
+    <p>With a ~1.5 h drive to help, ring at the <b>first</b> sign of trouble — 10–15 minutes, not 30 — and work with the vet on <b>speakerphone or video call</b>. Try every clinic number you hold. Keep <b>Plan B ready: load the ewe (bedded trailer/crate) and drive toward the vet or meet halfway</b> — often faster than waiting.</p></div>
+  <div class="blk"><div class="blk-tag">Full detail</div>
+    <p>These are the compact versions. The full published steps, diagrams and stop conditions are in the printed <b>Far From Help</b> supplement — keep laminated copies of its tubing / IP / bearing pages in the kit, and get shown these at a pre-lambing clinic visit.</p></div>
+
+  <details><summary>Correcting a malpresentation (NADIS · Wisconsin Visual Lambing Guide)</summary><div class="inner">
+    <ol>
+      <li>Vet on speaker. Washed arm, long glove, <b>lots of lubricant</b> (re-lube every entry). Cast her; for a leg-back, missing-leg side up.</li>
+      <li><b>Identify before pulling anything:</b> front leg = fetlock + knee bend the same way; hind leg = they bend opposite ways; trace every leg to its body.</li>
+      <li><b>Leg back:</b> push the lamb back between strains → follow shoulder to fetlock → <b>cup the hoof in your palm</b> → flex and bring it over the brim.</li>
+      <li><b>Head out, no legs:</b> keep head moist; gently repel it back inside between strains; fetch each leg (cup hooves); snare behind ears + through mouth holds the head if it slips.</li>
+      <li><b>Soles up, no nose (hind first):</b> don’t convert — deliver promptly, steady pull down toward her hocks with strains, brisk through the ribcage; clear the airway instantly.</li>
+      <li><b>Head back · breech · twins tangled:</b> phone/video-guided only. Two failed attempts = load and drive.</li>
+      <li><b>Traction rules:</b> only with her strains · downward arc toward her hocks, never straight out · 10–30 s of steady arms, never ropes to objects.</li>
+      <li>After: airway, iodine, colostrum early; check for another lamb (ballot in front of the udder); report to the vet — she may need antibiotic cover.</li>
+    </ol>
+    <p><b>Stop = load and drive:</b> two good strains move nothing · can’t identify what you feel · canal dry/swollen beyond lube.</p>
+  </div></details>
+
+  <details><summary>Stomach-tubing (OMAFRA · OSU · Cornell)</summary><div class="inner">
+    <ol>
+      <li>Only for a lamb ≥37 °C that can hold its head up and swallow. Below 37 °C and over ~5 h → IP injection first, never tube first.</li>
+      <li><b>Measure nose → last rib; mark the tube.</b> It goes in further than feels right.</li>
+      <li>Lamb upright on your lap; tube in at the <b>side of the mouth</b>, over the tongue, toward the <b>lamb’s left</b>.</li>
+      <li><b>Right = slides easily</b>, lamb may chew/swallow it, you feel <b>two tubes</b> at the throat. <b>Any cough or resistance = out completely, start again.</b> Ear to tube end: airflow = windpipe, out.</li>
+      <li>Syringe without plunger, gravity feed: <b>50 ml/kg warm colostrum over ~5 min.</b></li>
+      <li><b>Crimp the tube, then withdraw</b> in one motion.</li>
+    </ol>
+  </div></details>
+
+  <details><summary>IP glucose injection — the cold-lamb rescue (FAS Scotland · SRUC)</summary><div class="inner">
+    <ol>
+      <li>Only when all three: <b>&lt;37 °C · older than ~5 h · cannot swallow.</b></li>
+      <li><b>Warmed 20% dextrose, 10 ml/kg</b> (≈45–50 ml for a 4–5 kg lamb). Recipe: 20 g glucose in hot boiled water to 50 ml, then dilute half-and-half warm.</li>
+      <li><b>Hang the lamb by both front legs.</b> Site: <b>~2.5 cm below and ~1 cm beside the navel.</b></li>
+      <li>New sterile 1″ needle fully in at <b>45° toward the tail head</b>; inject slowly, full dose.</li>
+      <li>Iodine the site. <b>Then warm</b> (warm-air box ~35–40 °C; recheck at 30 min). Expect it standing in 30–60 min.</li>
+      <li>Once ≥37 °C and swallowing → tube 50 ml/kg colostrum → re-mother.</li>
+    </ol>
+  </div></details>
+
+  <details><summary>Replacing a bearing + retainer (Farmers Weekly · Northland Vets NZ)</summary><div class="inner">
+    <ol>
+      <li><b>Do not replace</b> if the tissue is torn, black or cold, or if she is actually lambing behind it (water bag/feet/tail palpable) — ring and drive.</li>
+      <li>Helper holds her; raise her hindquarters if you can. Clean with warm water + weak-tea-colour iodine; lubricate generously.</li>
+      <li><b>Lift the mass toward her tail first</b> (frees the bladder — she may urinate and it shrinks), then flat hand or closed fist, slow steady pressure: <b>hold during strains, gain between them</b>; follow it fully in.</li>
+      <li>Fit the <b>bearing spoon</b> (tongue in, wings tied to flank wool) or harness.</li>
+      <li>Ring the clinic: pain relief + antibiotic cover are vet-supplied; check the retainer twice daily; watch her closely at lambing (she can lamb past a spoon). <b>Never breed her again.</b></li>
+    </ol>
+  </div></details>
+
+  <div class="callvet"><div class="blk-tag">Still vet-only — first aid + load and drive</div>
+    <p>Uterine prolapse (cover with clean wet towel, keep her still, drive if told) · ringwomb · a truly stuck oversized lamb · uncontrolled bleeding · IV calcium. For a down ewe, arrange <b>SC calcium training + supply</b> at your pre-lambing visit.</p></div>
+</article>
+
+<!-- ================= CONTACTS ================= -->
+<article id="view-contacts" class="view card" hidden>
+  <header class="card-head"><div class="where">Setup · do this before lambing</div>
+    <h2>Emergency contacts</h2></header>
+  <p style="color:var(--muted);font-size:.95rem">Saved on this device only (nothing is sent anywhere). The <b>CALL VET</b> button dials the first number below.</p>
+  <div class="two formrow"><div><label for="c-vet1">Primary veterinarian</label><input id="c-vet1" data-store="vet1" autocomplete="off"></div>
+    <div><label for="c-vet1p">Phone</label><input id="c-vet1p" data-store="vet1p" type="tel" inputmode="tel"></div></div>
+  <div class="two formrow"><div><label for="c-vet2">After-hours veterinarian</label><input id="c-vet2" data-store="vet2"></div>
+    <div><label for="c-vet2p">Phone</label><input id="c-vet2p" data-store="vet2p" type="tel" inputmode="tel"></div></div>
+  <div class="two formrow"><div><label for="c-vet3">Backup veterinary clinic</label><input id="c-vet3" data-store="vet3"></div>
+    <div><label for="c-vet3p">Phone</label><input id="c-vet3p" data-store="vet3p" type="tel" inputmode="tel"></div></div>
+  <div class="two formrow"><div><label for="c-exp">Experienced sheep / lambing contact</label><input id="c-exp" data-store="exp"></div>
+    <div><label for="c-expp">Phone</label><input id="c-expp" data-store="expp" type="tel" inputmode="tel"></div></div>
+  <div class="formrow"><label for="c-addr">Property address / location for the vet</label><textarea id="c-addr" data-store="addr" rows="2"></textarea></div>
+  <div class="formrow"><label for="c-shelter">Nearest sheltered lambing area</label><input id="c-shelter" data-store="shelter"></div>
+  <p class="save-note" id="save-note">Changes save automatically as you type.</p>
+</article>
+
+<!-- ================= RECORDS ================= -->
+<article id="view-records" class="view card" hidden>
+  <header class="card-head"><div class="where">Your flock</div>
+    <h2>Ewe record cards</h2></header>
+  <p style="color:var(--muted);font-size:.95rem">Times matter — water bag, births, first suck, placenta. Saved on this device only.</p>
+  <div class="ewecard" id="ewe-1"><h3>Ewe 1</h3></div>
+  <div class="ewecard" id="ewe-2"><h3>Ewe 2</h3></div>
+  <div class="ewecard" id="ewe-3"><h3>Ewe 3</h3></div>
+</article>
+
+<!-- ================= ABOUT ================= -->
+<article id="view-about" class="view card" hidden>
+  <header class="card-head"><div class="where">About this guide</div>
+    <h2>Sources &amp; scope</h2></header>
+  <p>Companion to <em>First Lambing Season — A Practical Guide for Valais Blacknose Ewes</em> (NZ Edition). This is a recognition-and-triage tool for first-time owners, not a treatment manual: safe first aid only, early veterinary contact always. Compiled August 2026.</p>
+  <p style="margin-top:.8rem">Timings and thresholds cross-checked against: Beef + Lamb New Zealand (lamb survival, colostrum); NADIS UK (lambing stages, prolapses); AHDB UK (colostrum 50 ml/kg by 2–6 h, 200 ml/kg per 24 h); Farm Advisory Service Scotland &amp; SRUC (hypothermia bands and the 5-hour rule); Merck/MSD Veterinary Manual (retained membranes, prolapses); NZ veterinary clinic guidance (bearings, sleepy sickness, milk fever). Full linked bibliography: handbook, “Sources &amp; further reading”.</p>
+  <p style="margin-top:.8rem;color:var(--muted);font-size:.9rem">Breed-specific claims for Valais Blacknose are breeder-reported unless stated. This guide does not replace veterinary advice for an individual animal.</p>
+</article>
+</main>
+
+<!-- ================= PERSISTENT BAR ================= -->
+<nav class="bar" aria-label="Persistent controls">
+  <a class="to-menu" href="#menu">☰&nbsp; SYMPTOMS</a>
+  <a class="to-vet" href="#contacts" id="callvet-btn"><span>📞&nbsp; CALL VET<small id="callvet-sub">tap to add number</small></span></a>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+  /* ---------- storage (fails safe: guide works with none) ---------- */
+  function sget(k){ try{ return localStorage.getItem("lamb."+k) || ""; }catch(e){ return ""; } }
+  function sset(k,v){ try{ localStorage.setItem("lamb."+k, v); }catch(e){} }
+
+  /* ---------- build ewe record forms ---------- */
+  var eweFields = [["tag","Name / tag"],["due","Expected lambing date"],["scan","Scanning result"],
+    ["expect","Expected number of lambs"],["hist","Previous lambing history"],["labour","Labour started"],
+    ["l1","Lamb 1 born"],["l2","Lamb 2 born"],["l3","Lamb 3 born"],["plac","Placenta passed"],
+    ["vet","Vet contacted"],["treat","Treatments"],["outcome","Outcome"],["notes","Notes"]];
+  for (var e=1; e<=3; e++){
+    var host = document.getElementById("ewe-"+e);
+    if (!host) continue;
+    for (var f=0; f<eweFields.length; f++){
+      var key = "ewe"+e+"."+eweFields[f][0];
+      var row = document.createElement("div"); row.className="formrow";
+      var lab = document.createElement("label"); lab.textContent = eweFields[f][1]; lab.setAttribute("for","f-"+key);
+      var inp = document.createElement("input"); inp.id="f-"+key; inp.setAttribute("data-store", key);
+      row.appendChild(lab); row.appendChild(inp); host.appendChild(row);
+    }
+  }
+
+  /* ---------- wire all data-store inputs ---------- */
+  var inputs = document.querySelectorAll("[data-store]");
+  for (var i=0;i<inputs.length;i++){
+    (function(el){
+      el.value = sget(el.getAttribute("data-store"));
+      el.addEventListener("input", function(){
+        sset(el.getAttribute("data-store"), el.value);
+        if (el.getAttribute("data-store")==="vet1p") refreshCallBtn();
+      });
+    })(inputs[i]);
+  }
+
+  /* ---------- CALL VET button ---------- */
+  var btn = document.getElementById("callvet-btn"), sub = document.getElementById("callvet-sub");
+  function refreshCallBtn(){
+    var p = sget("vet1p").replace(/[^\d+]/g,"");
+    if (p){ btn.setAttribute("href","tel:"+p); sub.textContent = sget("vet1p"); }
+    else { btn.setAttribute("href","#contacts"); sub.textContent = "tap to add number"; }
+  }
+  refreshCallBtn();
+  var menuCall = document.getElementById("menu-callvet");
+  if (menuCall) menuCall.addEventListener("click", function(ev){
+    ev.preventDefault();
+    var p = sget("vet1p").replace(/[^\d+]/g,"");
+    location.href = p ? ("tel:"+p) : "#contacts";
+  });
+
+  /* ---------- hash routing ---------- */
+  var views = document.querySelectorAll(".view");
+  function route(){
+    var h = (location.hash || "#menu").slice(1);
+    var id = "view-" + (h || "menu");
+    if (!document.getElementById(id)) id = "view-menu";
+    for (var v=0; v<views.length; v++) views[v].hidden = (views[v].id !== id);
+    window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange", route);
+  route();
+
+  /* ---------- offline search ---------- */
+  var search = document.getElementById("search");
+  var items = document.querySelectorAll("#menu-list > li");
+  if (search) search.addEventListener("input", function(){
+    var q = search.value.trim().toLowerCase();
+    for (var s=0;s<items.length;s++){
+      var hay = (items[s].getAttribute("data-keys")||"") + " " + items[s].textContent.toLowerCase();
+      items[s].hidden = q !== "" && hay.indexOf(q) === -1;
+    }
+  });
+})();
+</script>
+</body>
+</html>

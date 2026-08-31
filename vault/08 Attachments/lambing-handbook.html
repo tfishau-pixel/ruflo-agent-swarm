@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Lambing Season — A Practical Guide for Valais Blacknose Ewes</title>
+<style>
+/* ============================================================
+   FIRST LAMBING SEASON — design system
+   Palette: warm ivory ground, charcoal ink, muted naturals.
+   Urgency: green / amber / red — always paired with text labels.
+   ============================================================ */
+:root{
+  --paper:#FAF7F1;
+  --card:#FFFFFF;
+  --ink:#211E1A;
+  --muted:#6E675C;
+  --stone:#8A8377;
+  --hair:#E5DFD3;
+  --wash:#F3EFE7;
+  --sage:#6F7A67;
+  --sage-wash:#EFF1EC;
+  --green:#2F6B45;   --green-wash:#EBF2EC;
+  --amber:#96660A;   --amber-wash:#F8F0DC;
+  --red:#A6392C;     --red-wash:#F7E8E4;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --base:10.5pt; /* @variant-base */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:var(--base);line-height:1.55;
+  font-feature-settings:"kern";
+}
+@page{ size:A4; /* @variant-page */ margin:17mm 16mm 18mm 16mm; }
+@media screen{
+  body{padding:4rem 1.5rem}
+  .page{max-width:186mm;margin:0 auto 3rem;background:var(--paper)}
+}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:600;letter-spacing:.005em}
+h2{font-size:2em;line-height:1.15;margin:0 0 .35em}
+h3{font-size:1.25em;margin:1.6em 0 .5em}
+h4{font-family:var(--sans);font-size:.8em;text-transform:uppercase;letter-spacing:.14em;color:var(--stone);margin:1.8em 0 .6em}
+p{margin:.55em 0}
+strong{font-weight:650}
+em{font-style:italic}
+ul,ol{margin:.5em 0 .8em 1.35em}
+li{margin:.28em 0}
+a{color:var(--sage);text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---- sections & rhythm ---- */
+section{break-before:page;padding-top:.1px}
+.sec-open{margin:0 0 1.6em;padding-bottom:1.1em;border-bottom:2px solid var(--ink)}
+.sec-kicker{font-size:.78em;text-transform:uppercase;letter-spacing:.22em;color:var(--stone);margin-bottom:.7em}
+.sec-open .lede{font-size:1.06em;color:var(--muted);max-width:60ch;margin-top:.5em}
+.rule{border:0;border-top:1px solid var(--hair);margin:1.6em 0}
+
+/* ---- cover ---- */
+.cover{break-after:page;min-height:245mm;display:flex;flex-direction:column;justify-content:space-between;padding-top:8mm}
+.cover .edition{font-size:.8em;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.cover h1{font-size:4.4em;line-height:1.02;font-weight:600;margin:.35em 0 .25em;max-width:8em}
+.cover .sub{font-family:var(--serif);font-style:italic;font-size:1.5em;color:var(--muted);max-width:26em}
+.cover .foot{border-top:1px solid var(--hair);padding-top:1.2em;display:flex;justify-content:space-between;font-size:.85em;color:var(--stone)}
+.cover-art{margin:4em 0 2em}
+
+/* ---- urgency badges ---- */
+.badge{display:inline-block;font-family:var(--sans);font-size:.72em;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:.28em .75em;border-radius:2px;white-space:nowrap}
+.b-green{background:var(--green-wash);color:var(--green);border:1px solid var(--green)}
+.b-amber{background:var(--amber-wash);color:var(--amber);border:1px solid var(--amber)}
+.b-red{background:var(--red);color:#fff;border:1px solid var(--red)}
+
+/* ---- callout components ---- */
+.callout{border:1px solid var(--hair);background:var(--card);padding:1em 1.2em;margin:1.1em 0;break-inside:avoid;border-radius:2px}
+.callout .co-tag{font-size:.72em;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45em}
+.co-note{border-left:4px solid var(--sage)}
+.co-note .co-tag{color:var(--sage)}
+.co-safe{border-left:4px solid var(--green);background:var(--green-wash)}
+.co-safe .co-tag{color:var(--green)}
+.co-warn{border-left:4px solid var(--red)}
+.co-warn .co-tag{color:var(--red)}
+.co-stop{background:var(--red);color:#fff;border:none}
+.co-stop .co-tag{color:#fff;font-size:.85em}
+.co-stop a{color:#fff;text-decoration:underline}
+
+/* ---- tables ---- */
+table{width:100%;border-collapse:collapse;margin:1em 0 1.4em;font-size:.94em;break-inside:auto}
+caption{caption-side:top;text-align:left;font-size:.78em;text-transform:uppercase;letter-spacing:.14em;color:var(--stone);padding-bottom:.6em}
+th{font-family:var(--sans);font-size:.76em;text-transform:uppercase;letter-spacing:.1em;color:var(--stone);
+  text-align:left;font-weight:700;padding:.5em .7em .5em 0;border-bottom:2px solid var(--ink)}
+td{padding:.55em .7em .55em 0;border-bottom:1px solid var(--hair);vertical-align:top}
+tr{break-inside:avoid}
+td:last-child,th:last-child{padding-right:0}
+.t-num td{font-variant-numeric:tabular-nums}
+
+/* ---- checklists ---- */
+.check{list-style:none;margin-left:0}
+.check li{padding-left:1.7em;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:.32em;width:.85em;height:.85em;border:1.5px solid var(--stone);border-radius:2px}
+
+/* ---- figures ---- */
+figure{border:1px solid var(--hair);background:var(--card);padding:1em 1em .8em;margin:1.2em 0;break-inside:avoid;border-radius:2px}
+figure svg{display:block;width:100%;height:auto}
+figcaption{font-size:.88em;color:var(--muted);border-top:1px solid var(--hair);margin-top:.8em;padding-top:.7em}
+figcaption b{color:var(--ink)}
+.fig-row{display:flex;gap:1em;flex-wrap:wrap}
+.fig-row figure{flex:1 1 40%;margin:.4em 0}
+
+/* ---- timeline ---- */
+.timeline{display:flex;flex-wrap:wrap;gap:0;margin:1.2em 0;border:1px solid var(--hair);background:var(--card);break-inside:avoid;border-radius:2px}
+.tl{flex:1 1 12%;min-width:7.5em;padding:.8em .8em .7em;border-right:1px solid var(--hair);position:relative}
+.tl:last-child{border-right:0}
+.tl .tl-t{font-size:.7em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-variant-numeric:tabular-nums}
+.tl .tl-e{font-size:.88em;margin-top:.25em}
+
+/* ---- decision tree ---- */
+.tree{margin:1.2em 0;break-inside:avoid}
+.tree .q{font-family:var(--serif);font-size:1.05em;font-weight:600;border:1px solid var(--ink);background:var(--card);padding:.7em 1em;border-radius:2px}
+.tree .branches{display:flex;gap:1em;margin-top:0;flex-wrap:wrap}
+.tree .branch{flex:1 1 28%;min-width:14em;margin-top:1em;position:relative;padding-top:.9em}
+.tree .branch::before{content:"";position:absolute;top:0;left:1.4em;height:.9em;border-left:1.5px solid var(--stone)}
+.tree .cond{font-size:.74em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--stone);margin:0 0 .35em .35em}
+.tree .ans{border:1px solid var(--hair);background:var(--card);padding:.7em .9em;font-size:.94em;border-radius:2px;height:100%}
+.tree .ans.green{border-left:4px solid var(--green)}
+.tree .ans.amber{border-left:4px solid var(--amber)}
+.tree .ans.red{border-left:4px solid var(--red)}
+
+/* ---- condition cards (section 6) ---- */
+.cond-card{border:1px solid var(--hair);background:var(--card);margin:1.2em 0;break-inside:avoid;border-radius:2px}
+.cond-card .cc-head{display:flex;justify-content:space-between;align-items:baseline;gap:1em;padding:.85em 1.1em;border-bottom:1px solid var(--hair)}
+.cond-card .cc-head h3{margin:0;font-size:1.2em}
+.cond-card .cc-body{padding:.9em 1.1em 1em}
+.cond-card dt{font-size:.7em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-top:.8em}
+.cond-card dt:first-child{margin-top:0}
+.cond-card dd{margin:.15em 0 0}
+.cond-card dd.do-not{color:var(--red)}
+
+/* ---- key-number strip ---- */
+.numstrip{display:flex;flex-wrap:wrap;gap:1em;margin:1.2em 0}
+.numstrip .k{flex:1 1 20%;min-width:9em;border:1px solid var(--hair);background:var(--card);padding:.8em .9em;border-radius:2px;break-inside:avoid}
+.numstrip .k .kv{font-family:var(--serif);font-size:1.7em;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.numstrip .k .kl{font-size:.78em;color:var(--muted);margin-top:.3em}
+
+/* ---- record card / contacts ---- */
+.record{border:1px solid var(--ink);background:var(--card);padding:1em 1.2em;margin:1.1em 0;break-inside:avoid;border-radius:2px}
+.record h3{margin:0 0 .6em;font-size:1.15em}
+.blank{display:inline-block;min-width:9em;border-bottom:1px solid var(--stone);height:1.1em;vertical-align:bottom}
+.blank.w{min-width:16em}.blank.xw{min-width:26em}
+.record .grid{display:grid;grid-template-columns:1fr 1fr;gap:.25em 2em;font-size:.95em}
+.record .grid div{padding:.3em 0;border-bottom:1px dotted var(--hair)}
+
+/* ---- svg diagram classes ---- */
+.d-womb{fill:var(--wash);stroke:var(--hair);stroke-width:2}
+.d-canal{fill:none;stroke:var(--stone);stroke-width:1.6;stroke-dasharray:5 4}
+.d-lamb{fill:#fff;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.d-leg{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.d-hoof{fill:var(--ink);stroke:none}
+.d-tail{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+.d-label{font:600 10.5px var(--sans);fill:var(--muted);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.d-lead{stroke:var(--stone);stroke-width:1;fill:none}
+.d-bad{stroke:var(--red)}
+.d-badline{fill:none;stroke:var(--red);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.d-badhoof{fill:var(--red)}
+.d-badlabel{font:700 10.5px var(--sans);fill:var(--red);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.d-fleece{fill:#fff;stroke:var(--ink);stroke-width:2}
+.d-skin{fill:#E8B4A8;stroke:var(--ink);stroke-width:1.6}
+.d-skin-dark{fill:#B96A5C;stroke:var(--ink);stroke-width:1.6}
+.d-bag{fill:#F2E3C4;fill-opacity:.55;stroke:var(--stone);stroke-width:1.6}
+.d-dot{fill:#8E4033}
+
+@media print{
+  body{padding:0;font-size:var(--base)}
+  a{color:inherit}
+  .no-print{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG SYMBOL LIBRARY ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+
+<!-- internal presentation: normal diving -->
+<symbol id="pres-normal" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="100" cy="108" rx="62" ry="42" class="d-lamb"/>
+  <path d="M148 92 Q 172 78 190 84" class="d-leg"/>
+  <circle cx="200" cy="92" r="16" class="d-lamb"/>
+  <path d="M213 86 Q 236 88 236 94 Q 236 100 212 100 Z" class="d-lamb"/>
+  <circle cx="201" cy="89" r="1.8" fill="#211E1A"/>
+  <path d="M192 78 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M150 118 C 200 112, 250 106, 296 100" class="d-leg"/>
+  <path d="M146 130 C 196 126, 244 120, 282 114" class="d-leg"/>
+  <rect x="294" y="95" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 300 98)"/>
+  <rect x="280" y="109" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 286 112)"/>
+  <path d="M62 138 q-8 16 6 20 M78 144 q-6 14 6 17" class="d-leg"/>
+  <path d="M44 96 q-14 8 -10 22" class="d-tail"/>
+  <path d="M300 88 L316 66" class="d-lead"/><text x="206" y="60" class="d-label">both front hooves, soles down</text>
+  <path d="M226 96 L246 150" class="d-lead"/><text x="186" y="164" class="d-label">nose between / just above the legs</text>
+  <text x="228" y="196" class="d-label">birth canal → rear of ewe</text>
+</symbol>
+
+<!-- one front leg back -->
+<symbol id="pres-legback" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="100" cy="108" rx="62" ry="42" class="d-lamb"/>
+  <path d="M148 92 Q 172 78 190 84" class="d-leg"/>
+  <circle cx="200" cy="92" r="16" class="d-lamb"/>
+  <path d="M213 86 Q 236 88 236 94 Q 236 100 212 100 Z" class="d-lamb"/>
+  <circle cx="201" cy="89" r="1.8" fill="#211E1A"/>
+  <path d="M192 78 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M150 118 C 200 112, 250 106, 296 100" class="d-leg"/>
+  <rect x="294" y="95" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 300 98)"/>
+  <path d="M146 130 C 152 150, 138 164, 118 166" class="d-badline"/>
+  <rect x="104" y="162" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M62 138 q-8 16 6 20" class="d-leg"/>
+  <path d="M44 96 q-14 8 -10 22" class="d-tail"/>
+  <path d="M124 168 L140 192" class="d-lead"/><text x="96" y="205" class="d-badlabel">this leg folded back</text>
+  <text x="216" y="60" class="d-label">only one hoof + nose appear</text>
+  <path d="M300 92 L302 66" class="d-lead"/>
+</symbol>
+
+<!-- both front legs back (head only) -->
+<symbol id="pres-bothback" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="96" cy="108" rx="60" ry="42" class="d-lamb"/>
+  <path d="M144 94 Q 190 82 226 92" class="d-leg"/>
+  <circle cx="244" cy="98" r="17" class="d-lamb"/>
+  <path d="M258 92 Q 284 94 284 100 Q 284 106 257 106 Z" class="d-lamb"/>
+  <circle cx="246" cy="94" r="1.8" fill="#211E1A"/>
+  <path d="M236 84 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M142 126 C 146 148, 132 162, 112 164" class="d-badline"/>
+  <rect x="98" y="160" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M128 118 C 130 140, 116 152, 96 154" class="d-badline"/>
+  <rect x="82" y="150" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M44 96 q-14 8 -10 22" class="d-tail"/>
+  <path d="M104 166 L128 194" class="d-lead"/><text x="76" y="207" class="d-badlabel">both front legs back</text>
+  <text x="216" y="56" class="d-label">head advances, no hooves —</text>
+  <text x="216" y="70" class="d-label">shoulders will jam</text>
+</symbol>
+
+<!-- head turned back -->
+<symbol id="pres-headback" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="104" cy="112" rx="62" ry="42" class="d-lamb"/>
+  <path d="M152 122 C 202 116, 252 108, 298 102" class="d-leg"/>
+  <path d="M148 134 C 198 130, 246 122, 284 116" class="d-leg"/>
+  <rect x="296" y="97" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 302 100)"/>
+  <rect x="282" y="111" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(-4 288 114)"/>
+  <path d="M156 94 C 168 72, 140 58, 112 64" class="d-badline"/>
+  <circle cx="100" cy="68" r="15" class="d-lamb" stroke="#A6392C"/>
+  <path d="M88 62 Q 64 62 64 68 Q 64 74 89 74 Z" class="d-lamb" stroke="#A6392C"/>
+  <circle cx="98" cy="65" r="1.8" fill="#211E1A"/>
+  <path d="M44 108 q-14 8 -10 22" class="d-tail"/>
+  <path d="M100 84 L120 116" class="d-lead"/><text x="60" y="132" class="d-badlabel">head turned back</text>
+  <text x="168" y="62" class="d-label">two hooves advance, no nose follows</text>
+  <path d="M300 92 L308 68" class="d-lead"/>
+</symbol>
+
+<!-- breech -->
+<symbol id="pres-breech" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="118" cy="108" rx="62" ry="42" class="d-lamb"/>
+  <circle cx="62" cy="94" r="15" class="d-lamb"/>
+  <path d="M50 88 Q 28 88 28 94 Q 28 100 51 100 Z" class="d-lamb"/>
+  <circle cx="60" cy="91" r="1.8" fill="#211E1A"/>
+  <path d="M172 96 q18 8 14 22" class="d-tail" stroke="#A6392C"/>
+  <path d="M162 128 C 150 146, 128 150, 112 146" class="d-badline"/>
+  <rect x="100" y="142" width="13" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M172 118 C 164 138, 146 144, 130 140" class="d-badline"/>
+  <path d="M186 106 L228 74" class="d-lead"/><text x="200" y="62" class="d-badlabel">rump + tail first</text>
+  <path d="M126 148 L152 186" class="d-lead"/><text x="98" y="200" class="d-badlabel">hind legs tucked away forward</text>
+  <text x="206" y="160" class="d-label">often only weak straining —</text>
+  <text x="192" y="174" class="d-label">easy to mistake for "not in labour"</text>
+</symbol>
+
+<!-- hind legs first -->
+<symbol id="pres-hind" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="112" cy="104" rx="62" ry="42" class="d-lamb"/>
+  <circle cx="56" cy="88" r="15" class="d-lamb"/>
+  <path d="M44 82 Q 22 82 22 88 Q 22 94 45 94 Z" class="d-lamb"/>
+  <circle cx="54" cy="85" r="1.8" fill="#211E1A"/>
+  <path d="M162 116 C 210 112, 254 108, 296 104" class="d-leg"/>
+  <path d="M158 128 C 206 126, 248 120, 282 116" class="d-leg"/>
+  <rect x="294" y="99" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(176 300 102)"/>
+  <rect x="280" y="111" width="13" height="7" rx="1.5" class="d-hoof" transform="rotate(176 286 114)"/>
+  <path d="M170 92 q16 6 12 18" class="d-tail"/>
+  <path d="M298 96 L310 66" class="d-lead"/><text x="196" y="58" class="d-label">two hooves, soles UP, no nose</text>
+  <text x="188" y="196" class="d-label">deliverable — but the cord pinches:</text>
+  <text x="188" y="209" class="d-label">once started it must be quick</text>
+</symbol>
+
+<!-- two lambs together -->
+<symbol id="pres-twins" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="86" cy="82" rx="50" ry="32" class="d-lamb"/>
+  <ellipse cx="92" cy="146" rx="50" ry="32" class="d-lamb"/>
+  <circle cx="152" cy="84" r="13" class="d-lamb"/>
+  <path d="M163 79 Q 182 80 182 86 Q 182 92 162 91 Z" class="d-lamb"/>
+  <path d="M124 96 C 180 96, 240 100, 288 100" class="d-badline"/>
+  <rect x="286" y="95" width="12" height="7" rx="1.5" class="d-badhoof"/>
+  <path d="M132 140 C 190 132, 240 122, 280 114" class="d-badline"/>
+  <rect x="278" y="109" width="12" height="7" rx="1.5" class="d-badhoof" transform="rotate(176 284 112)"/>
+  <path d="M120 158 C 170 156, 216 146, 252 132" class="d-badline"/>
+  <rect x="250" y="127" width="12" height="7" rx="1.5" class="d-badhoof"/>
+  <text x="192" y="60" class="d-badlabel">3+ legs, mixed soles up / down</text>
+  <path d="M280 92 L292 66" class="d-lead"/>
+  <text x="168" y="196" class="d-label">two lambs entering the canal together —</text>
+  <text x="168" y="209" class="d-label">expert sorting required</text>
+</symbol>
+
+<!-- upside down -->
+<symbol id="pres-upside" viewBox="0 0 360 216">
+  <rect x="12" y="30" width="200" height="156" rx="64" class="d-womb"/>
+  <path d="M204 82 C 260 88, 300 94, 336 100 M204 134 C 260 128, 300 122, 336 116" class="d-canal"/>
+  <path d="M338 92 q8 16 0 32" class="d-tail"/>
+  <ellipse cx="100" cy="106" rx="62" ry="42" class="d-lamb"/>
+  <circle cx="200" cy="120" r="16" class="d-lamb"/>
+  <path d="M213 116 Q 236 116 236 122 Q 236 128 212 128 Z" class="d-lamb"/>
+  <circle cx="201" cy="117" r="1.8" fill="#211E1A"/>
+  <path d="M150 96 C 200 100, 250 104, 296 108" class="d-badline"/>
+  <path d="M146 84 C 196 90, 244 96, 282 100" class="d-badline"/>
+  <rect x="294" y="103" width="13" height="7" rx="1.5" class="d-badhoof" transform="rotate(176 300 106)"/>
+  <rect x="280" y="95" width="13" height="7" rx="1.5" class="d-badhoof" transform="rotate(176 286 98)"/>
+  <text x="188" y="58" class="d-badlabel">soles UP — but a nose shows too</text>
+  <path d="M296 100 L310 64" class="d-lead"/>
+  <text x="176" y="196" class="d-label">lamb lying spine-down (upside down) —</text>
+  <text x="176" y="209" class="d-label">must be rotated by trained hands</text>
+</symbol>
+
+<!-- external rear views: what's protruding -->
+<symbol id="ext-base-bag" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="72" rx="66" ry="56" class="d-fleece"/>
+  <path d="M85 26 q10 26 0 52" class="d-tail"/>
+  <ellipse cx="85" cy="92" rx="9" ry="13" class="d-skin"/>
+  <path d="M85 104 C 70 116, 68 138, 82 150 C 98 158, 112 144, 108 126 C 105 114, 96 108, 85 104 Z" class="d-bag"/>
+  <path d="M92 118 q8 8 4 20" fill="none" stroke="#fff" stroke-width="2" opacity=".8"/>
+  <text x="30" y="166" class="d-label">translucent, fluid inside</text>
+</symbol>
+<symbol id="ext-base-bearing" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="72" rx="66" ry="56" class="d-fleece"/>
+  <path d="M85 26 q10 26 0 52" class="d-tail"/>
+  <circle cx="85" cy="118" r="26" class="d-skin"/>
+  <path d="M74 104 q10 -6 22 0" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/>
+  <text x="24" y="166" class="d-label">smooth pink ball, no bumps</text>
+</symbol>
+<symbol id="ext-base-uterine" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="62" rx="66" ry="52" class="d-fleece"/>
+  <path d="M85 18 q10 24 0 48" class="d-tail"/>
+  <path d="M85 92 C 60 100, 50 124, 56 142 C 62 160, 82 168, 96 162 C 114 156, 122 136, 116 118 C 111 103, 98 94, 85 92 Z" class="d-skin-dark"/>
+  <circle cx="72" cy="122" r="4" class="d-dot"/><circle cx="90" cy="112" r="4" class="d-dot"/>
+  <circle cx="102" cy="130" r="4" class="d-dot"/><circle cx="80" cy="142" r="4" class="d-dot"/>
+  <circle cx="96" cy="150" r="4" class="d-dot"/><circle cx="64" cy="138" r="3.4" class="d-dot"/>
+  <text x="6" y="167" class="d-label">LARGE mass, button-like bumps</text>
+</symbol>
+<symbol id="ext-base-placenta" viewBox="0 0 170 170">
+  <ellipse cx="85" cy="62" rx="66" ry="52" class="d-fleece"/>
+  <path d="M85 18 q10 24 0 48" class="d-tail"/>
+  <ellipse cx="85" cy="102" rx="8" ry="11" class="d-skin"/>
+  <path d="M84 110 C 78 124, 84 132, 78 146 C 74 156, 80 162, 76 168 M92 110 C 96 126, 88 136, 94 152 C 97 160, 92 164, 95 169" fill="none" stroke="#B96A5C" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="80" cy="132" r="3" class="d-dot"/><circle cx="93" cy="142" r="3" class="d-dot"/>
+  <text x="14" y="166" class="d-label">hanging membranes + buttons</text>
+</symbol>
+
+<!-- lamb posture: full vs hungry -->
+<symbol id="lamb-full" viewBox="0 0 220 130">
+  <path d="M40 78 C 40 52, 70 42, 110 42 C 150 42, 176 52, 176 76 C 176 94, 156 102, 110 102 C 72 102, 40 98, 40 78 Z" class="d-lamb"/>
+  <circle cx="186" cy="52" r="15" class="d-lamb"/>
+  <path d="M198 46 Q 216 48 216 54 Q 216 60 197 60 Z" class="d-lamb"/>
+  <circle cx="188" cy="49" r="1.7" fill="#211E1A"/>
+  <path d="M180 38 l-9 -13 12 4 z" class="d-lamb"/>
+  <path d="M64 100 l0 22 M96 102 l0 20 M140 102 l0 20 M166 96 l0 24" class="d-leg"/>
+  <path d="M40 70 q-12 6 -8 16" class="d-tail"/>
+  <text x="60" y="24" class="d-label">level back · round belly</text>
+</symbol>
+<symbol id="lamb-hungry" viewBox="0 0 220 130">
+  <path d="M44 92 C 46 66, 74 44, 110 40 C 142 38, 164 52, 170 72 C 174 88, 160 98, 116 98 C 78 98, 46 104, 44 92 Z" class="d-lamb"/>
+  <path d="M74 46 Q 108 26 150 42" class="d-badline"/>
+  <circle cx="182" cy="86" r="14" class="d-lamb"/>
+  <path d="M193 84 Q 210 86 210 92 Q 210 98 192 96 Z" class="d-lamb"/>
+  <circle cx="184" cy="84" r="1.7" fill="#211E1A"/>
+  <path d="M178 74 l-10 -11 11 2 z" class="d-lamb"/>
+  <path d="M66 98 l-2 22 M92 98 l0 20 M138 98 l2 20 M160 96 l4 22" class="d-leg"/>
+  <text x="16" y="18" class="d-badlabel">arched back · head low · hollow flank</text>
+</symbol>
+
+<!-- valais cover mark -->
+<symbol id="valais-mark" viewBox="0 0 200 200">
+  <path d="M100 33 A30 30 0 0 1 151 54 A30 30 0 0 1 172 105 A30 30 0 0 1 151 156 A30 30 0 0 1 100 177 A30 30 0 0 1 49 156 A30 30 0 0 1 28 105 A30 30 0 0 1 49 54 A30 30 0 0 1 100 33 Z" fill="none" stroke="#211E1A" stroke-width="2.2"/>
+  <path d="M100 66 C 84 68, 76 86, 78 106 C 80 128, 88 146, 100 150 C 112 146, 120 128, 122 106 C 124 86, 116 68, 100 66 Z" fill="#211E1A"/>
+  <ellipse cx="61" cy="84" rx="15" ry="7.5" fill="#211E1A" transform="rotate(-28 61 84)"/>
+  <ellipse cx="139" cy="84" rx="15" ry="7.5" fill="#211E1A" transform="rotate(28 139 84)"/>
+  <path d="M70 66 C 54 50, 32 56, 30 76 C 29 92, 44 100, 56 93 C 64 88, 65 78, 58 74" fill="none" stroke="#211E1A" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M130 66 C 146 50, 168 56, 170 76 C 171 92, 156 100, 144 93 C 136 88, 135 78, 142 74" fill="none" stroke="#211E1A" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M84 64 A17 15 0 0 1 116 64 A16 14 0 0 1 100 74 A16 14 0 0 1 84 64 Z" fill="#FAF7F1" stroke="#211E1A" stroke-width="2"/>
+</symbol>
+</defs>
+</svg>
+
+<div class="page">
+
+<!-- ================= COVER ================= -->
+<header class="cover">
+  <div>
+    <div class="edition">New Zealand Edition · MMXXVI</div>
+    <h1>First Lambing Season</h1>
+    <p class="sub">A practical field guide for Valais Blacknose ewes</p>
+    <div class="cover-art"><svg width="150" height="150" role="img" aria-label="Line illustration of a Valais Blacknose sheep head"><use href="#valais-mark"/></svg></div>
+  </div>
+  <div class="foot">
+    <span>Companion volume: <em>Lambing Emergency Guide</em></span>
+    <span>Compiled August 2026</span>
+  </div>
+</header>
+
+<!-- ================= 1. QUICK-START ================= -->
+<section id="s1">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 1</div>
+    <h2>Quick-start overview</h2>
+    <p class="lede">Everything in this handbook expands on this section. If you read nothing else before the first ewe bags up, read these two pages.</p>
+  </div>
+
+  <h4>How urgency is shown</h4>
+  <p>
+    <span class="badge b-green">Green — normal · observe</span>&ensp;
+    <span class="badge b-amber">Amber — monitor · prepare</span>&ensp;
+    <span class="badge b-red">Red — call the vet now</span>
+  </p>
+  <p style="font-size:.92em;color:var(--muted)">Colour is never the only carrier: every label also states the word, so the system survives grayscale printing and colour-blindness.</p>
+
+  <h3>The final two weeks — normal</h3>
+  <ul>
+    <li>Udder fills and firms (“bagging up”), from 1–4 weeks out. In Valais, part the belly wool to see it.</li>
+    <li>Vulva lengthens, softens, pinkens.</li>
+    <li>Tail-head ligaments slacken — rump looks sunken in the last 24–48 h.</li>
+    <li>Ewe slows, lies more, keeps to herself; appetite may dip in the last days.</li>
+  </ul>
+
+  <h3>The final 24 hours — normal</h3>
+  <ul>
+    <li>Separates from the flock; seeks a quiet corner.</li>
+    <li>Restless: pawing/“nesting”, up and down, flank-watching, soft bleating.</li>
+    <li>Clear or slightly cloudy mucus string from the vulva; may go off feed.</li>
+  </ul>
+
+  <h3>The three stages of labour</h3>
+  <table class="t-num">
+    <tr><th style="width:16%">Stage</th><th>What happens</th><th style="width:20%">Normal duration</th><th style="width:28%">When it turns AMBER / RED</th></tr>
+    <tr><td><b>1</b> — cervix opens</td><td>Restless, paws, separates, mucus string; little or no straining</td><td>3–6 h (first-timers up to ~12 h)</td><td>AMBER: no progression after 6–8 h · RED: she turns dull or goes down</td></tr>
+    <tr><td><b>2</b> — lamb delivered</td><td>Water bag → feet → nose → lamb; strong rhythmic straining</td><td>Lamb within 30–60 min of the bag; ~30 min of feet showing</td><td><b>RED: 30 min hard straining, no progress</b> · RED: 1 h after bag, no lamb</td></tr>
+    <tr><td><b>3</b> — placenta</td><td>Ewe licks lamb; afterbirth hangs, then drops</td><td>2–3 h (≤6 h fine)</td><td>AMBER→vet: not passed by 12–18 h · never pull</td></tr>
+  </table>
+
+  <div class="numstrip">
+    <div class="k"><div class="kv num">30 min</div><div class="kl">hard straining without progress = ring the vet</div></div>
+    <div class="k"><div class="kv num">2 h</div><div class="kl">latest the lamb should have its first suck</div></div>
+    <div class="k"><div class="kv num">50 ml/kg</div><div class="kl">colostrum in the first feed (≈200 ml for a 4 kg lamb)</div></div>
+    <div class="k"><div class="kv num">39–40 °C</div><div class="kl">normal newborn lamb temperature — below 39 °C, act</div></div>
+  </div>
+
+  <h3>Warning signs that always matter</h3>
+  <ul>
+    <li><span class="badge b-red">Red</span>&ensp;30 minutes of hard straining with nothing appearing — or no further progress.</li>
+    <li><span class="badge b-red">Red</span>&ensp;Head with no feet · one foot only · tail only · hooves soles-up with no nose.</li>
+    <li><span class="badge b-red">Red</span>&ensp;Any red/pink mass of tissue protruding (prolapse), before or after lambing.</li>
+    <li><span class="badge b-red">Red</span>&ensp;Fresh blood dripping, running or pooling.</li>
+    <li><span class="badge b-red">Red</span>&ensp;Ewe down, dull, “blind”, trembling or collapsed — before or after lambing.</li>
+    <li><span class="badge b-red">Red</span>&ensp;Lamb not breathing, or cold and floppy.</li>
+    <li><span class="badge b-amber">Amber</span>&ensp;Lamb not sucking by 2 hours.</li>
+  </ul>
+
+  <div class="callout co-stop">
+    <div class="co-tag">When to call the vet — the one-line rule</div>
+    <p>If you have watched for <b>30 minutes</b> and things are not clearly moving forward — or you see any RED sign — <b>ring the vet.</b> A too-early call costs a phone call. A late one can cost the ewe and the lamb.</p>
+  </div>
+</section>
+
+<!-- ================= 2. PREPARING ================= -->
+<section id="s2">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 2</div>
+    <h2>Preparing before lambing</h2>
+    <p class="lede">Preparation is the cheapest veterinary intervention there is. Everything here happens at least two weeks before the first due date.</p>
+  </div>
+
+  <h3>Environment</h3>
+  <ul class="check">
+    <li><b>Lambing paddock</b> — sheltered, well-drained, near the house, hazard-checked (troughs, gaps, dogs).</li>
+    <li><b>Shelter</b> — the NZ spring killer is <b>wind + rain + cold together</b>; shelter from the prevailing southerly beats warmth.</li>
+    <li><b>Pens</b> — at least one clean covered pen (~1.5 × 1.5 m); two is comfortable for three ewes.</li>
+    <li><b>Bedding</b> — deep dry straw or untreated shavings; replaced between ewes.</li>
+    <li><b>Lighting</b> — shed light working; head torch charged.</li>
+    <li><b>Water</b> — clean, fresh, at a height lambs cannot drown in.</li>
+    <li><b>Hygiene</b> — pens cleaned and disinfected pre-season; gloves and hand-washing between animals.</li>
+    <li><b>Isolation</b> — somewhere to separate a sick ewe or lamb.</li>
+    <li><b>Containment</b> — calm gates/hurdles. Valais are quiet and people-friendly: use that; never chase.</li>
+    <li><b>Mud</b> — rotate gateways and feed areas; mud drives navel infection and chilling.</li>
+  </ul>
+
+  <h3>The lambing kit</h3>
+  <table>
+    <tr><th>Item</th><th>Why</th><th>When used</th><th style="width:12%">Beginner-safe?</th><th>Caution</th></tr>
+    <tr><td>Disposable gloves</td><td>Hygiene both ways</td><td>All handling</td><td>✔ Yes</td><td>Change between animals</td></tr>
+    <tr><td>Long obstetric gloves</td><td>For any internal exam</td><td>Trained hands only</td><td>▲ With instruction</td><td>Internal exams are not a beginner task</td></tr>
+    <tr><td>Obstetric lubricant</td><td>Prevents trauma</td><td>Any assistance</td><td>▲ With instruction</td><td>Use generously; never assist “dry”</td></tr>
+    <tr><td>Clean towels (many)</td><td>Dry, grip, warm</td><td>Every birth</td><td>✔ Yes</td><td>Wash between uses</td></tr>
+    <tr><td>Iodine navel spray/dip</td><td>Prevents navel / joint ill</td><td>Within 15 min of birth; repeat 2–4 h</td><td>✔ Yes</td><td>Cover cord and base fully</td></tr>
+    <tr><td>Digital thermometer</td><td>Objective triage</td><td>Any dull/cold animal</td><td>✔ Yes</td><td>Lamb normal 38.5–39.5 °C</td></tr>
+    <tr><td>Head torch + batteries</td><td>Night checks</td><td>Nightly</td><td>✔ Yes</td><td>—</td></tr>
+    <tr><td>Bucket + disinfectant</td><td>Clean water, clean hands</td><td>As needed</td><td>✔ Yes</td><td>Separate drinking bucket</td></tr>
+    <tr><td>Lambing ropes / snare</td><td>Hold a correctly-placed leg</td><td>Trained assistance only</td><td>✖ Not untrained</td><td>Never on a jaw; never for force</td></tr>
+    <tr><td>Bottle + lamb teat</td><td>Feeding backup</td><td>First 24 h+</td><td>✔ Yes</td><td>Only for a warm lamb that can swallow</td></tr>
+    <tr><td>Stomach tube + syringe</td><td>Feeding a weak lamb</td><td>Weak lambs</td><td>✖ Only if shown</td><td>A tube in the windpipe kills — get taught first</td></tr>
+    <tr><td>Colostrum (frozen / ewe-specific powder)</td><td>Life-saving first feed</td><td>First 24 h</td><td>✔ Yes</td><td>Thaw in warm water; never microwave/boil</td></tr>
+    <tr><td>Warming box / lamp / wheat bags</td><td>Reviving chilled lambs</td><td>Lamb &lt; 39 °C</td><td>✔ Yes</td><td>Warm air ~35–40 °C; nothing hot touching the lamb</td></tr>
+    <tr><td>Small digital scales</td><td>Weight = earliest starvation alarm</td><td>Birth + daily if concerned</td><td>✔ Yes</td><td>Same time each day</td></tr>
+    <tr><td>Notebook / record card</td><td>Times matter</td><td>Every lambing</td><td>✔ Yes</td><td>Cards at back of this book</td></tr>
+    <tr><td>Clean lidded container</td><td>Colostrum storage</td><td>If milking the ewe</td><td>✔ Yes</td><td>Label and date</td></tr>
+    <tr><td>Stock marker spray</td><td>Match lambs to ewes</td><td>Multiples / moves</td><td>✔ Yes</td><td>—</td></tr>
+    <tr><td>Phone + power bank</td><td>You call from a paddock</td><td>Always</td><td>✔ Yes</td><td>Save day + after-hours vet numbers now</td></tr>
+    <tr><td>20% glucose/dextrose + 50–60 ml syringes + sterile 1″ needles</td><td>IP injection for a collapsed cold lamb</td><td>Lamb &lt;37 °C, &gt;5 h, can’t swallow</td><td>▲ With instruction</td><td>Learn site + technique before lambing — <i>Far From Help</i> supplement</td></tr>
+    <tr><td>Bearing spoon + prolapse harness</td><td>Keeping a replaced bearing in</td><td>After replacing a bearing</td><td>▲ With instruction</td><td>Buy before lambing — <i>Far From Help</i></td></tr>
+  </table>
+
+  <div class="callout co-note">
+    <div class="co-tag">Clinical note — get taught before the season</div>
+    <p>Anything marked ▲ or ✖ should be demonstrated by your vet or an experienced sheep farmer <b>before</b> lambing. Many NZ clinics run pre-lambing smallholder evenings in winter — ask yours, and ask them to show you stomach-tubing on that visit.</p>
+  </div>
+</section>
+
+<!-- ================= 3. LATE PREGNANCY ================= -->
+<section id="s3">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 3</div>
+    <h2>Understanding late pregnancy</h2>
+    <p class="lede">Your job in the last fortnight is pattern-recognition: learn each ewe’s normal so the abnormal announces itself.</p>
+  </div>
+
+  <p><b>Udder (“bagging up”).</b> Enlarges and firms from 1–4 weeks out; tight with filling teats in the last days, sometimes a wax plug on each teat. Valais belly wool hides it — part the wool or feel gently.</p>
+  <p><b>Vulva.</b> Longer, softer, pinker, mildly swollen over the final 1–2 weeks; a mucus string in the final hours.</p>
+  <p><b>Pelvic ligaments.</b> Either side of the tail head the ligaments soften — the sunken-rump look of the last 24–48 h.</p>
+  <p><b>Behaviour.</b> Slower, lies more, separates; pawing, circling, up-and-down signal stage 1. A normally friendly Valais who stands apart is telling you something.</p>
+
+  <table>
+    <caption>Normal versus concerning — late pregnancy</caption>
+    <tr><th>Sign</th><th>Normal <span class="badge b-green">Green</span></th><th>Watch <span class="badge b-amber">Amber</span></th><th>Call the vet <span class="badge b-red">Red</span></th></tr>
+    <tr><td>Udder</td><td>Gradual filling over weeks</td><td>Sudden hot, hard, painful; one side much larger</td><td>Hot painful udder + sick ewe (mastitis)</td></tr>
+    <tr><td>Vulva</td><td>Soft, pink, mild swelling; mucus near lambing</td><td>Small pink bulge when lying that retreats on standing</td><td>Any mass that stays out (bearing) · smelly or bloody discharge before labour</td></tr>
+    <tr><td>Appetite</td><td>Slight dip in final days</td><td>Off feed a full day</td><td>Off feed + dull / “blind” / staggery — sleepy sickness</td></tr>
+    <tr><td>Behaviour</td><td>Quieter, separates, nests</td><td>Restless hours without progressing</td><td>Down, trembling, teeth-grinding — sleepy sickness or milk fever</td></tr>
+    <tr><td>Movement</td><td>Slower, heavier</td><td>Limping — check feet (Valais can be footrot-prone on wet ground)</td><td>Unable to stand</td></tr>
+  </table>
+
+  <div class="callout co-warn">
+    <div class="co-tag">Two late-pregnancy emergencies — both look like “the ewe is down or dopey before lambing”</div>
+    <p><b>Sleepy sickness (pregnancy toxaemia / twin-lamb disease):</b> off feed, dull, seems blind, head-pressing or star-gazing, staggery, then down. Energy shortfall in ewes carrying multiples. <b>RED — ring the vet; survival depends on early treatment.</b></p>
+    <p><b>Milk fever (hypocalcaemia):</b> sudden — often after yarding, weather or transport: wobbly, trembling, then flat, sometimes bloated. <b>RED — fatal in hours untreated, very treatable by a vet.</b> Never drench a flat ewe: she can inhale it.</p>
+  </div>
+</section>
+
+<!-- ================= 4. NORMAL LAMBING ================= -->
+<section id="s4">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 4</div>
+    <h2>Normal lambing, step by step</h2>
+    <p class="lede">Most Valais ewes will do all of this alone at 2 a.m. and greet you smugly at dawn. Your skill is timing what you see — and staying out of the way.</p>
+  </div>
+
+  <h3>Stage 1 — the cervix opens <span class="badge b-green">Green</span></h3>
+  <p><b>She:</b> separates, paws and nests, up and down, flank-watching, lip-curling, soft bleats; mild irregular straining late on. <b>You:</b> note the start time; watch from a distance every 30–60 min. Do not pen, chase or fuss — interference stalls early labour. <b>Duration:</b> 3–6 h (longer in first-timers). <b>Concern:</b> frantic behaviour beyond 6–8 h that never becomes straining, or dullness replacing restlessness.</p>
+
+  <h3>Stage 2 — delivery <span class="badge b-green">Green</span>, clock running</h3>
+  <div class="timeline">
+    <div class="tl"><div class="tl-t num">0 min</div><div class="tl-e">Water bag appears</div></div>
+    <div class="tl"><div class="tl-t num">10–40 min</div><div class="tl-e">Two hooves, then nose</div></div>
+    <div class="tl"><div class="tl-t num">30–60 min</div><div class="tl-e"><b>Lamb born</b></div></div>
+    <div class="tl"><div class="tl-t num">+5 min</div><div class="tl-e">Head shake; up on chest; ewe licking</div></div>
+    <div class="tl"><div class="tl-t num">+15–30 min</div><div class="tl-e">Stands</div></div>
+    <div class="tl"><div class="tl-t num">+30–60 min</div><div class="tl-e"><b>First suck</b></div></div>
+    <div class="tl"><div class="tl-t num">+10–45 min</div><div class="tl-e">Next lamb, if twins</div></div>
+    <div class="tl"><div class="tl-t num">+2–3 h</div><div class="tl-e">Placenta passed</div></div>
+  </div>
+  <p>Straining is strong and rhythmic; expect visible progress every 10–15 minutes once feet show. Timings are ranges, not deadlines — what matters is <b>progress</b>.</p>
+
+  <div class="callout co-stop">
+    <div class="co-tag">Stop — call the vet</div>
+    <p><b>Hard straining for 30 minutes with no progress</b> — nothing appearing, or the same two hooves not advancing — means the lamb may be stuck. Ring now; the vet drives while things are still saveable.</p>
+  </div>
+
+  <h3>Stage 3 — the placenta <span class="badge b-green">Green</span></h3>
+  <p>Red-purple membranes hang, then drop, usually by <span class="num">2–3 h</span> (≤6 h fine). The ewe may eat it — normal. <b>Never pull hanging membranes.</b> Not passed by 12–18 h, or the ewe is dull or the discharge smells → ring the vet (Section 6).</p>
+</section>
+
+<!-- ================= 5. PRESENTATION ================= -->
+<section id="s5">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 5</div>
+    <h2>Normal and abnormal presentation</h2>
+    <p class="lede"><b>Presentation</b> — which part of the lamb comes first and how legs and head are arranged. It decides whether a birth flows or jams. Learn one picture well: the diver. Everything else is “not the diver”.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 360 216" role="img" aria-label="Diagram of normal lamb presentation: two front hooves soles down with the nose between them, entering the birth canal like a diver"><use href="#pres-normal"/></svg>
+    <figcaption><b>NORMAL — the diving position.</b> Two front hooves, soles down, one usually slightly ahead; nose resting between or just above them. Head and shoulders follow. <b>Two toes + a nose = GREEN.</b> Anything else = at least AMBER.</figcaption>
+  </figure>
+
+  <div class="fig-row">
+    <figure>
+      <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: one front leg back — one hoof and nose visible"><use href="#pres-legback"/></svg>
+      <figcaption><b>One front leg back.</b> Externally: one hoof + nose. <span class="badge b-red">Red</span> if not delivered within 30 min. Correction means repelling the head and fetching the leg — <b>trained hands, not yours.</b></figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: both front legs back — head only visible"><use href="#pres-bothback"/></svg>
+      <figcaption><b>Both front legs back.</b> Externally: head only, often a swelling tongue. Shoulders jam. <span class="badge b-red">Red now.</span> Keep the head moist; never pull it. A swollen tongue does not mean a dead lamb.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: head turned back — two hooves but no nose"><use href="#pres-headback"/></svg>
+      <figcaption><b>Head turned back.</b> Externally: two soles-down hooves advance but no nose follows. <span class="badge b-red">Red now</span> — one of the harder corrections; vet.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: breech — rump and tail first, hind legs tucked forward"><use href="#pres-breech"/></svg>
+      <figcaption><b>Breech.</b> Externally: tail only, or a soft dome — and often only <i>weak</i> straining, so a “quiet” ewe making no progress can be a breech. <span class="badge b-red">Red now.</span></figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: hind legs first — two hooves soles up, no nose"><use href="#pres-hind"/></svg>
+      <figcaption><b>Hind legs first.</b> Externally: two hooves <b>soles up</b>, no nose. Deliverable — but the cord pinches once delivery starts, so it must be quick. <span class="badge b-amber">Amber</span> → <span class="badge b-red">Red</span> if not progressing in 15–20 min; assist only with experienced help present or the vet on the phone.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: lamb upside down — soles up but a nose also shows"><use href="#pres-upside"/></svg>
+      <figcaption><b>Upside down.</b> Externally: soles up <b>and</b> a nose. The lamb must be rotated before delivery. <span class="badge b-red">Red.</span></figcaption>
+    </figure>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 360 216" role="img" aria-label="Diagram: two lambs entering the birth canal together — three or more legs visible"><use href="#pres-twins"/></svg>
+    <figcaption><b>Two lambs together.</b> Externally: three or more legs, soles pointing different ways, possibly parts that don’t add up. Sorting which leg belongs to which lamb is expert work. <span class="badge b-red">Red now.</span></figcaption>
+  </figure>
+
+  <div class="callout co-note">
+    <div class="co-tag">The honest rule for a first season</div>
+    <p>You are not expected to correct a malpresentation. Your job is to <b>recognise “not the diver” early and get the right hands there fast</b> — the vet, or an experienced neighbour while the vet travels. That judgement made at 30 minutes, not 3 hours, is what saves lambs.</p>
+  </div>
+</section>
+
+<!-- ================= 6. COMPLICATIONS ================= -->
+<section id="s6">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 6</div>
+    <h2>Common complications</h2>
+    <p class="lede">Same format every time: what it is · what you may see · urgency · what you can safely do · what not to do · when to call. Safe first aid is labelled; everything else belongs to the vet or an experienced farmer.</p>
+  </div>
+
+  <div class="callout co-note"><div class="co-tag">Vet a long drive away?</div>
+    <p>The procedures marked “trained hands” below are farmer-taught skills on remote properties. The full published steps — correcting a malpresentation, stomach-tubing, the IP glucose injection, replacing a bearing — are in the companion <b><i>Far From Help</i></b> supplement. Learn them before lambing; ring the vet first regardless.</p></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Prolonged labour / failure to progress</h3><span class="badge b-red">Red at 30 min</span></div><div class="cc-body"><dl>
+    <dt>What it is</dt><dd>Any stage that stalls: straining with nothing appearing, feet that stop advancing, or restlessness that never becomes labour.</dd>
+    <dt>Safely do</dt><dd>Pen her calmly if easy; time everything; ring the vet and describe exactly what you can see; set out warm water, soap, towels, lube.</dd>
+    <dt>Do not</dt><dd class="do-not">Repeatedly disturb her · go internal “to check” untrained · give any drug.</dd>
+    <dt>Call the vet if</dt><dd>The 30-minute rule trips — don’t wait to be sure.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Dystocia — difficult or obstructed birth</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What it is</dt><dd>The umbrella term for a lamb that cannot be delivered unaided: malpresentation, oversized lamb, ringwomb, two together.</dd>
+    <dt>Safely do</dt><dd><b>Only if presentation is confirmed normal</b> (two soles-down hooves + nose) and she is straining well but slow: clean gloved hands, plenty of lubricant, grip both legs above the fetlocks, pull <b>gently, only during her strains, downward in a curve toward her hocks</b>. One assisted strain with no movement → stop, ring.</dd>
+    <dt>Do not</dt><dd class="do-not">Pull a head, a jaw or a single leg · pull between contractions · pull anything unidentified · use ropes or mechanical force.</dd>
+    <dt>Call the vet if</dt><dd>Any resistance, any confusion about what you feel, or 5 minutes of gentle help achieves nothing.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Oversized lamb</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Normal presentation stuck at head/shoulders; a protruding head with a swelling tongue (classic with single lambs in well-fed ewes).</dd>
+    <dt>Safely do</dt><dd>Keep the exposed head moist with a clean wet towel; keep membranes off the nose; ring the vet.</dd>
+    <dt>Do not</dt><dd class="do-not">Apply traction to the head.</dd>
+    <dt>Call the vet</dt><dd>Immediately — some need a caesarean, and early calls mean both survive.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Ringwomb — incomplete cervical dilation</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Hours of stage-1 behaviour, perhaps membranes visible, but no feet and weak straining — the door never opens.</dd>
+    <dt>Safely do</dt><dd>Nothing internal. Ring the vet — true ringwomb usually means caesarean.</dd>
+    <dt>Do not</dt><dd class="do-not">Attempt to stretch anything.</dd>
+    <dt>Call the vet if</dt><dd>Persistent stage 1 (6–8 h) with no stage 2.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Uterine inertia — contractions fade</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Labour that starts, then fades away; a dull ewe. Often rides with milk fever.</dd>
+    <dt>Safely do</dt><dd>Ring the vet.</dd>
+    <dt>Do not</dt><dd class="do-not">Wait “in case she starts again”.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Vaginal prolapse — “bearing” (before lambing)</h3><span class="badge b-red">Red once it stays out</span></div><div class="cc-body"><dl>
+    <dt>What it is</dt><dd>The vagina pushes out through the vulva under late-pregnancy pressure. NZ farmers call it a bearing.</dd>
+    <dt>What you may see</dt><dd>A smooth pink/red rounded mass, orange-to-grapefruit sized — at first only when lying, later staying out.</dd>
+    <dt>Safely do</dt><dd>Pen her quietly · keep the tissue clean and moist (clean lukewarm-wet towel held over it) · keep stock and flies off · follow your vet’s prior instructions if they have shown you replacement and a retainer.</dd>
+    <dt>Do not</dt><dd class="do-not">Push it back unwashed or unguided · replace a dry or dirty prolapse · leave her unwatched (a bearing can hide or complicate labour).</dd>
+    <dt>Call the vet if</dt><dd>It stays out — always. Tell the vet she is due to lamb; plan her lambing together. Don’t breed her again (bearings recur).</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Uterine prolapse (after lambing)</h3><span class="badge b-red">Red — top emergency</span></div><div class="cc-body"><dl>
+    <dt>What it is</dt><dd>The whole uterus turns inside-out and comes out, usually within hours of lambing.</dd>
+    <dt>What you may see</dt><dd>A <b>large</b> red/purple mass hanging as far as the hocks, covered in raised button-like bumps (cotyledons) — the buttons are how you know it is uterus, not a bearing.</dd>
+    <dt>Safely do</dt><dd>Ring immediately and say “uterine prolapse” · keep her still and quiet, ideally lying · support and cover the mass with a clean towel soaked in clean lukewarm water · keep it off the ground · keep lambs near if she is calm.</dd>
+    <dt>Do not</dt><dd class="do-not">Attempt replacement (the vet uses an epidural) · let her run or be chased · wash with anything stronger than clean water or saline.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Retained placenta</h3><span class="badge b-amber">Amber 12–18 h · Red if sick</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Membranes still hanging 12–18+ hours after birth, or a smell developing (metritis — womb infection).</dd>
+    <dt>Safely do</dt><dd>Trim dangling membranes below the hocks with clean scissors · keep her clean · check appetite and demeanour twice daily.</dd>
+    <dt>Do not</dt><dd class="do-not">Pull — ever · tie weights to it.</dd>
+    <dt>Call the vet if</dt><dd>Beyond 18 h, or any dullness, fever or foul smell.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Excessive bleeding</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Normal: blood-tinged fluid and light streaks. Abnormal: fresh blood <b>dripping, running or pooling</b>, large clots, a pale weak ewe.</dd>
+    <dt>Safely do</dt><dd>Keep her still and quiet · note amount and rate for the vet (“cupful”, “steady drip”, “pooling”).</dd>
+    <dt>Do not</dt><dd class="do-not">Go internal to find it · pack the vagina · give any drug.</dd>
+    <dt>Call the vet</dt><dd>Immediately.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Sleepy sickness — pregnancy toxaemia</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Late pregnancy, usually multiples: off feed, dull, apparently blind, head-pressing, star-gazing, staggering, then down.</dd>
+    <dt>Safely do</dt><dd>Ring the vet · if she can swallow and your vet advises it by phone, give an oral energy drench (propylene-glycol product from your kit) · feed, water, shelter.</dd>
+    <dt>Do not</dt><dd class="do-not">Drench a flat ewe or one that can’t swallow · assume she’ll come right — untreated ewes die with their lambs.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Milk fever — hypocalcaemia</h3><span class="badge b-red">Red — hours matter</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Sudden, often post-stress: wobbly, trembling, then flat on her side, sometimes bloated.</dd>
+    <dt>Safely do</dt><dd>Prop her upright on her chest with a bale (stops bloat) · shade and shelter · ring the vet — response to calcium is dramatic and diagnostic.</dd>
+    <dt>Do not</dt><dd class="do-not">Drench her · inject calcium untrained (dosing and placement need instruction; intravenous calcium is vet-only).</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Mastitis</h3><span class="badge b-amber">Amber early · Red if sick</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>One side hot, hard, swollen, painful; ewe walks stiffly behind, won’t let lambs suck; milk watery, clotted or bloody. Worst form: udder skin cold and blue-black. <b>A suddenly-hungry lamb is often the first sign.</b></dd>
+    <dt>Safely do</dt><dd>Gently strip a squirt from each teat onto a dark surface daily in week one · bottle-feed the lambs if she won’t.</dd>
+    <dt>Do not</dt><dd class="do-not">Ignore it — it advances fast. Antibiotics and anti-inflammatories are veterinary decisions in NZ (restricted veterinary medicines).</dd>
+    <dt>Call the vet if</dt><dd>Heat + pain + abnormal milk, discoloured skin, or any sick ewe.</dd>
+  </dl></div></div>
+
+  <div class="cond-card"><div class="cc-head"><h3>Ewe down · collapse · suspected infection</h3><span class="badge b-red">Red</span></div><div class="cc-body"><dl>
+    <dt>What you may see</dt><dd>Down and can’t rise; or fever signs — dull, fast breathing, off feed, temperature over 40 °C; or cold, pale and flat. Causes range from milk fever to metritis to internal bleeding — you don’t need to diagnose.</dd>
+    <dt>Safely do</dt><dd>Prop upright on her chest · shelter · water in reach · take her temperature if safe (normal 38.3–39.9 °C).</dd>
+    <dt>Do not</dt><dd class="do-not">Lift by the wool · drench a flat ewe.</dd>
+    <dt>Call the vet</dt><dd>Immediately.</dd>
+  </dl></div></div>
+
+  <h3>Terminology — four things that come out of a ewe</h3>
+  <div class="fig-row">
+    <figure>
+      <svg viewBox="0 0 170 170" role="img" aria-label="Rear view diagram: water bag — a translucent fluid-filled sac at the vulva"><use href="#ext-base-bag"/></svg>
+      <figcaption><b>Water bag</b> (fetal membranes) — translucent, fluid-filled, often bursts. <span class="badge b-green">Green</span> Start your stage-2 clock.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 170 170" role="img" aria-label="Rear view diagram: vaginal prolapse or bearing — a smooth pink ball at the vulva"><use href="#ext-base-bearing"/></svg>
+      <figcaption><b>Vaginal prolapse — “bearing”</b> (usually <i>before</i> lambing) — smooth pink/red ball, orange→grapefruit size, no bumps. <span class="badge b-red">Red</span> once it stays out.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 170 170" role="img" aria-label="Rear view diagram: uterine prolapse — a large dark mass with button-like bumps hanging low"><use href="#ext-base-uterine"/></svg>
+      <figcaption><b>Uterine prolapse</b> (<i>after</i> lambing) — large ragged red/purple mass with button-like cotyledons, may hang to the hocks. <span class="badge b-red">Red — emergency.</span></figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 170 170" role="img" aria-label="Rear view diagram: placenta — loose hanging membranes with small buttons"><use href="#ext-base-placenta"/></svg>
+      <figcaption><b>Placenta / afterbirth</b> — loose red-purple membranes with buttons, hanging then dropping; often eaten. <span class="badge b-green">Green</span> if within ~6 h. Never pull.</figcaption>
+    </figure>
+  </div>
+  <div class="callout co-note"><div class="co-tag">Clinical note — real photographs</div>
+  <p>These schematics are drawn for recognition; before the season, look once at real photographs so nothing surprises you: NADIS <i>Lambing Part 3 — vaginal and uterine prolapses</i> (nadis.org.uk) and Northland Vets’ <i>Bearings</i> page (northvets.co.nz) carry clear clinical images. Some are graphic — that is what the real thing looks like.</p></div>
+</section>
+
+<!-- ================= 7. NEWBORN CARE ================= -->
+<section id="s7">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 7</div>
+    <h2>Immediate newborn lamb care</h2>
+    <p class="lede">Four windows: five minutes, thirty minutes, two hours, twenty-four hours. The ewe does most of the work — you verify.</p>
+  </div>
+
+  <h3>First 5 minutes</h3>
+  <ol>
+    <li><b>Breathing?</b> Watch the chest. Membranes over nose/mouth — <b>clear them at once</b> with fingers and a towel wipe.</li>
+    <li><b>Not breathing?</b> Wipe nostrils → tickle deep in one nostril with a clean straw (triggers a gasp) → rub chest and ribs hard with a towel. A brief, supported, head-down hold by the hind legs lets fluid drain — seconds, never swinging. No breaths by ~1 minute: ring the vet while continuing.</li>
+    <li><b>Let the ewe take over</b> — lamb at her nose; her licking dries, warms, bonds. Towel-dry only if she won’t or the weather is foul.</li>
+    <li><b>Navel:</b> soak/spray the whole cord and its base with iodine.</li>
+    <li><b>Step back.</b> The first hour of licking and murmuring builds the bond everything else depends on.</li>
+  </ol>
+
+  <h3>First 30 minutes <span class="badge b-green">Normal</span></h3>
+  <p>Head shake; up on the chest within minutes; standing attempts by 15–30 min; bleating answered by the ewe’s low rumble.</p>
+
+  <h3>First 2 hours — the one thing that matters</h3>
+  <p><b>The lamb must suck — confirm it, don’t assume it.</b> Normal: finds the udder, tail wiggles hard while sucking, then sleeps curled and full. Not fed by 2 h → Section 8. Safe and useful now: trim long wool hiding the teats (a genuine Valais issue) and strip each teat until the wax plug clears and milk squirts.</p>
+
+  <h3>First 24 hours</h3>
+  <ul>
+    <li>Repeat navel iodine at 2–4 h. Cord should dry and shrivel — wet, hot, swollen or smelly navel: <span class="badge b-amber">Amber</span> ring the vet.</li>
+    <li>Weigh and record. From tomorrow, ~250 g+/day of gain is your lie-detector.</li>
+    <li>Watch for meconium (first tar-black poo) and urine.</li>
+  </ul>
+
+  <div class="fig-row">
+    <figure>
+      <svg viewBox="0 0 220 130" role="img" aria-label="Diagram of a well-fed lamb: level back, round belly"><use href="#lamb-full"/></svg>
+      <figcaption><b>Full lamb.</b> Level back, round belly, stretches on rising, sleeps curled. <span class="badge b-green">Green</span></figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 220 130" role="img" aria-label="Diagram of a hungry lamb: arched back, head low, hollow flank"><use href="#lamb-hungry"/></svg>
+      <figcaption><b>Hungry lamb.</b> Arched back, head low, hollow “empty triangle” behind the ribs, constant bleating and butting. Hungry now = starving tonight — act same-day. <span class="badge b-amber">Amber</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= 8. COLOSTRUM ================= -->
+<section id="s8">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 8</div>
+    <h2>Colostrum</h2>
+    <p class="lede">The single biggest lever you have. Lambs are born with almost no immunity and small energy reserves; colostrum supplies antibodies, dense energy and a laxative — and the gut absorbs the antibodies best in the first six hours.</p>
+  </div>
+
+  <table class="t-num">
+    <tr><th>When</th><th>Target</th><th>4 kg lamb example</th></tr>
+    <tr><td>Within 2 h of birth (6 h at the outside)</td><td><b>50 ml per kg</b> bodyweight</td><td>200 ml</td></tr>
+    <tr><td>First 24 h, split over 4+ feeds</td><td><b>~200 ml per kg</b></td><td>800 ml</td></tr>
+  </table>
+  <div class="callout co-note"><div class="co-tag">Where sources differ</div>
+    <p>NZ industry guidance commonly says “at least 10% of bodyweight within 6–24 h”; UK/AHDB guidance says 200 ml/kg (20%) over 24 h. Practical read: <b>10% is the floor, ~20% the target, front-loaded early.</b> A lamb sucking a well-uddered ewe manages this by itself.</p></div>
+
+  <h3>Has it actually fed?</h3>
+  <p>Evidence, not hope: you saw sucking with tail-wiggling · belly feels full · lamb sleeps then stretches · teats look drawn. None of these by 2 h → milk the ewe and bottle-feed, or use backup.</p>
+
+  <h3>Sources, best first</h3>
+  <ol>
+    <li>Its own mother — milked into a clean container if it won’t suck.</li>
+    <li>Frozen colostrum from another of your ewes.</li>
+    <li>Ewe-specific commercial colostrum powder (NZ rural suppliers), mixed exactly per label.</li>
+    <li><i>Emergency only:</i> cow colostrum — inferior; ask your vet before relying on it.</li>
+  </ol>
+
+  <div class="callout co-safe"><div class="co-tag">Beginner-safe</div>
+    <p><b>Thawing:</b> stand frozen colostrum in warm (not hot) water; feed at body temperature. <b>Never microwave or boil</b> — heat destroys the antibodies. <b>Bottle-feed</b> any lamb that is warm and can suck.</p></div>
+  <div class="callout co-warn"><div class="co-tag">Do not</div>
+    <p>Do not stomach-tube unless you have been shown how — a tube in the windpipe drowns the lamb. A lamb too weak to suck needs tubing: ring the vet or your experienced contact, and get taught for next time.</p></div>
+</section>
+
+<!-- ================= 9. HYPOTHERMIA ================= -->
+<section id="s9">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 9</div>
+    <h2>Hypothermia and weak lambs</h2>
+    <p class="lede">Cold + wet + wind kills more NZ lambs than anything else. Starvation and chilling are one spiral: cold lambs don’t suck, unfed lambs get cold. Break it with a thermometer, not a guess.</p>
+  </div>
+
+  <table class="t-num">
+    <tr><th>Temperature</th><th>Status</th><th>Meaning</th></tr>
+    <tr><td>39–40 °C</td><td><span class="badge b-green">Green — normal</span></td><td>Carry on</td></tr>
+    <tr><td>37–39 °C</td><td><span class="badge b-amber">Amber — mild hypothermia</span></td><td>Act now: dry, shelter, feed, warm</td></tr>
+    <tr><td>Below 37 °C</td><td><span class="badge b-red">Red — severe</span></td><td>Follow the age rule below exactly</td></tr>
+  </table>
+
+  <div class="tree">
+    <div class="q">Cold lamb → dry it, out of the weather, take its temperature → then:</div>
+    <div class="branches">
+      <div class="branch"><div class="cond">37–39 °C</div>
+        <div class="ans amber"><b>Feed + warm.</b> Colostrum by suck or bottle (it must swallow), warm to ≥39 °C, back to mum, confirm sucking.</div></div>
+      <div class="branch"><div class="cond">&lt;37 °C · under ~5 h old</div>
+        <div class="ans red"><b>Warm first.</b> Birth energy reserves remain: warm-air box ~35–40 °C, feed as soon as it can swallow.</div></div>
+      <div class="branch"><div class="cond">&lt;37 °C · older than ~5 h</div>
+        <div class="ans red"><b>Do NOT warm first — ring the vet.</b> Its glucose is spent; warming without energy kills. It needs intraperitoneal glucose <i>before</i> warming — vet, or you with the farmer-taught technique in <i>Far From Help</i> §3 (learn it at a pre-lambing clinic visit).</div></div>
+      <div class="branch"><div class="cond">Can’t lift head / can’t swallow</div>
+        <div class="ans red"><b>Nothing by mouth. Vet now.</b> Feeding or tubing a lamb that can’t swallow drowns it.</div></div>
+    </div>
+  </div>
+
+  <div class="callout co-safe"><div class="co-tag">Beginner-safe warming</div>
+    <p>Covered box with towels and a heat lamp <i>above, never touching</i>; or wrapped warm (not hot) wheat bags/water bottles; or inside your jacket against your skin while you organise. Check every 20–30 minutes. Target: back over 39 °C, vigorous, then fed, then re-mothered in a pen with sucking confirmed.</p></div>
+  <div class="callout co-warn"><div class="co-tag">Do not</div>
+    <p>No hot-water immersion unattended · no direct contact with heaters or hot bottles · no hair dryer on hot held close · never “warm and hope” for a flat lamb over five hours old.</p></div>
+</section>
+
+<!-- ================= 10. EWE AFTER LAMBING ================= -->
+<section id="s10">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 10</div>
+    <h2>Ewe care after lambing</h2>
+    <p class="lede">A healthy post-lambing ewe is busy: licking, murmuring, eating, drinking. Your checks take two minutes a day — and the first week is when the quiet problems surface.</p>
+  </div>
+
+  <p><span class="badge b-green">Normal</span>&ensp;Up and licking within minutes · eats and drinks keenly (offer lukewarm water — she may take litres) · rumbling nicker · stands for sucking · placenta by ~6 h · discharge (<b>lochia</b>) red-brown, reducing over 2–3 weeks, <b>never foul-smelling</b>.</p>
+
+  <h4>Daily checks — first week</h4>
+  <ul class="check">
+    <li>Eating, drinking, chewing cud</li>
+    <li>Udder soft after feeding, both sides even, both teats giving milk (strip each on day 1)</li>
+    <li>Discharge reducing, no smell</li>
+    <li>Placenta accounted for (she may have eaten it)</li>
+    <li>Moving freely, no straining</li>
+    <li>Mothering: keeps the lamb close, answers its bleat</li>
+  </ul>
+
+  <p><span class="badge b-red">Red</span>&ensp;Off feed or dull (temp &gt; 40 °C) · foul or pus-like discharge (metritis) · fresh bleeding · straining after all lambs born (another lamb? prolapse?) · down and can’t rise.<br>
+  <span class="badge b-amber">Amber</span>&ensp;Hot painful udder (mastitis — vet if any heat + pain + abnormal milk) · rejecting the lamb: pen them close, restrain gently for supervised sucks, and ring your vet or experienced contact if it isn’t resolving within hours.</p>
+
+  <div class="callout co-note"><div class="co-tag">Move or leave?</div>
+    <p>Leave the family on the birth site a few hours if weather allows — early moves are a top cause of mismothering. If weather turns, move calmly: carry the lamb low, in her sight, walking slowly backward in front of her; then pen ewe + lambs together 24–48 h, especially twins or a first-time mum.</p></div>
+</section>
+
+<!-- ================= 11. TWINS ================= -->
+<section id="s11">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 11</div>
+    <h2>Twins and multiple births</h2>
+    <p class="lede">Your scan result is the plan: record it on each ewe card and trust it. The interval between lambs is usually short — the danger is renewed straining that produces nothing.</p>
+  </div>
+  <ul>
+    <li><b>Another coming?</b> After a lamb she rests, then gets restless and strains again. Typical interval <span class="num">10–45 min</span> — or she delivers the next while licking the first.</li>
+    <li><b>Done?</b> Settles into steady licking and feeding, stops straining, flanks slacken.</li>
+    <li><span class="badge b-red">Red</span>&ensp;Renewed <b>hard straining &gt; 30 min</b> with no lamb · scan said two and one arrived over an hour ago with her now unsettled or unwell.</li>
+    <li><b>Colostrum for every lamb.</b> The strong twin will cheerfully take both shares — confirm each one sucking; weigh both; the lighter one gets priority checks.</li>
+    <li><b>Mismothering.</b> Ewes can walk off with lamb one while lamb two arrives, or favour one twin. Pen the family 24–48 h; matching marker numbers on ewe and lambs before any move.</li>
+    <li>Triplets in a Valais would be unusual — three mouths generally need supervised feeding or a bottle top-up; ask your vet.</li>
+  </ul>
+</section>
+
+<!-- ================= 12. FIRST 72 HOURS ================= -->
+<section id="s12">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 12</div>
+    <h2>The first 72 hours</h2>
+    <p class="lede">Twice-daily lamb checks, daily ewe checks. Weight and demeanour tell you the truth before anything else does.</p>
+  </div>
+
+  <h4>Lamb — twice daily</h4>
+  <ul class="check">
+    <li>Sucking observed (tail-wiggle); belly full</li>
+    <li>Warm mouth, bright eye, stretches on rising</li>
+    <li>Straight back — not hunched or tucked-up</li>
+    <li>Breathing quiet — no rattle, grunt or panting</li>
+    <li>Peeing; meconium passed day 1, then yellow milk-poo (clean off any gluing the tail)</li>
+    <li>Navel dry, shrivelling — not wet, hot, swollen or smelly</li>
+    <li>Weight: gaining ~250 g+/day</li>
+    <li>No swollen joints, no reluctance to stand — joint/navel ill is a <span class="badge b-red">Red</span></li>
+    <li>No “watery mouth”: drooly, cold-mouthed, bloated, tucked-up lamb days 1–3 is a <span class="badge b-red">Red</span></li>
+  </ul>
+
+  <h4>Ewe — daily</h4>
+  <ul class="check">
+    <li>Appetite and water intake strong</li>
+    <li>Udder even, soft after sucking, no heat or pain</li>
+    <li>Temperature only if she seems off — normal 38.3–39.9 °C</li>
+    <li>Discharge reducing, never smelly</li>
+    <li>Placenta accounted for</li>
+    <li>Sound on her feet</li>
+    <li>Mothering solidly — answers the lamb, stands to feed</li>
+  </ul>
+</section>
+
+<!-- ================= 13. VALAIS ================= -->
+<section id="s13">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 13</div>
+    <h2>Valais Blacknose — breed notes</h2>
+    <p class="lede">Little peer-reviewed lambing data exists for this breed; what follows separates the reasonably established from breeder anecdote — and says which is which.</p>
+  </div>
+
+  <h3>Reasonably established</h3>
+  <ul>
+    <li><b>Provenance and value.</b> The NZ flock descends from UK embryos; first NZ lambs born 2017; the NZ Valais Blacknose Sheep Society (under the NZ Sheepbreeders Association) holds the breed standard. Animals are few and valuable — so <b>set a low threshold for calling the vet</b>: the economics that make commercial farmers wait do not apply to your ewes, and shouldn’t.</li>
+    <li><b>Fleece grows ~30 cm/year; shorn twice yearly.</b> Consequences: <b>crutch/dag the rear and trim around the udder before lambing</b> (vulva visibility, hygiene, teat access); watch face wool (“wool blindness”); a sodden fleece is heavy and chilling — shelter matters even more than for other breeds.</li>
+    <li><b>Both sexes horned.</b> Lamb horn buds are no obstacle at birth. Handle ewes by chest and shoulders, never by horns, near lambing.</li>
+    <li><b>Alpine feet on soft wet NZ ground.</b> Breeders consistently report proactive foot care is needed (scald/footrot risk). A lame ewe lambs and mothers badly — check feet pre-lambing. <i>(Breeder observation, consistent with NZ experience of imported wool breeds.)</i></li>
+  </ul>
+
+  <h3>Breeder-reported — treat as anecdote</h3>
+  <ul>
+    <li>Widely described as <b>relatively easy lambers</b> with moderate birth weights, <b>strong maternal instincts</b> and good milk; can cycle outside the usual season. Occasional reports of head/shoulder-related difficulty exist in some lines. <b>Run this season on the standard timings in this book, not on breed reputation.</b></li>
+    <li>Their tameness is real and useful: most Valais ewes tolerate udder and lamb checks without a yarding drama. Build the habit with quiet daily handling before lambing.</li>
+  </ul>
+
+  <h3>What the wider literature adds</h3>
+  <p>No peer-reviewed lambing dataset exists for the breed (a targeted search, including under <i>Walliser Schwarznasenschaf</i>, confirms it — citations in <i>Far From Help</i> §7). Across breeds: dystocia tracks <b>lamb birthweight</b> (lowest near ~3.5 kg, climbing steeply past ~4.5 kg), so a well-fed singles-bearing ewe is your likeliest assisted birth; a large ewe frame (VB ewes run 70–90 kg) is protective; and <b>failure of the cervix to dilate is the most common maternal cause</b> of dystocia — hours of nesting with no water bag is the quiet emergency.</p>
+
+  <div class="callout co-note"><div class="co-tag">Your own evidence</div>
+    <p>The record cards at the back are how you build breed-specific knowledge that actually applies to <i>your</i> three ewes. Fill them in every time — next season’s handbook is written in them.</p></div>
+</section>
+
+<!-- ================= 14. NZ NOTES ================= -->
+<section id="s14">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 14</div>
+    <h2>New Zealand seasonal &amp; practical notes</h2>
+    <p class="lede">The weather is the predator here. Everything else is logistics you can arrange in advance.</p>
+  </div>
+  <ul>
+    <li><b>Storm doctrine.</b> Lamb losses spike in southerly fronts — cold + wet + wind. Watch the forecast against due dates; move ewes to the sheltered paddock or shed <b>before</b> the front, not during it.</li>
+    <li><b>Outdoors vs pens.</b> Healthy ewes lamb well outdoors on clean sheltered ground. Pens are for bonding, foul weather, assisted births and concerns — cleaned between families (warm wet bedding grows the bugs behind navel ill and watery mouth).</li>
+    <li><b>Vet access.</b> Rural after-hours help can be 30–60+ minutes away — on this property, ~1.5 hours. That travel time tightens the call rule: ring at the point of doubt (10–15 minutes, not 30) so the vet is driving or phone-guiding while things are saveable. Ask your clinic now: after-hours number, travel time, what to have ready, pre-lambing training, whether they take <b>video calls</b>, and whether they will assemble a <b>“distance pack”</b> (energy drench, SC calcium with training, pain relief/antibiotic cover with written instructions). Read <b><i>Far From Help</i></b> and keep a bedded trailer/crate staged: <b>loading the ewe and driving toward the vet is often the fastest treatment.</b></li>
+    <li><b>Products.</b> Iodine sprays, obstetric lube, feeders and tubes, colostrum powders, lamb covers, thermometers: all at NZ rural suppliers (Farmlands, PGG Wrightson, Shoof, vet clinics) — buy before August. Antibiotics, calcium injections and most treatments are <b>restricted veterinary medicines</b> — they come via your vet, another reason to be registered with a clinic before lambing.</li>
+    <li><b>Legal baseline.</b> The MPI Code of Welfare (Sheep and Beef Cattle) requires timely assistance with birthing difficulty — waiting past the thresholds in this book isn’t just risky, it falls short of the code.</li>
+    <li><b>People-safety.</b> Birth fluids carry zoonoses (campylobacter, toxoplasma and others): gloves always, wash up after, and <b>pregnant women should avoid contact with lambing ewes entirely</b>. Compost or bury placentas beyond the reach of dogs.</li>
+  </ul>
+</section>
+
+<!-- ================= 15. CHEAT SHEET ================= -->
+<section id="s15">
+  <div class="sec-open">
+    <div class="sec-kicker">Section 15 · keep with the lambing kit — printable field card in the companion guide</div>
+    <h2>Emergency cheat sheet</h2>
+  </div>
+  <table>
+    <tr><th>What you see</th><th>Likely meaning</th><th>Do</th><th style="width:14%">Urgency</th></tr>
+    <tr><td>Straining 30 min, nothing appearing</td><td>Lamb stuck / not entering canal</td><td>Ring vet now; pen her, keep calm</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Water bag 1 h ago, no lamb</td><td>Stalled stage 2</td><td>Ring vet now</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>One foot + nose only</td><td>Front leg back</td><td>Ring vet; do not pull</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Head out, no feet</td><td>Both legs back — will jam</td><td>Ring vet; keep head moist; never pull the head</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Feet out, no nose follows</td><td>Head turned back</td><td>Ring vet; do not pull</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Tail only / soft dome</td><td>Breech — may strain only weakly</td><td>Ring vet even if she seems calm</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Two hooves soles-up, no nose</td><td>Hind legs first — must be quick</td><td>Ring vet; assist only with experienced help / phone guidance</td><td><span class="badge b-amber">Amber→Red</span></td></tr>
+    <tr><td>Hard straining between lambs &gt;30 min</td><td>Next lamb stuck</td><td>Ring vet</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Lamb born, not breathing</td><td>Airway blocked / stunned</td><td>Clear nose NOW · straw-tickle nostril · rub hard · brief head-down drain · ring vet at 1 min</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Lamb cold / weak / floppy</td><td>Hypothermia ± starvation</td><td>Thermometer. 37–39 °C: dry, feed, warm. &lt;37 °C + over ~5 h old: <b>do NOT warm first — vet (glucose)</b></td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Lamb won’t suck by 2 h</td><td>Starvation clock running</td><td>Milk ewe + bottle if it can swallow; can’t swallow → vet (tubing is trained-only)</td><td><span class="badge b-amber">Amber→Red</span></td></tr>
+    <tr><td>Smooth pink ball at vulva (pre-lambing)</td><td>Bearing (vaginal prolapse)</td><td>Clean wet towel over it; pen her; ring vet</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Large bumpy red mass (post-lambing)</td><td>Uterine prolapse</td><td>Keep her still; cover with clean wet towel; ring vet NOW</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Fresh blood dripping / pooling</td><td>Haemorrhage</td><td>Keep her still; ring vet now</td><td><span class="badge b-red">Red</span></td></tr>
+    <tr><td>Membranes hanging &gt; 18 h</td><td>Retained placenta</td><td>Ring vet; never pull</td><td><span class="badge b-amber">Amber</span> (<span class="badge b-red">Red</span> if sick)</td></tr>
+    <tr><td>Ewe down / dopey / “blind”</td><td>Sleepy sickness · milk fever · other</td><td>Prop on chest, shelter, ring vet NOW; never drench if flat</td><td><span class="badge b-red">Red</span></td></tr>
+  </table>
+  <div class="callout co-stop"><div class="co-tag">The one rule</div>
+    <p>Thirty minutes of trying without progress — yours or hers — means <b>ring the vet</b>.</p></div>
+</section>
+
+<!-- ================= CONTACTS + RECORDS ================= -->
+<section id="contacts">
+  <div class="sec-open">
+    <div class="sec-kicker">Appendix</div>
+    <h2>Emergency contacts &amp; ewe records</h2>
+    <p class="lede">Fill these in before lambing — in pen, on the printed copy that lives with the kit.</p>
+  </div>
+
+  <div class="record">
+    <h3>Emergency contacts</h3>
+    <div class="grid">
+      <div>Primary veterinarian: <span class="blank w"></span></div><div>Phone: <span class="blank"></span></div>
+      <div>After-hours veterinarian: <span class="blank w"></span></div><div>Phone: <span class="blank"></span></div>
+      <div>Backup veterinary clinic: <span class="blank w"></span></div><div>Phone: <span class="blank"></span></div>
+      <div>Experienced sheep/lambing contact: <span class="blank w"></span></div><div>Phone: <span class="blank"></span></div>
+    </div>
+    <p style="margin-top:.8em">Property address / directions for the vet: <span class="blank xw"></span></p>
+    <p>Nearest sheltered lambing area: <span class="blank xw"></span></p>
+  </div>
+
+  <div class="record"><h3>Ewe 1</h3>
+    <div class="grid">
+      <div>Name / tag: <span class="blank"></span></div><div>Breed: Valais Blacknose</div>
+      <div>Expected lambing date: <span class="blank"></span></div><div>Scanning result: <span class="blank"></span></div>
+      <div>Expected number of lambs: <span class="blank"></span></div><div>Previous lambing history: <span class="blank"></span></div>
+      <div>Labour started: <span class="blank"></span></div><div>Lamb 1 born: <span class="blank"></span></div>
+      <div>Lamb 2 born: <span class="blank"></span></div><div>Lamb 3 born: <span class="blank"></span></div>
+      <div>Placenta passed: <span class="blank"></span></div><div>Vet contacted: <span class="blank"></span></div>
+      <div>Treatments: <span class="blank w"></span></div><div>Outcome: <span class="blank w"></span></div>
+    </div>
+    <p style="margin-top:.6em">Notes: <span class="blank xw"></span></p>
+  </div>
+
+  <div class="record"><h3>Ewe 2</h3>
+    <div class="grid">
+      <div>Name / tag: <span class="blank"></span></div><div>Breed: Valais Blacknose</div>
+      <div>Expected lambing date: <span class="blank"></span></div><div>Scanning result: <span class="blank"></span></div>
+      <div>Expected number of lambs: <span class="blank"></span></div><div>Previous lambing history: <span class="blank"></span></div>
+      <div>Labour started: <span class="blank"></span></div><div>Lamb 1 born: <span class="blank"></span></div>
+      <div>Lamb 2 born: <span class="blank"></span></div><div>Lamb 3 born: <span class="blank"></span></div>
+      <div>Placenta passed: <span class="blank"></span></div><div>Vet contacted: <span class="blank"></span></div>
+      <div>Treatments: <span class="blank w"></span></div><div>Outcome: <span class="blank w"></span></div>
+    </div>
+    <p style="margin-top:.6em">Notes: <span class="blank xw"></span></p>
+  </div>
+
+  <div class="record"><h3>Ewe 3</h3>
+    <div class="grid">
+      <div>Name / tag: <span class="blank"></span></div><div>Breed: Valais Blacknose</div>
+      <div>Expected lambing date: <span class="blank"></span></div><div>Scanning result: <span class="blank"></span></div>
+      <div>Expected number of lambs: <span class="blank"></span></div><div>Previous lambing history: <span class="blank"></span></div>
+      <div>Labour started: <span class="blank"></span></div><div>Lamb 1 born: <span class="blank"></span></div>
+      <div>Lamb 2 born: <span class="blank"></span></div><div>Lamb 3 born: <span class="blank"></span></div>
+      <div>Placenta passed: <span class="blank"></span></div><div>Vet contacted: <span class="blank"></span></div>
+      <div>Treatments: <span class="blank w"></span></div><div>Outcome: <span class="blank w"></span></div>
+    </div>
+    <p style="margin-top:.6em">Notes: <span class="blank xw"></span></p>
+  </div>
+</section>
+
+<!-- ================= SOURCES ================= -->
+<section id="sources">
+  <div class="sec-open">
+    <div class="sec-kicker">Appendix</div>
+    <h2>Sources &amp; further reading</h2>
+    <p class="lede">Clinically important numbers in this handbook trace to the sources below. Where reputable sources disagree (colostrum totals), both figures appear in the text with a practical recommendation.</p>
+  </div>
+  <h4>New Zealand</h4>
+  <ol style="font-size:.92em">
+    <li>Beef + Lamb New Zealand — <i>Lamb survival resources.</i> <a href="https://beeflambnz.com/knowledge-hub/lamb-survival-resources">beeflambnz.com/knowledge-hub/lamb-survival-resources</a></li>
+    <li>Beef + Lamb New Zealand — <i>Focusing on lamb survival.</i> <a href="https://beeflambnz.com/news/focusing-lamb-survival">beeflambnz.com/news/focusing-lamb-survival</a></li>
+    <li>NZVA — <i>Lamb survival: coping with adverse spring weather.</i> <a href="https://nzva.org.nz/assets/Policies-Guidelines-Resources/Lamb_Survival_Coping_with_ad.pdf">nzva.org.nz</a></li>
+    <li>Northland Veterinary Group — <i>Bearings / vaginal prolapses in sheep.</i> <a href="https://www.northvets.co.nz/news/bearings-vaginal-prolapses-in-sheep/">northvets.co.nz</a></li>
+    <li>Franklin Vets — <i>A guide to pregnancy toxaemia in ewes.</i> <a href="https://www.franklinvets.co.nz/blog/lifestyle-farms/a-guide-to-pregnancy-toxaemia-in-ewes">franklinvets.co.nz</a></li>
+    <li>Anexa Veterinary Services — <i>Sleepy sickness.</i> <a href="https://anexa.co.nz/sleepy-sickness/">anexa.co.nz</a> · Rangiora Vet Centre — <i>Sleepy sickness in pregnant ewes.</i> <a href="https://www.rangioravetcentre.co.nz/sleepy-sickness-in-sheep">rangioravetcentre.co.nz</a></li>
+    <li>MPI — <i>Codes of welfare</i> (Sheep and Beef Cattle). <a href="https://www.mpi.govt.nz/animals/animal-welfare/codes/">mpi.govt.nz/animals/animal-welfare/codes</a></li>
+  </ol>
+  <h4>International veterinary references</h4>
+  <ol start="8" style="font-size:.92em">
+    <li>NADIS (UK) — <i>Lambing Part 1: The Basics</i> (stages, timings). <a href="https://www.nadis.org.uk/disease-a-z/sheep/lambing/lambing-part-1-the-basics/">nadis.org.uk</a></li>
+    <li>NADIS (UK) — <i>Lambing Part 3: Vaginal and uterine prolapses.</i> <a href="https://www.nadis.org.uk/disease-a-z/sheep/lambing/lambing-part-3-vaginal-and-uterine-prolapse/">nadis.org.uk</a></li>
+    <li>AHDB (UK) — <i>Colostrum management for lambs</i> (50 ml/kg by 2–6 h; 200 ml/kg per 24 h). <a href="https://ahdb.org.uk/knowledge-library/colostrum-management-for-lambs">ahdb.org.uk</a></li>
+    <li>Farm Advisory Service Scotland — <i>Treating hypothermia in newborn lambs</i> (bands; 5-hour rule). <a href="https://www.fas.scot/livestock/sheep/hypothermia-lambs/">fas.scot</a> · SRUC — <i>Decision tree for suspected hypothermia and hypoglycaemia.</i> <a href="https://epidemiology.sruc.ac.uk/shiny/consulting/new_born_lambs/">epidemiology.sruc.ac.uk</a></li>
+    <li>Merck/MSD Veterinary Manual — <i>Retained fetal membranes in does and ewes</i>; <i>Vaginal and cervical prolapse in cattle and sheep.</i> <a href="https://www.merckvetmanual.com/">merckvetmanual.com</a></li>
+    <li>Ohio State University Sheep Team — <i>Managing starvation/hypothermia</i>; <i>Prolapses in sheep.</i> <a href="https://u.osu.edu/sheep/">u.osu.edu/sheep</a></li>
+  </ol>
+  <h4>Breed</h4>
+  <ol start="14" style="font-size:.92em">
+    <li>NZ Sheepbreeders Association — <i>Valais Blacknose</i> · <i>Valais Blacknose in NZ.</i> <a href="https://nzsheep.co.nz/valais-blacknose/">nzsheep.co.nz/valais-blacknose</a></li>
+    <li>Rare Breeds Conservation Society of NZ — <i>Valais Blacknose sheep.</i> <a href="https://www.rarebreeds.co.nz/valais.html">rarebreeds.co.nz/valais.html</a></li>
+    <li>Valais Blacknose New Zealand (breeder society). <a href="https://valaisblacknose.co.nz/">valaisblacknose.co.nz</a></li>
+  </ol>
+  <p style="font-size:.88em;color:var(--muted);margin-top:1.4em">Compiled August 2026. Breed-specific lambing claims for Valais Blacknose are breeder-reported unless otherwise stated; no peer-reviewed lambing dataset for the breed was identified at the time of writing. This handbook is general guidance for first-time owners in New Zealand and does not replace veterinary advice for an individual animal.</p>
+</section>
+
+</div>
+</body>
+</html>
