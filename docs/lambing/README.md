@@ -11,6 +11,8 @@ Two complementary resources for a first lambing season with three pregnant Valai
 | `emergency-guide.md` | **Lambing Emergency Guide** — source Markdown | Read/edit; canonical content |
 | `emergency-guide.html` | **Interactive emergency guide** — mobile-first, fully offline | **Save to your phone before lambing** (Files app → open in Safari, or AirDrop). Symptom menu, one problem per card, offline search, persistent CALL VET + SYMPTOMS buttons, editable contacts and ewe records (stored on-device only), dark mode for night checks |
 | `cheatsheet.html` | One-page emergency field card | Print + laminate; lives with the lambing kit |
+| `far-from-help.md` / `far-from-help.html` | **Far From Help** — trained-hands procedures for a property ~1.5 h from veterinary help (assisted delivery/malpresentation correction, stomach-tubing, IP glucose injection, bearing replacement), with sourced step-by-steps, stop conditions, extended kit, and the load-and-drive Plan B | Read before lambing; print + laminate §§2–4; also compact in the emergency guide (card 15) |
+| `pdf/far-from-help-A4.pdf` | The supplement, printable | Print; laminate the procedure pages |
 | `pdf/first-lambing-season-handbook-A4.pdf` | Printable handbook | Print at A4 |
 | `pdf/first-lambing-season-handbook-mobile.pdf` | Narrow-page handbook | Comfortable phone/tablet reading |
 | `pdf/lambing-emergency-cheatsheet-A4.pdf` | The field card, single page | Print, laminate |

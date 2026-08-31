@@ -26,7 +26,8 @@
 12. [Ewe is down / weak / collapsed](#12-ewe-is-down--weak--collapsed)
 13. [Placenta / afterbirth concern](#13-placenta--afterbirth-concern)
 14. [I am not sure what I am looking at](#14-i-am-not-sure-what-i-am-looking-at)
-15. **CALL VET NOW** — if you're here because you already know it's bad, stop reading and ring.
+15. [Vet far away or unreachable](#15-vet-far-away-or-unreachable)
+16. **CALL VET NOW** — if you're here because you already know it's bad, stop reading and ring.
 
 ---
 
@@ -309,6 +310,23 @@ Answer three questions:
 Still unsure → **ring the vet and describe what you see.** Describing "a pink ball the size of an orange" or "one foot and a nose" is enough for a vet to triage you. Photos help — take one, send it if your clinic uses messaging.
 
 **Never feel wrong for calling.** With three high-value ewes and a first season, your vet expects the calls.
+
+---
+
+## 15. Vet far away or unreachable
+
+**When the nearest vet is a long drive away (e.g. ~1.5 h), the timeline changes:** ring at the *first* sign of trouble — 10–15 minutes, not 30 — and work with them on speakerphone or video call while they travel or guide you. Try every clinic number you hold. And keep **Plan B ready: load the ewe (bedded trailer/crate) and drive toward the vet or meet halfway** — often faster than waiting.
+
+**Four procedures become yours to know** (full published steps, diagrams and sources are in the *Far From Help* supplement — `far-from-help.md` / `.html` — print §§2–4 and laminate them):
+
+1. **Correcting a simple malpresentation** — washed arm, long glove, lots of lube; identify every limb before pulling anything; **cup each hoof in your palm** to bring a leg forward; repel a head between strains; traction only with her strains, in a downward arc, 10–30 s. Stop conditions: two well-applied strains with no movement, anything unidentifiable, dry swollen canal → load and drive. *(NADIS; Wisconsin Visual Lambing Guide — watch the videos before lambing.)*
+2. **Stomach-tubing** — measure nose→last rib and mark; side of mouth, lamb's left; easy sliding + "two tubes" felt = food-pipe, any cough/resistance = out and restart; 50 ml/kg by gravity over ~5 min; crimp before withdrawing. *(OMAFRA; OSU; Cornell.)*
+3. **IP glucose injection** — for the lamb <37 °C, >5 h old, can't swallow: warmed 20% dextrose 10 ml/kg, lamb held hanging by front legs, needle 2.5 cm below + 1 cm beside the navel, 45° toward the tail head, inject slowly, *then* warm, then tube once swallowing. *(FAS Scotland; SRUC; Eales & Small 1982.)*
+4. **Replacing a bearing + retainer** — clean (weak-tea iodine water), lubricate, lift toward the tail first (empties the bladder), flat hand/fist, hold during strains, gain between them; spoon retainer tied to flank wool or harness; ring the vet for pain relief/antibiotic follow-up; never breed her again. Torn/black/cold tissue or signs of actual lambing behind it → do not replace, ring/drive. *(Farmers Weekly; Northland Vets NZ.)*
+
+**Set up before lambing:** a pre-lambing training visit at your clinic (tubing + IP demonstrated), a "distance pack" (energy drench, SC calcium with training, pain relief/antibiotic cover with instructions), a tested video-call option, and the extended kit (glucose, syringes, 1″ needles, bearing spoon + harness, lambing snare).
+
+**Still vet-only even far from help:** uterine prolapse replacement, ringwomb/caesarean, IV calcium, uncontrolled bleeding — for these, first aid + **load and drive**.
 
 ---
 

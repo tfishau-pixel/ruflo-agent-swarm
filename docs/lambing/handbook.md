@@ -106,6 +106,8 @@ Assemble this in one clean, lidded bin at least two weeks before the first due d
 | Clean lidded container | Collecting/storing colostrum or milk | If milking the ewe | ✅ Yes | Label and date anything frozen |
 | Marking supplies (stock marker spray) | Matching lambs to ewes | Multiples, paddock lambing | ✅ Yes | — |
 | Phone + power bank + vet numbers | You will be calling from a paddock | Always in your pocket | ✅ Yes | Save daytime **and after-hours** numbers now |
+| 20% glucose/dextrose + 50–60 ml syringes + sterile 1″ needles | IP glucose injection for a collapsed cold lamb | Lamb <37 °C, >5 h old, can't swallow | ⚠️ With instruction | Learn site + technique before lambing — see the *Far From Help* supplement |
+| Bearing retainer ("spoon") + prolapse harness | Keeping a replaced bearing in | After a bearing is replaced | ⚠️ With instruction | Buy before lambing — see *Far From Help* |
 
 **Beginner-safe vs needs-instruction:** anything marked ⚠️ or ❌ should be demonstrated to you by your vet or an experienced sheep farmer **before** lambing. Many NZ vet clinics run pre-lambing (“lamb rearing” / smallholder) evenings in winter — ask yours.
 
@@ -219,6 +221,8 @@ Two hooves with **soles pointing up** and no nose; the hocks (backward-pointing 
 ---
 
 ## 6. Common lambing complications
+
+> **Vet a long drive away?** The procedures marked "trained hands" below are farmer-taught skills on remote properties — the full published steps are in the companion ***Far From Help*** supplement. Learn them before lambing; ring the vet first regardless.
 
 *Format for every condition: what it is → what you may see → urgency → what you can safely do → what not to do → call the vet if…*
 
@@ -353,7 +357,7 @@ Cold, wet and windy NZ spring weather kills more lambs than anything else. Starv
 1. **Dry the lamb, get it out of the weather.**
 2. **Temperature 37–39 °C?** → Feed colostrum (suck or bottle if it can swallow), warm it, return to mum once ≥39 °C and vigorous. 
 3. **Below 37 °C and lamb under ~5 hours old?** → It still has birth energy reserves: **warm first**, then feed as soon as it can swallow.
-4. **Below 37 °C and older than ~5 hours?** → Its energy is gone. **Warming before energy can kill it** (warming burns its last glucose). It needs a **glucose injection into the abdomen (intraperitoneal) before warming — a vet/trained-person procedure. Ring the vet now.** Warm only after energy is on board.
+4. **Below 37 °C and older than ~5 hours?** → Its energy is gone. **Warming before energy can kill it** (warming burns its last glucose). It needs a **glucose injection into the abdomen (intraperitoneal) before warming. Ring the vet now** — and if they are a long drive away or unreachable, the farmer-taught technique (site, dose, steps) is in *Far From Help* §3; learn it at a pre-lambing clinic visit. Warm only after energy is on board.
 5. **Any severely cold lamb that can't hold its head up or swallow** → 🔴 vet, now. Never feed by mouth or tube — it will inhale it.
 
 **Safe warming:** warm-air box at ~35–40 °C (covered box, towels, heat lamp *above* not touching, or wrapped warm — not hot — water bottles/wheat bags), checking every 20–30 minutes; or against your skin inside your jacket while you organise. **Not safe:** hot-water immersion unattended, direct contact with heaters, hair dryers on hot held close, or "warm and hope" for a flat lamb over 5 hours old.
@@ -432,6 +436,8 @@ Cold, wet and windy NZ spring weather kills more lambs than anything else. Starv
 - Valais are widely described by breeders as **relatively easy lambers with moderate birth weights and strong maternal instincts**, and can cycle outside the usual season. Reports of head/shoulder-related difficulty exist in some lines. There is little peer-reviewed lambing data for the breed — so run this season on the standard timings and thresholds in this handbook, not on breed reputation.
 - Their **tameness is real and useful**: a Valais ewe will often let you check her udder, lamb and discharge without a yarding drama. Use quiet daily handling before lambing so checks are routine for her.
 
+**What the wider literature adds** (citations in *Far From Help* §7): no peer-reviewed lambing dataset exists for the breed — but across breeds, dystocia tracks **lamb birthweight** (lowest near ~3.5 kg, climbing steeply past ~4.5 kg), so a well-fed singles-bearing ewe is your likeliest assisted birth; a large ewe frame (VB ewes run 70–90 kg) is protective; and **failure of the cervix to dilate is the most common maternal cause** of dystocia — hours of nesting with no water bag is the quiet emergency.
+
 **Record what you learn:** your three ewes' records (back of this handbook) become your own breed-specific evidence for next season.
 
 ---
@@ -440,7 +446,7 @@ Cold, wet and windy NZ spring weather kills more lambs than anything else. Starv
 
 - **The weather is the predator.** NZ lamb losses spike in southerly storms — cold + wet + wind. Watch the forecast against due dates; bring ewes into the sheltered paddock/shed *before* the front arrives, not during.
 - **Outdoors vs pens:** healthy ewes lamb well outdoors on a sheltered, clean paddock; use pens for bonding, bad weather, assisted births, or any concern. Clean pens between families — warm wet bedding grows the bugs that cause navel ill and watery mouth.
-- **Vet access:** rural NZ after-hours help can be 30–60+ minutes away. That travel time is *why* the 30-minute call rule exists — ring at the point of doubt so the vet is driving while things are still saveable. Ask your clinic now: after-hours number, expected travel time, what they want you to have ready, and whether they run pre-lambing training.
+- **Vet access:** rural NZ after-hours help can be 30–60+ minutes away — on this property, ~1.5 hours. That travel time is *why* the call rule tightens: ring at the point of doubt (10–15 minutes, not 30) so the vet is driving or phone-guiding while things are still saveable. Ask your clinic now: after-hours number, expected travel time, what to have ready, whether they run pre-lambing training, whether they take **video calls**, and whether they will assemble a **"distance pack"** (energy drench, SC calcium with training, pain relief/antibiotic cover with written instructions). Read the ***Far From Help*** supplement and keep a bedded trailer/crate staged: **loading the ewe and driving toward the vet is often the fastest treatment.**
 - **Products:** iodine navel sprays, obstetric lube, lamb feeders/tubes, colostrum powders, lamb covers and thermometers are all stocked by NZ rural suppliers (Farmlands, PGG Wrightson, Shoof, vet clinics) — buy before August. Antibiotics, calcium injections, pain relief and most treatments are **restricted veterinary medicines in NZ**: they come via your vet, which is another reason to be registered with a clinic before lambing.
 - **Your legal baseline:** the Code of Welfare for Sheep and Beef Cattle (MPI) requires that ewes get timely assistance with birthing difficulty — "watching and hoping" past the thresholds in this book isn't just risky, it falls short of the code.
 - **Biosecurity/hygiene basics:** gloves for everything involving birth fluids (campylobacter, toxoplasma and other zoonoses live there — **pregnant women should avoid contact with lambing ewes entirely**); wash up between animals; compost/bury placentas where dogs can't get them.

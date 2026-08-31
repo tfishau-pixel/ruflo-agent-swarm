@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Far From Help — Trained-Hands Procedures</title>
+<style>
+:root{
+  --paper:#FAF7F1; --card:#FFFFFF; --ink:#211E1A; --muted:#6E675C; --stone:#8A8377;
+  --hair:#E5DFD3; --wash:#F3EFE7; --sage:#6F7A67; --sage-wash:#EFF1EC;
+  --green:#2F6B45; --green-wash:#EBF2EC; --amber:#96660A; --amber-wash:#F8F0DC;
+  --red:#A6392C; --red-wash:#F7E8E4;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --base:10.5pt;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:var(--base);line-height:1.55}
+@page{size:A4;margin:17mm 16mm 18mm 16mm}
+@media screen{body{padding:4rem 1.5rem}.page{max-width:186mm;margin:0 auto 3rem}}
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:600;letter-spacing:.005em}
+h2{font-size:2em;line-height:1.15;margin:0 0 .35em}
+h3{font-size:1.25em;margin:1.6em 0 .5em}
+h4{font-family:var(--sans);font-size:.8em;text-transform:uppercase;letter-spacing:.14em;color:var(--stone);margin:1.8em 0 .6em}
+p{margin:.55em 0}
+strong{font-weight:650}
+ul,ol{margin:.5em 0 .8em 1.35em}
+li{margin:.32em 0}
+a{color:var(--sage);text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+section{break-before:page;padding-top:.1px}
+.sec-open{margin:0 0 1.6em;padding-bottom:1.1em;border-bottom:2px solid var(--ink)}
+.sec-kicker{font-size:.78em;text-transform:uppercase;letter-spacing:.22em;color:var(--stone);margin-bottom:.7em}
+.sec-open .lede{font-size:1.06em;color:var(--muted);max-width:62ch;margin-top:.5em}
+.src{font-size:.85em;color:var(--muted);font-style:italic;margin:.4em 0 1em}
+.cover{break-after:page;min-height:240mm;display:flex;flex-direction:column;justify-content:space-between;padding-top:8mm}
+.cover .edition{font-size:.8em;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.cover h1{font-size:4em;line-height:1.04;margin:.35em 0 .25em;max-width:9em}
+.cover .sub{font-family:var(--serif);font-style:italic;font-size:1.4em;color:var(--muted);max-width:28em}
+.cover .foot{border-top:1px solid var(--hair);padding-top:1.2em;display:flex;justify-content:space-between;font-size:.85em;color:var(--stone)}
+.badge{display:inline-block;font-size:.72em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28em .75em;border-radius:2px;white-space:nowrap;font-family:var(--sans)}
+.b-red{background:var(--red);color:#fff}
+.b-amber{background:var(--amber-wash);color:var(--amber);border:1px solid var(--amber)}
+.callout{border:1px solid var(--hair);background:var(--card);padding:1em 1.2em;margin:1.1em 0;break-inside:avoid;border-radius:2px}
+.callout .co-tag{font-size:.72em;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45em}
+.co-note{border-left:4px solid var(--sage)}.co-note .co-tag{color:var(--sage)}
+.co-safe{border-left:4px solid var(--green);background:var(--green-wash)}.co-safe .co-tag{color:var(--green)}
+.co-warn{border-left:4px solid var(--red)}.co-warn .co-tag{color:var(--red)}
+.co-stop{background:var(--red);color:#fff;border:none}.co-stop .co-tag{color:#fff;font-size:.85em}
+table{width:100%;border-collapse:collapse;margin:1em 0 1.4em;font-size:.94em}
+caption{caption-side:top;text-align:left;font-size:.78em;text-transform:uppercase;letter-spacing:.14em;color:var(--stone);padding-bottom:.6em}
+th{font-size:.76em;text-transform:uppercase;letter-spacing:.1em;color:var(--stone);text-align:left;font-weight:700;padding:.5em .7em .5em 0;border-bottom:2px solid var(--ink)}
+td{padding:.55em .7em .55em 0;border-bottom:1px solid var(--hair);vertical-align:top}
+tr{break-inside:avoid}
+figure{border:1px solid var(--hair);background:var(--card);padding:1em 1em .8em;margin:1.2em 0;break-inside:avoid;border-radius:2px}
+figure svg{display:block;width:100%;max-width:420px;height:auto;margin:0 auto}
+figcaption{font-size:.88em;color:var(--muted);border-top:1px solid var(--hair);margin-top:.8em;padding-top:.7em}
+figcaption b{color:var(--ink)}
+.proc{counter-reset:step;margin:1em 0}
+.proc>li{list-style:none;position:relative;padding-left:2.4em;margin:.7em 0}
+.proc>li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:.05em;
+  width:1.7em;height:1.7em;border:1.5px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:600;font-size:.95em}
+.d-lamb{fill:var(--card);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.d-leg{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round}
+.d-label{font:600 10.5px var(--sans);fill:var(--muted);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.d-badlabel{font:700 10.5px var(--sans);fill:var(--red);paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-linejoin:round}
+.d-lead{stroke:var(--stone);stroke-width:1;fill:none}
+.d-site{fill:var(--red)}
+.d-arrow{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round}
+.d-tube{fill:none;stroke:var(--sage);stroke-width:3;stroke-linecap:round}
+.d-eye{fill:var(--ink)}
+@media print{body{padding:0}a{color:inherit}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="cover">
+  <div>
+    <div class="edition">Supplement · New Zealand Edition · MMXXVI</div>
+    <h1>Far From Help</h1>
+    <p class="sub">Trained-hands lambing procedures for when the vet is ninety minutes away</p>
+    <p style="margin-top:2.5em;max-width:34em;color:var(--muted)">The main handbook marks these procedures “trained hands only”. On a property ~1.5 hours from veterinary help, they are the farmer’s to learn — as veterinary and agricultural extension services teach them. This supplement collects the published versions: to learn before lambing, and to have open beside you, vet on speakerphone, if the night comes.</p>
+  </div>
+  <div class="foot">
+    <span>Companion to <em>First Lambing Season</em> · print §§2–4 and laminate</span>
+    <span>Compiled August 2026</span>
+  </div>
+</header>
+
+<!-- ============ RULES ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Read first</div>
+    <h2>The rules of engagement</h2>
+    <p class="lede">Distance changes what you do while help comes. It does not remove the phone call.</p>
+  </div>
+  <ul>
+    <li><b>Still ring first — earlier, in fact.</b> With 1.5 h of travel, “watch for 30 minutes” becomes <b>“ring at 10–15 minutes and watch while you talk.”</b> Every procedure here can be phone- or video-guided.</li>
+    <li><b>Get shown beforehand.</b> Book a pre-lambing visit or workshop with your clinic: stomach-tubing, the IP injection site, and an internal exam demonstration take an hour to learn with a teacher. That hour converts everything below from “first time, alone, 2 a.m.” to “revision”.</li>
+    <li><b>Know Plan B: load and drive.</b> A ewe in trouble travels better than you'd think — bedded trailer or covered crate, lamb with her if born. Driving toward the vet (or meeting halfway) is often faster than waiting. Decide early.</li>
+    <li><b>Every procedure has printed stop conditions.</b> Stopping and driving is never a failure.</li>
+  </ul>
+
+  <h3>The remote playbook — set up before lambing</h3>
+  <table>
+    <tr><th>Do now</th><th>Why</th></tr>
+    <tr><td>Program <b>every clinic within range</b> + after-hours numbers; print them in the shed</td><td>Reachability is your stated risk — hold more than one number</td></tr>
+    <tr><td>Ask each clinic: after-hours protocol, video-call willingness, travel time, meet-halfway option</td><td>Turns a 90-minute problem into a 45-minute one</td></tr>
+    <tr><td>Book the <b>pre-lambing training visit</b>; ask about a <b>“distance pack”</b> (oral energy drench, SC calcium + training, pain relief/antibiotic cover with defined instructions)</td><td>Normal practice for remote clients — but it must be arranged in advance, with them</td></tr>
+    <tr><td>Test a video call (FaceTime/WhatsApp) from the lambing shed — check reception there</td><td>A vet who can <i>see</i> the presentation can guide precisely</td></tr>
+    <tr><td>Assemble the extended kit (Section 5) and stage the transport option, bedded</td><td>The extra items are cheap; the drive isn’t</td></tr>
+    <tr><td>Write the property’s RAPID number/directions where anyone can read them to a vet</td><td>Saves minutes when they matter</td></tr>
+  </table>
+  <div class="callout co-stop"><div class="co-tag">During any emergency in this supplement</div>
+    <p>Phone on speaker, in your chest pocket, vet on the line, and work together. Only if truly unreachable do these pages stand alone.</p></div>
+</section>
+
+<!-- ============ 1. MALPRESENTATION ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Procedure 1</div>
+    <h2>Internal exam &amp; correcting a malpresentation</h2>
+    <p class="lede">The skill is identification before action: trace every limb to its body, cup every hoof, pull only what you have identified — and only with her strains.</p>
+  </div>
+  <p class="src">Sources: NADIS <i>Lambing Part 1</i>; University of Wisconsin Extension <i>Visual Lambing Guide</i> (video — watch every episode before lambing); Sheep 201.</p>
+
+  <h3>Before your hand goes anywhere near her</h3>
+  <ol class="proc">
+    <li><b>Ring the vet / start the video call.</b> Describe or show what’s presenting.</li>
+    <li>Wash hands and arms in warm diluted disinfectant; nails short. Long glove on.</li>
+    <li><b>Lubricant — more than you think you need.</b> Re-lube at every re-entry.</li>
+    <li>Restrain: cast her on her side — for a leg-back, <b>missing-leg side uppermost</b> (NADIS). To repel a head, easier standing or with hindquarters raised on a bale.</li>
+    <li>Hand in a cone, enter slowly, <b>work between contractions; pause when she strains.</b></li>
+  </ol>
+
+  <div class="callout co-note"><div class="co-tag">Identify before you pull — anything</div>
+    <p>Front leg: fetlock and knee bend the <b>same</b> way. Hind leg: fetlock and hock bend <b>opposite</b> ways. A tail near hooves = hind end. With twins, follow each leg to its shoulder or hip and confirm both legs you hold belong to the <b>same lamb</b>.</p></div>
+
+  <h3>Leg back — the most common fixable problem</h3>
+  <ol class="proc">
+    <li>Gently push the lamb back toward the ewe (between strains) to make room.</li>
+    <li>Follow the missing shoulder → knee → cannon → fetlock.</li>
+    <li><b>Cup the hoof in your palm</b> — this shields the uterus from the sharp toe. The single most important detail.</li>
+    <li>Flex the knee; bring the cupped hoof up and over the pelvic brim in one smooth motion.</li>
+    <li>Both legs + head now in the diver position → deliver with the traction rules below.</li>
+  </ol>
+
+  <h3>Both front legs back — “hung lamb” (head out, no legs)</h3>
+  <ol class="proc">
+    <li>Keep the head moist; membranes off the nose, throughout.</li>
+    <li><b>Gently repel the head back inside</b> between strains (standing ewe / rear raised helps). It feels wrong; it is the correct move.</li>
+    <li>Retrieve each leg exactly as for leg-back — cup every hoof.</li>
+    <li>If the head slips back, a <b>lambing snare behind the ears and through the mouth</b> (never around the jaw alone) holds it in position while you deliver.</li>
+    <li>Cannot repel the head within a few minutes → <b>stop: load and drive.</b> A swollen head can still deliver alive at the clinic.</li>
+  </ol>
+
+  <h3>Head back (two legs, no head) <span class="badge b-red">Phone-guided only</span></h3>
+  <p>The hardest common correction — the head flips back easily in a small space. Published sequence: repel the lamb; follow the neck to the head; <b>cup the muzzle in your hand</b> (never hook the eye sockets); bring it round; snare it if it won’t stay. <b>Two failed attempts = load and drive.</b></p>
+
+  <h3>Hind legs first (soles up) — deliver it, promptly</h3>
+  <p>Do not convert it. Once the hips engage, the cord pinches and the lamb will try to breathe inside. Confirm both hooves are hind feet of the same lamb, then pull both legs <b>steadily down toward her hocks with her strains, briskly through the ribcage stage</b> (Wisconsin: “quick action is critical once the umbilical cord snaps”). Clear the airway instantly; expect to resuscitate.</p>
+
+  <h3>Breech (tail only) <span class="badge b-red">Phone-guided only</span></h3>
+  <p>Repel the rump; find a hock; cup the hoof; flex it up over the brim; repeat; deliver as hind-first. Farmers do this — with room, patience and a well-lubed arm. <b>Two failed attempts = load and drive.</b></p>
+
+  <h3>Two lambs at once <span class="badge b-red">Phone-guided only</span></h3>
+  <p>Repel the less-advanced lamb; deliver the engaged one. The whole skill is proving which legs belong to which lamb before pulling. Can’t sort the tangle in a few minutes → load and drive.</p>
+
+  <div class="callout co-warn"><div class="co-tag">Traction — the universal rules (NADIS)</div>
+    <p>Pull <b>only during her strains</b>, only on two legs + head in position (or two hind legs). Direction: a <b>downward arc toward her hocks</b> — “down and around, never straight out.” A normal assisted delivery takes <b>10–30 seconds</b> of steady-arm traction. Never ropes to fenceposts; never more force than your arms.</p>
+    <p><b>Stop = load and drive when:</b> the canal is dry/swollen beyond what lube fixes · two well-applied strains move nothing · you can’t identify what you feel · her pain escalates.</p></div>
+
+  <h3>After any assisted delivery</h3>
+  <ul>
+    <li>Airway first: clear, rub hard, straw-tickle a nostril. Leave the cord intact 1–2 min if unbroken.</li>
+    <li><b>Check for another lamb</b> — clean re-lubed glove, or ballot the belly just in front of the udder.</li>
+    <li>Iodine the navel; colostrum early — an assisted lamb is a slow lamb.</li>
+    <li>Tell the vet what you did; assisted ewes commonly warrant antibiotic cover (their call, their supply). Watch her 48 h for tears, infection, retained placenta.</li>
+  </ul>
+</section>
+
+<!-- ============ 2. TUBING ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Procedure 2</div>
+    <h2>Stomach-tubing a lamb</h2>
+    <p class="lede">For the lamb that can swallow but won’t suck. Measured, slow, and checked — a tube at the right length in the food-pipe cannot go wrong; a tube in the windpipe kills.</p>
+  </div>
+  <p class="src">Sources: OMAFRA (Ontario) <i>Care of the newborn lamb</i>; OSU Sheep Team; Cornell Cooperative Extension.</p>
+
+  <div class="callout co-warn"><div class="co-tag">Use / never</div>
+    <p><b>Use when:</b> the lamb can hold its head up and swallow, is ≥37 °C (warm it first if not), and needs colostrum it won’t take from teat or bottle.<br>
+    <b>Never tube:</b> a lamb that can’t hold its head up or swallow · a lamb &lt;37 °C older than ~5 h — that lamb needs the IP injection first (Procedure 3): <i>“never stomach tube before an IP glucose injection — milk could kill the lamb”</i> (SRUC).</p></div>
+
+  <figure>
+    <svg viewBox="0 0 420 150" role="img" aria-label="Diagram: measuring a stomach tube from the lamb's nose to its last rib">
+      <path d="M70 78 C 70 52, 100 42, 140 42 C 180 42, 206 52, 206 76 C 206 94, 186 102, 140 102 C 102 102, 70 98, 70 78 Z" class="d-lamb"/>
+      <circle cx="216" cy="52" r="15" class="d-lamb"/>
+      <path d="M228 46 Q 248 47 248 52 Q 248 57 227 60 Z" class="d-lamb"/>
+      <circle cx="218" cy="49" r="1.7" class="d-eye"/>
+      <path d="M210 38 l-9 -13 12 4 z" class="d-lamb"/>
+      <path d="M94 100 l0 22 M126 102 l0 20 M170 102 l0 20 M196 96 l0 24" class="d-leg"/>
+      <path d="M70 70 q-12 6 -8 16" class="d-leg" style="stroke-width:2"/>
+      <path d="M246 54 C 220 76, 170 84, 120 84" class="d-tube"/>
+      <path d="M120 84 l0 -34 M246 54 l0 -34" class="d-lead"/>
+      <path d="M120 22 L246 22" class="d-lead" style="stroke-dasharray:4 3"/>
+      <text x="128" y="16" class="d-label">measure nose → last rib · mark the tube</text>
+      <text x="84" y="140" class="d-label">last rib = level of the stomach</text>
+      <path d="M118 96 L110 128" class="d-lead"/>
+    </svg>
+    <figcaption><b>Measure before anything else.</b> Nose to last rib, tape-mark that length on the tube — it is further in than feels right (most of the tube).</figcaption>
+  </figure>
+
+  <ol class="proc">
+    <li><b>Measure and mark:</b> tube held alongside the lamb, nose → last rib.</li>
+    <li>Sit; lamb upright on your lap, head in a natural nose-forward position (not stretched up).</li>
+    <li>Wet the tip with colostrum. Insert at the <b>side of the mouth</b>, over the tongue, aiming slightly to the <b>lamb’s left</b> (the food-pipe lies left of and behind the windpipe).</li>
+    <li>Advance slowly. <b>Right = it slides easily</b>, the lamb may chew and swallow it, and with a finger on the throat you can feel <b>two tubes</b> (windpipe + yours). <b>Wrong = resistance, coughing, struggling → withdraw completely, start again.</b></li>
+    <li>Extra check: ear to the tube’s end — airflow or crying = windpipe, withdraw. Silence or stomach gurgle = correct.</li>
+    <li>Syringe on, <b>plunger out</b>: let warm colostrum run by gravity (or push very gently). <b>50 ml per kg over ~5 minutes.</b> Never fast.</li>
+    <li><b>Crimp the tube firmly, then withdraw</b> in one smooth motion (no drips into the airway on the way out).</li>
+    <li>Warm dry pen; recheck 30–60 min; repeat toward ~200 ml/kg by 24 h if it still won’t suck.</li>
+  </ol>
+</section>
+
+<!-- ============ 3. IP GLUCOSE ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Procedure 3</div>
+    <h2>Intraperitoneal (IP) glucose injection</h2>
+    <p class="lede">The cold-lamb rescue — the reason the handbook says “do not warm first”. Farmer-administered across the UK, Ireland and NZ; the abdominal cavity absorbs glucose safely, which is why extension services teach it.</p>
+  </div>
+  <p class="src">Sources: Farm Advisory Service Scotland; SRUC; OSU; Cornell; original evidence Eales &amp; Small 1982, <i>Vet Record</i>.</p>
+
+  <div class="callout co-warn"><div class="co-tag">Use only when all three are true</div>
+    <p>Lamb <b>below 37 °C</b> · <b>older than ~5 hours</b> · <b>cannot swallow / hold its head up</b>. A lamb that can swallow gets warmed and tubed instead — never both orders reversed.</p></div>
+
+  <h3>Prepare — shop before lambing</h3>
+  <p><b>20% glucose/dextrose solution</b> (vet or rural store — ask for it in your pre-lambing “distance pack”), or make it: <b>20 g glucose powder in hot pre-boiled water made up to 50 ml (40%), then diluted half-and-half with warm pre-boiled water</b> → ≈20%, ~50 ml, warm-on-the-wrist (SRUC). Dose <b>10 ml/kg</b> — a 4–5 kg lamb takes the full ~45–50 ml. 50–60 ml syringe; new sterile <b>1-inch (25 mm) needle</b>.</p>
+
+  <figure>
+    <svg viewBox="0 0 420 220" role="img" aria-label="Diagram: IP injection site — lamb held vertically by the front legs, needle one inch below and half an inch beside the navel, angled 45 degrees toward the tail">
+      <path d="M175 30 L150 6 M205 30 L230 6" class="d-leg"/>
+      <text x="240" y="14" class="d-label">held hanging by both front legs</text>
+      <path d="M160 30 C 138 60, 132 110, 146 156 C 156 186, 176 202, 190 202 C 204 202, 224 186, 234 156 C 248 110, 242 60, 220 30 Z" class="d-lamb"/>
+      <path d="M172 202 l-4 14 M208 202 l4 14" class="d-leg"/>
+      <circle cx="190" cy="98" r="4.5" fill="none" stroke="var(--ink)" stroke-width="2"/>
+      <path d="M196 96 L268 78" class="d-lead"/><text x="272" y="80" class="d-label">navel</text>
+      <circle cx="181" cy="124" r="4" class="d-site"/>
+      <path d="M177 122 L96 108" class="d-lead"/>
+      <text x="18" y="104" class="d-badlabel">site: ~2.5 cm below navel,</text>
+      <text x="18" y="118" class="d-badlabel">~1 cm to the side</text>
+      <path d="M150 158 L177 128" class="d-arrow"/>
+      <path d="M177 128 l-9 1 4 8 z" class="d-site"/>
+      <text x="60" y="176" class="d-badlabel">needle fully in at 45°,</text>
+      <text x="60" y="190" class="d-badlabel">pointing toward the tail head</text>
+      <path d="M190 202 q0 10 0 10" class="d-lead"/>
+      <text x="238" y="206" class="d-label">tail (lamb hangs head-up)</text>
+    </svg>
+    <figcaption><b>The site</b> — ~2.5 cm (1″) below and ~1 cm (½″) beside the navel, needle at 45° toward the tail head, lamb held vertically so the organs fall clear (FAS Scotland / SRUC / Cornell).</figcaption>
+  </figure>
+
+  <ol class="proc">
+    <li>Ring the vet (speaker, pocket). Draw up the <b>warmed</b> solution.</li>
+    <li><b>Hold the lamb hanging by both front legs</b> (helper ideal; alone, forelegs in one hand, lamb’s back against your legs).</li>
+    <li>Site as diagrammed. Insert the <b>full needle at 45°, angled toward the tail head</b> — two faint pops (skin, then wall).</li>
+    <li><b>Inject the full dose slowly and steadily.</b></li>
+    <li>Withdraw; rub; iodine the site.</li>
+    <li><b>Now warm</b>: warm-air box ~35–40 °C, check every 20–30 min; recheck lamb temperature at 30 min. Expect it standing within 30–60 minutes.</li>
+    <li>Once ≥37 °C and swallowing: <b>tube 50 ml/kg colostrum</b> (Procedure 2), then re-mother.</li>
+  </ol>
+  <div class="callout co-warn"><div class="co-tag">Do not</div>
+    <p>Inject a lamb that can swallow (tube it) · use cold solution (deepens the hypothermia) · reuse needles between lambs · inject at or forward of the navel itself.</p></div>
+</section>
+
+<!-- ============ 4. BEARING ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Procedure 4</div>
+    <h2>Replacing a bearing &amp; fitting a retainer</h2>
+    <p class="lede">NZ clinics publish this because bearings happen far from help. The vet-preferred version uses an epidural so she can’t strain against you — so the call still comes first: they may say “bring her in”, or talk you through this.</p>
+  </div>
+  <p class="src">Sources: Farmers Weekly step-by-step; Northland Veterinary Group (NZ); Agriculture Victoria; OSU.</p>
+
+  <div class="callout co-stop"><div class="co-tag">Check first — stop conditions</div>
+    <p>Tissue <b>torn, black or cold</b> → do not replace; ring/drive — a vet must judge whether it’s salvageable. Signs she is <b>actually lambing</b> (water bag, feet or tail palpable through the cervix behind the mass) → this is a lambing emergency now; ring immediately.</p></div>
+
+  <ol class="proc">
+    <li>Two people if possible: one holds her standing against a rail; <b>raising her hindquarters</b> (bale under back legs, or rear held up wheelbarrow-style) makes everything easier.</li>
+    <li><b>Clean:</b> plenty of clean warm water with mild antiseptic (dilute iodine, “weak-tea colour” — Northland Vets). All dirt and bedding off. No scrubbing.</li>
+    <li><b>Lubricate</b> the whole surface generously.</li>
+    <li><b>Replace:</b> first <b>lift the mass up toward her tail</b> — this un-kinks the bladder; she’ll often pass urine and the ball shrinks. Then, with the <b>flat of the hand or a closed fist — never fingertips</b> — slow, steady, patient pressure. <b>Hold when she strains; gain between strains.</b> It returns gradually, then all at once; follow it in so the tip is fully un-inverted.</li>
+    <li><b>Retain:</b> bearing spoon/T-piece — tongue in the vagina, wings tied firmly to flank wool with the tapes — or a prolapse harness per its instructions. <b>Buy one now;</b> improvising at midnight is miserable.</li>
+    <li><b>Aftercare:</b> she warrants pain relief and usually antibiotic cover — vet-supplied in NZ: ring, report, arrange (ask at the pre-lambing visit whether they’ll pre-supply for your distance). Check the retainer twice daily. <b>She can lamb past a spoon</b> (it pushes out) — but watch her closely at lambing; a harness must be released. <b>Mark her; bearings recur — don’t breed her again.</b></li>
+  </ol>
+</section>
+
+<!-- ============ 5 + 6 ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Sections 5 &amp; 6</div>
+    <h2>Extended kit · what stays vet-only</h2>
+  </div>
+
+  <table>
+    <caption>Kit additions for the remote property</caption>
+    <tr><th>Item</th><th>For</th><th>Note</th></tr>
+    <tr><td>20% glucose/dextrose (or powder + jug)</td><td>IP injection</td><td>Vet “distance pack” or rural store</td></tr>
+    <tr><td>50–60 ml syringes ×3 · sterile 1″ needles ×6</td><td>IP injection</td><td>Rural store</td></tr>
+    <tr><td>Bearing spoon <b>and</b> prolapse harness</td><td>Bearing</td><td>Buy before lambing</td></tr>
+    <tr><td>Lambing snare</td><td>Holding a corrected head</td><td>Watch the Wisconsin video on its use first</td></tr>
+    <tr><td>Second bottle of obstetric lube</td><td>Everything</td><td>You cannot have too much</td></tr>
+    <tr><td>Printed §§2–4 of this supplement, laminated</td><td>The paddock has no wifi</td><td>—</td></tr>
+    <tr><td>Bedded trailer / ute crate, staged</td><td>Plan B: load and drive</td><td>Test-load a calm sheep once</td></tr>
+  </table>
+
+  <div class="callout co-safe"><div class="co-tag">The highest-value hour of your preparation</div>
+    <p>Ask your clinic for a <b>pre-lambing visit + “distance pack”</b>: tubing and IP demonstration, oral energy drench, subcutaneous calcium (with training), pain relief and antibiotic cover with written instructions for defined situations. Rural NZ practices do this for known clients 1.5 h out — but it must be arranged with them, in advance.</p></div>
+
+  <table>
+    <caption>Still genuinely vet-only — and Plan B for each</caption>
+    <tr><th>Problem</th><th>Why vet-only</th><th>Your move</th></tr>
+    <tr><td>Uterine prolapse (huge mass, buttons)</td><td>Epidural + technique; forcing can rupture an artery</td><td>Ring; keep her still, mass in clean wet towel off the ground; <b>load and drive is usually right</b> — she travels lying, mass supported</td></tr>
+    <tr><td>Ringwomb</td><td>Usually caesarean</td><td>Ring early — it declares itself over hours, so you have driving time</td></tr>
+    <tr><td>Oversized lamb truly stuck after correct position + failed gentle traction</td><td>May need caesarean</td><td>Load and drive — don’t spend an hour trying</td></tr>
+    <tr><td>Uncontrolled fresh bleeding</td><td>Surgical</td><td>Ring; still and calm; drive if told</td></tr>
+    <tr><td>Down ewe (milk fever / sleepy sickness)</td><td>IV calcium is vet-only; <b>SC calcium + oral drench are farmer tasks with vet training/supply</b></td><td>Arrange training + supply at the pre-lambing visit</td></tr>
+    <tr><td>Caesarean · embryotomy</td><td>—</td><td>The drive is the treatment</td></tr>
+  </table>
+</section>
+
+<!-- ============ 7. EVIDENCE ============ -->
+<section>
+  <div class="sec-open">
+    <div class="sec-kicker">Section 7</div>
+    <h2>What the wider evidence says about your ewes</h2>
+    <p class="lede">A targeted literature search (including the German breed name, <i>Walliser Schwarznasenschaf</i>) confirms: no peer-reviewed lambing or dystocia dataset exists for the Valais Blacknose. “Easy lambing” remains a breeder claim. The transferable science:</p>
+  </div>
+  <ul>
+    <li><b>Dystocia tracks lamb birthweight above all else</b> — assistance is rarest near ~3.5 kg and climbs steeply past ~4.5 kg; well-fed singles are the classic oversize risk (Smith 1977; Dorset, Merino and NZ Romney studies). <i>Practical: your singles-bearing ewe on lush spring feed is the likeliest assisted birth — don’t over-feed her final month, and watch her closest.</i></li>
+    <li><b>Ewe frame helps.</b> VB ewes are large (70–90 kg; CABI breed data), and pelvis-to-lamb ratio is what matters (rare-breeds pelvimetry, Richardson et al.). <i>Practical: a first-timer lambing a big single is the higher-risk combination in your flock.</i></li>
+    <li><b>Failure of cervical dilation is the most common maternal cause of dystocia</b> (302-case hospital series, 2022). <i>Practical: hours of nesting with no water bag is the quiet emergency — with your travel time, ring at hour 4–6, not hour 8.</i></li>
+    <li>The breed appears in Swiss population-genetics work only (Signer-Hasler et al. 2019 — inbreeding/selection across eight Swiss breeds). Horns in both sexes are soft buds at birth — irrelevant to dystocia. The fleece is not: crutch, dag, clear the udder pre-lambing.</li>
+  </ul>
+
+  <h4>Sources</h4>
+  <ol style="font-size:.9em">
+    <li>NADIS — <i>Lambing Part 1: The Basics.</i> nadis.org.uk</li>
+    <li>University of Wisconsin–Madison Extension — <i>The Visual Lambing Guide</i> (video series). livestock.extension.wisc.edu/visual-lambing-guide</li>
+    <li>OMAFRA / Ontario — <i>Care of the newborn lamb.</i> ontario.ca/page/care-newborn-lamb</li>
+    <li>OSU Sheep Team — <i>Tube feeding</i>; <i>IP injection of dextrose.</i> u.osu.edu/sheep</li>
+    <li>Cornell Cooperative Extension — <i>Tube feeding and IP injections.</i></li>
+    <li>Farm Advisory Service Scotland — <i>Treating hypothermia in newborn lambs.</i> fas.scot</li>
+    <li>SRUC — <i>Treating cold lambs with an IP injection.</i> sruc.ac.uk</li>
+    <li>Eales FA, Small J (1982). <i>Resuscitation of hypothermic lambs.</i> Vet Record (PMID 7186698).</li>
+    <li>Farmers Weekly — <i>Step-by-step: vaginal prolapse in sheep.</i> fwi.co.uk</li>
+    <li>Northland Veterinary Group (NZ) — <i>Bearings.</i> northvets.co.nz · Agriculture Victoria — <i>The prolapsing ewe.</i></li>
+    <li>Dystocia evidence: Smith 1977 (PMID 558970) · George 1976 (PMID 1016153) · NZ Romney studies (PMID 270640, 292902) · rare-breeds pelvimetry (PMID 6495569) · ovine dystocia case series 2022 (PMC9297778) · Signer-Hasler 2019 (PMID 31365135).</li>
+  </ol>
+  <p style="font-size:.88em;color:var(--muted);margin-top:1.2em">Compiled August 2026 for a property ~1.5 h from veterinary help. These are the published farmer-education versions of each technique; hands-on instruction beforehand remains the strong recommendation, and a phone or video call to the vet remains step 1 of every procedure.</p>
+</section>
+
+</div>
+</body>
+</html>
