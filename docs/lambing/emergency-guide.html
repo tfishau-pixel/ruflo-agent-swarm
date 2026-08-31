@@ -7,21 +7,23 @@
 <title>Lambing Emergency Guide</title>
 <style>
 /* ============================================================
-   LAMBING EMERGENCY GUIDE — rapid-reference system
+   LAMBING SUITE · design system v2 — emergency guide
    Mobile-first. Works offline from a saved file. No network.
+   Structure by rules and tonal fields, not cards; urgency by
+   word + weight + solid oxblood, never colour alone.
    ============================================================ */
 :root{
-  --paper:#FAF7F1; --card:#FFFFFF; --ink:#211E1A; --muted:#6E675C; --stone:#8A8377;
-  --hair:#E5DFD3; --wash:#F3EFE7; --sage:#6F7A67;
-  --green:#2F6B45; --green-wash:#EBF2EC;
-  --amber:#96660A; --amber-wash:#F8F0DC;
-  --red:#A6392C; --red-wash:#F7E8E4; --red-deep:#8F2C20;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
-  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --paper:#F8F4EB; --card:#FFFFFF; --ink:#211D17; --muted:#5C5442; --stone:#6B6353;
+  --hair:#E0D8C6; --wash:#F0EADC; --sage:#5A684E;
+  --green:#33613E; --green-wash:#E9EFE6;
+  --amber:#8A5B10; --amber-wash:#F6EDD8;
+  --red:#A6392C; --red-wash:#F5E7E1; --red-deep:#8C2E1F;
+  --serif:"Source Serif 4","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --paper:#191713; --card:#221F1A; --ink:#F0EBE2; --muted:#B0A896; --stone:#968D7E;
+    --paper:#191713; --card:#221F1A; --ink:#F0EBE2; --muted:#B5AC9A; --stone:#A39A88;
     --hair:#3A362E; --wash:#2A2721; --sage:#93A088;
     --green:#7FB894; --green-wash:#243329;
     --amber:#D9A84E; --amber-wash:#382E1B;
@@ -38,97 +40,105 @@ body{
 }
 h1,h2,.serif{font-family:var(--serif);font-weight:600}
 a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 [hidden]{display:none!important}
 .num{font-variant-numeric:tabular-nums}
 
 /* ---- top mast ---- */
-.mast{padding:1.2rem 1.1rem .9rem}
-.mast .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--stone)}
-.mast h1{font-size:1.7rem;line-height:1.1;margin:.25rem 0 .15rem}
-.mast .sub{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:1rem}
+.mast{padding:1.1rem 1.1rem .9rem;border-top:4px solid var(--ink)}
+.mast .kicker{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stone);font-weight:600}
+.mast h1{font-size:1.85rem;line-height:1.08;margin:.3rem 0 .2rem;letter-spacing:.002em}
+.mast .sub{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:1.02rem}
 
-/* ---- urgency chips ---- */
-.chip{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
-  padding:.3em .8em;border-radius:3px;white-space:nowrap}
-.c-green{background:var(--green-wash);color:var(--green);border:1.5px solid var(--green)}
-.c-amber{background:var(--amber-wash);color:var(--amber);border:1.5px solid var(--amber)}
-.c-red{background:var(--red-deep);color:#fff;border:1.5px solid var(--red-deep)}
+/* ---- urgency tags: word always present; RED solid, others outlined ---- */
+.chip{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.32em .7em;white-space:nowrap;font-family:var(--sans)}
+.c-green{background:var(--green-wash);color:var(--green);border:1px solid var(--green)}
+.c-amber{background:var(--amber-wash);color:var(--amber);border:1px solid var(--amber)}
+.c-red{background:var(--red-deep);color:#fff;border:1px solid var(--red-deep)}
 
-/* ---- menu ---- */
+/* ---- menu: ruled index, not cards ---- */
 .menu{padding:0 1.1rem 1rem}
-.search{width:100%;padding:.8rem 1rem;font-size:1rem;border:1.5px solid var(--hair);border-radius:6px;
-  background:var(--card);color:var(--ink);margin:.4rem 0 1rem}
-.search:focus{outline:2px solid var(--sage)}
-.menu-list{list-style:none}
-.menu-list li{margin:.55rem 0}
+.search{width:100%;padding:.85rem 1rem;font-size:1rem;border:1.5px solid var(--muted);
+  background:var(--card);color:var(--ink);margin:.5rem 0 .4rem;border-radius:0;-webkit-appearance:none}
+.search:focus{outline:2px solid var(--sage);outline-offset:1px}
+.menu-list{list-style:none;border-top:2px solid var(--ink)}
+.menu-list li{margin:0;border-bottom:1px solid var(--hair)}
 .mbtn{display:flex;align-items:center;gap:.9rem;width:100%;text-align:left;
-  background:var(--card);border:1.5px solid var(--hair);border-radius:8px;
-  padding:.95rem 1rem;min-height:64px;text-decoration:none}
+  padding:.85rem .2rem;min-height:60px;text-decoration:none}
 .mbtn:active{background:var(--wash)}
-.mbtn .n{font-family:var(--serif);font-size:1.25rem;color:var(--stone);min-width:1.6rem;text-align:right;font-variant-numeric:tabular-nums}
+.mbtn .n{font-family:var(--serif);font-size:1.3rem;color:var(--stone);min-width:1.7rem;text-align:right;font-variant-numeric:tabular-nums;line-height:1}
 .mbtn .t{flex:1}
 .mbtn .t b{display:block;font-size:1.05rem;line-height:1.25}
 .mbtn .t small{color:var(--muted);font-size:.82rem}
-.mbtn.redline{border-color:var(--red-deep);background:var(--red-deep);color:#fff}
+.menu-list li:has(.redline){border-bottom:none;margin-top:.8rem}
+.mbtn.redline{background:var(--red-deep);color:#fff;padding:.85rem .9rem}
 .mbtn.redline .n,.mbtn.redline .t small{color:#fff;opacity:.85}
+.mbtn.redline .t b{letter-spacing:.05em}
 .menu-note{font-size:.85rem;color:var(--muted);margin:1.1rem 0 0}
+.menu-note a{text-decoration:underline;text-decoration-color:var(--hair);text-underline-offset:3px}
 
 /* ---- cards ---- */
 .card{padding:0 1.1rem 2rem}
-.card-head{padding:1rem 0 .9rem;border-bottom:2px solid var(--ink);margin-bottom:1rem}
-.card-head .where{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-bottom:.4rem}
-.card-head h2{font-size:1.65rem;line-height:1.12;margin:.25rem 0 .55rem}
-.blk{margin:1.1rem 0}
-.blk-tag{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:.4rem}
+.card-head{padding:1rem 0 .8rem;border-top:4px solid var(--ink);border-bottom:1px solid var(--hair);margin-bottom:1.1rem}
+.card-head .where{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.35rem;font-weight:600}
+.card-head h2{font-size:1.7rem;line-height:1.1;margin:.2rem 0 .6rem}
+.blk{margin:1.15rem 0}
+.blk-tag{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);margin-bottom:.4rem}
 .blk p{margin:.3rem 0}
-figure.dg{border:1.5px solid var(--hair);background:var(--card);border-radius:8px;padding:.8rem;margin:.8rem 0}
+figure.dg{background:var(--wash);padding:.9rem .9rem .7rem;margin:.9rem 0}
 figure.dg svg{display:block;width:100%;height:auto}
-figure.dg figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
+figure.dg figcaption{font-size:.85rem;color:var(--muted);margin-top:.6rem;padding-top:.5rem;border-top:1px solid var(--hair)}
 .dg-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 @media (max-width:420px){.dg-row{grid-template-columns:1fr}}
 
-.donow{background:var(--card);border:1.5px solid var(--ink);border-radius:8px;padding:1rem 1.1rem;margin:1rem 0}
+.donow{border-top:3px solid var(--ink);border-bottom:1px solid var(--hair);background:var(--card);padding:.9rem 1rem 1rem;margin:1.2rem 0}
 .donow .blk-tag{color:var(--ink)}
 .donow ol{margin:.2rem 0 0 1.3rem}
-.donow li{margin:.5rem 0;font-size:1.02rem}
-.donot{background:var(--red-wash);border-left:5px solid var(--red-deep);border-radius:0 8px 8px 0;padding:.9rem 1rem;margin:1rem 0}
-.donot .blk-tag{color:var(--red)}
+.donow li{margin:.55rem 0;font-size:1.02rem}
+.donow li::marker{font-family:var(--serif);font-weight:600;color:var(--ink)}
+.donot{background:var(--red-wash);border-left:4px solid var(--red-deep);padding:.9rem 1rem;margin:1.2rem 0}
+.donot .blk-tag{color:var(--red-deep)}
 .donot p{color:var(--ink)}
-.callvet{background:var(--card);border:1.5px dashed var(--red-deep);border-radius:8px;padding:.9rem 1rem;margin:1rem 0}
-.callvet .blk-tag{color:var(--red)}
+.callvet{border-top:3px solid var(--red-deep);border-bottom:1px solid var(--red-deep);background:var(--card);padding:.85rem 1rem .95rem;margin:1.2rem 0}
+.callvet .blk-tag{color:var(--red-deep)}
 .mini-table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.6rem 0}
-.mini-table th{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;text-align:left;color:var(--stone);border-bottom:2px solid var(--ink);padding:.4rem .5rem .4rem 0}
-.mini-table td{border-bottom:1px solid var(--hair);padding:.55rem .5rem .55rem 0;vertical-align:top}
-.jump{display:inline-block;margin:.15rem .3rem .15rem 0;padding:.45em .8em;border:1.5px solid var(--hair);border-radius:6px;
-  background:var(--card);text-decoration:none;font-size:.92rem;font-weight:600}
+.mini-table th{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;text-align:left;color:var(--stone);border-bottom:2px solid var(--ink);padding:.4rem .5rem .4rem 0;font-weight:700}
+.mini-table td{border-bottom:1px solid var(--hair);padding:.6rem .5rem .6rem 0;vertical-align:top}
+.jump{display:inline-flex;align-items:center;min-height:44px;margin:.1rem .5rem .1rem 0;padding:.3em .8em .3em 0;
+  text-decoration:none;font-size:.95rem;font-weight:600;color:var(--sage);
+  border-bottom:1.5px solid var(--hair)}
+.jump:active{background:var(--wash)}
 
 /* ---- contacts & records ---- */
-.formrow{margin:.7rem 0}
-.formrow label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:.25rem}
-.formrow input,.formrow textarea{width:100%;padding:.65rem .8rem;font-size:1rem;border:1.5px solid var(--hair);border-radius:6px;background:var(--card);color:var(--ink)}
-.formrow input:focus,.formrow textarea:focus{outline:2px solid var(--sage)}
+.formrow{margin:.75rem 0}
+.formrow label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-bottom:.25rem}
+.formrow input,.formrow textarea{width:100%;padding:.65rem .8rem;font-size:1rem;border:1px solid var(--muted);border-radius:0;background:var(--card);color:var(--ink);-webkit-appearance:none}
+.formrow input:focus,.formrow textarea:focus{outline:2px solid var(--sage);outline-offset:1px}
 .two{display:grid;grid-template-columns:1.6fr 1fr;gap:.6rem}
-.ewecard{border:1.5px solid var(--hair);border-radius:8px;background:var(--card);padding:1rem;margin:1rem 0}
-.ewecard h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:.4rem}
+.ewecard{border-top:3px solid var(--ink);background:var(--card);padding:1rem;margin:1.2rem 0;border-bottom:1px solid var(--hair)}
+.ewecard h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:.4rem}
 .save-note{font-size:.8rem;color:var(--muted);margin:.6rem 0 0}
 
 /* ---- persistent bottom bar ---- */
 .bar{position:fixed;bottom:0;left:0;right:0;display:flex;gap:.6rem;
   padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom));
-  background:var(--paper);border-top:1.5px solid var(--hair);z-index:50;
+  background:var(--paper);border-top:1px solid var(--hair);z-index:50;
   max-width:680px;margin:0 auto}
-.bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;
-  min-height:52px;border-radius:8px;text-decoration:none;font-weight:800;font-size:.95rem;letter-spacing:.04em}
-.bar .to-menu{border:1.5px solid var(--ink);background:var(--card);color:var(--ink)}
-.bar .to-vet{background:var(--red-deep);color:#fff;border:1.5px solid var(--red-deep)}
+.bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.55rem;
+  min-height:54px;text-decoration:none;font-weight:700;font-size:.95rem;letter-spacing:.06em}
+.bar .to-menu{border:2px solid var(--ink);background:var(--card);color:var(--ink)}
+.bar .to-vet{background:var(--red-deep);color:#fff;border:2px solid var(--red-deep)}
 .bar .to-vet small{display:block;font-weight:600;font-size:.68rem;opacity:.9;letter-spacing:.02em}
+.bar svg{flex:none}
 
-details{border:1.5px solid var(--hair);border-radius:8px;background:var(--card);margin:.7rem 0}
-details summary{padding:.8rem 1rem;font-weight:700;cursor:pointer;list-style:none}
-details summary::before{content:"+";display:inline-block;width:1.2em;color:var(--stone)}
+details{border-top:2px solid var(--ink);border-bottom:1px solid var(--hair);background:var(--card);margin:.9rem 0}
+details summary{padding:.85rem .6rem;font-weight:700;cursor:pointer;list-style:none;min-height:48px}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";display:inline-block;width:1.2em;color:var(--stone);font-family:var(--serif)}
 details[open] summary::before{content:"–"}
-details .inner{padding:0 1rem .9rem}
+details .inner{padding:0 .6rem .9rem}
 
 /* ---- svg diagram classes (shared with handbook) ---- */
 .d-womb{fill:var(--wash);stroke:var(--hair);stroke-width:2}
@@ -771,8 +781,8 @@ details .inner{padding:0 1rem .9rem}
 
 <!-- ================= PERSISTENT BAR ================= -->
 <nav class="bar" aria-label="Persistent controls">
-  <a class="to-menu" href="#menu">☰&nbsp; SYMPTOMS</a>
-  <a class="to-vet" href="#contacts" id="callvet-btn"><span>📞&nbsp; CALL VET<small id="callvet-sub">tap to add number</small></span></a>
+  <a class="to-menu" href="#menu"><svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 1h14M1 7h14M1 13h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>SYMPTOMS</a>
+  <a class="to-vet" href="#contacts" id="callvet-btn"><svg width="17" height="17" viewBox="0 0 17 17" aria-hidden="true"><path d="M3.6 1.5h2.6l1.3 3.2-1.7 1.4a10.5 10.5 0 0 0 4.6 4.6l1.4-1.7 3.2 1.3v2.6a1.4 1.4 0 0 1-1.5 1.4C7.3 14 3 9.7 2.2 3A1.4 1.4 0 0 1 3.6 1.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>CALL VET<small id="callvet-sub">tap to add number</small></span></a>
 </nav>
 
 <script>

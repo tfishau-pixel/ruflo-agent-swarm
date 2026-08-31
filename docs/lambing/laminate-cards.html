@@ -8,11 +8,11 @@
 /* Laminate card set: 4 cards, one per A4 page, pouch-safe margins.
    Print duplex long-edge → 2 sheets → 2 pouches (A+B, C+D back-to-back). */
 :root{
-  --paper:#FFFFFF; --ink:#211E1A; --muted:#5E5850; --stone:#8A8377; --hair:#D9D2C4;
-  --green:#2F6B45; --green-wash:#EBF2EC; --amber:#96660A; --amber-wash:#F8F0DC;
-  --red:#A6392C; --red-wash:#F7E8E4;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --paper:#FFFFFF; --ink:#211D17; --muted:#5C5442; --stone:#6B6353; --hair:#DFD7C5; --wash:#F4F0E7;
+  --green:#33613E; --green-wash:#E9EFE6; --amber:#8A5B10; --amber-wash:#F6EDD8;
+  --red:#8C2E1F; --red-wash:#F5E7E1;
+  --serif:"Source Serif 4","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{print-color-adjust:exact;-webkit-print-color-adjust:exact}
@@ -21,24 +21,29 @@ body{font-family:var(--sans);font-size:9.6pt;line-height:1.38;color:var(--ink);b
 @media screen{body{max-width:200mm;margin:1rem auto;padding:1rem}}
 .card{break-after:page}
 .card:last-child{break-after:auto}
-header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2.5px solid var(--ink);padding-bottom:1.8mm;margin-bottom:2.4mm}
+header{border-top:3px solid var(--ink);padding-top:1.5mm;margin-bottom:2.4mm}
+header .mast-row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:.6px solid var(--ink);padding-bottom:1.6mm}
 h1{font-family:var(--serif);font-size:15.5pt;font-weight:600}
-header .tag{font-size:6.8pt;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);text-align:right}
-h2{font-family:var(--sans);font-size:8pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin:2.6mm 0 1.2mm}
+header .tag{font-size:6.6pt;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);text-align:right;font-weight:600}
+h2{font-family:var(--sans);font-size:7.8pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin:2.6mm 0 1mm;border-bottom:.6px solid var(--hair);padding-bottom:.7mm}
 p{margin:.35em 0}
 ol,ul{margin:.3em 0 .5em 1.5em}
-li{margin:.22em 0}
-.rule-box{background:var(--red);color:#fff;border-radius:2px;padding:1.6mm 2.6mm;font-size:9.6pt;font-weight:700;margin-bottom:2.2mm}
-.usebox{border:1.3px solid var(--amber);background:var(--amber-wash);border-radius:2px;padding:1.6mm 2.4mm;margin:1.6mm 0}
-.stopbox{border:1.5px solid var(--red);background:var(--red-wash);border-radius:2px;padding:1.6mm 2.4mm;margin:1.6mm 0}
-.stopbox b:first-child,.usebox b:first-child{letter-spacing:.06em}
-.okbox{border:1.3px solid var(--green);background:var(--green-wash);border-radius:2px;padding:1.6mm 2.4mm;margin:1.6mm 0}
+li{margin:.24em 0}
+li::marker{font-weight:600;color:var(--stone)}
+.rule-box{background:var(--red);color:#fff;padding:1.7mm 2.6mm;font-size:9.6pt;font-weight:700;margin-bottom:2.2mm}
+.usebox{border-left:3px solid var(--amber);background:var(--amber-wash);padding:1.7mm 2.4mm;margin:1.7mm 0}
+.stopbox{border-left:3px solid var(--red);background:var(--red-wash);padding:1.7mm 2.4mm;margin:1.7mm 0}
+.stopbox b:first-child,.usebox b:first-child,.okbox b:first-child{letter-spacing:.07em;font-size:8.6pt}
+.stopbox b:first-child{color:var(--red)}
+.usebox b:first-child{color:var(--amber)}
+.okbox b:first-child{color:var(--green)}
+.okbox{border-left:3px solid var(--green);background:var(--green-wash);padding:1.7mm 2.4mm;margin:1.7mm 0}
 .cols{display:flex;gap:5mm}
 .cols>div{flex:1}
-figure{border:1px solid var(--hair);border-radius:2px;padding:1.6mm;margin:1.6mm 0;text-align:center}
-figure svg{width:100%;max-width:78mm;height:auto}
-figcaption{font-size:7.6pt;color:var(--muted);text-align:left;margin-top:1mm}
-footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-size:6.6pt;color:var(--muted);display:flex;justify-content:space-between}
+figure{background:var(--wash);padding:1.8mm;margin:1.7mm 0;text-align:center}
+figure svg{width:100%;max-width:112mm;height:auto}
+figcaption{font-size:7.6pt;color:var(--muted);text-align:left;margin-top:1.2mm;border-top:.6px solid var(--hair);padding-top:1mm}
+footer{border-top:1.4px solid var(--ink);margin-top:2.4mm;padding-top:1.2mm;font-size:6.6pt;color:var(--muted);display:flex;justify-content:space-between}
 .d-lamb{fill:#fff;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
 .d-leg{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round}
 .d-label{font:600 10.5px var(--sans);fill:var(--muted);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
@@ -46,7 +51,7 @@ footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-
 .d-lead{stroke:var(--stone);stroke-width:1;fill:none}
 .d-site{fill:var(--red)}
 .d-arrow{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round}
-.d-tube{fill:none;stroke:#6F7A67;stroke-width:3;stroke-linecap:round}
+.d-tube{fill:none;stroke:#5A684E;stroke-width:3;stroke-linecap:round}
 .d-eye{fill:var(--ink)}
 </style>
 </head>
@@ -54,7 +59,7 @@ footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-
 
 <!-- ============ CARD A — MALPRESENTATION ============ -->
 <section class="card">
-  <header><h1>Correcting a Malpresentation</h1><div class="tag">Far From Help · Card A<br>NADIS · Wisconsin Visual Lambing Guide</div></header>
+  <header><div class="mast-row"><h1>Correcting a Malpresentation</h1><div class="tag">Far From Help · Card A<br>NADIS · Wisconsin Visual Lambing Guide</div></div></header>
   <div class="rule-box">RING THE VET FIRST — speakerphone in your chest pocket, video call if possible. Work together.</div>
   <h2>Prepare</h2>
   <p>Washed arm · long glove · <b>lots of lubricant, re-lubed at every entry</b> · cast her on her side (for a leg-back: missing-leg side uppermost; to repel a head: standing, or rear raised on a bale) · hand in a cone, enter slowly, <b>work between contractions, pause when she strains</b>.</p>
@@ -80,7 +85,7 @@ footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-
 
 <!-- ============ CARD B — TUBING ============ -->
 <section class="card">
-  <header><h1>Stomach-Tubing a Lamb</h1><div class="tag">Far From Help · Card B<br>OMAFRA · OSU · Cornell</div></header>
+  <header><div class="mast-row"><h1>Stomach-Tubing a Lamb</h1><div class="tag">Far From Help · Card B<br>OMAFRA · OSU · Cornell</div></div></header>
   <div class="usebox"><b>USE WHEN:</b> lamb ≥37 °C, can hold its head up and swallow, but won’t/can’t suck. <b>NEVER TUBE:</b> a lamb that can’t hold its head up or swallow · a lamb &lt;37 °C older than ~5 h — that lamb gets the IP injection FIRST (Card C): “never stomach tube before an IP glucose injection — milk could kill the lamb” (SRUC).</div>
   <figure>
     <svg viewBox="0 0 420 150" role="img" aria-label="Measure the tube from nose to last rib">
@@ -116,7 +121,7 @@ footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-
 
 <!-- ============ CARD C — IP GLUCOSE ============ -->
 <section class="card">
-  <header><h1>IP Glucose Injection — Cold-Lamb Rescue</h1><div class="tag">Far From Help · Card C<br>FAS Scotland · SRUC · Eales &amp; Small 1982</div></header>
+  <header><div class="mast-row"><h1>IP Glucose Injection — Cold-Lamb Rescue</h1><div class="tag">Far From Help · Card C<br>FAS Scotland · SRUC · Eales &amp; Small 1982</div></div></header>
   <div class="usebox"><b>USE ONLY WHEN ALL THREE ARE TRUE:</b> lamb <b>below 37 °C</b> · <b>older than ~5 hours</b> · <b>cannot swallow / hold its head up</b>. A lamb that can swallow gets warmed + tubed instead (Card B). <b>Do not warm this lamb first</b> — warming without energy kills it.</div>
   <div class="cols"><div>
     <h2>Prepare</h2>
@@ -162,7 +167,7 @@ footer{border-top:1px solid var(--hair);margin-top:2.4mm;padding-top:1.2mm;font-
 
 <!-- ============ CARD D — BEARING ============ -->
 <section class="card">
-  <header><h1>Replacing a Bearing + Retainer</h1><div class="tag">Far From Help · Card D<br>Farmers Weekly · Northland Vets NZ · Ag Victoria</div></header>
+  <header><div class="mast-row"><h1>Replacing a Bearing + Retainer</h1><div class="tag">Far From Help · Card D<br>Farmers Weekly · Northland Vets NZ · Ag Victoria</div></div></header>
   <div class="rule-box">RING THE VET FIRST — they may say “bring her in”, or talk you through this while you work.</div>
   <div class="stopbox"><b>CHECK FIRST — DO NOT REPLACE IF:</b> the tissue is <b>torn, black or cold</b> (a vet must judge if it’s salvageable — ring/drive) · she is <b>actually lambing</b> behind it (water bag, feet or tail palpable through the cervix) — that is a lambing emergency now, ring immediately.</div>
   <ol>
